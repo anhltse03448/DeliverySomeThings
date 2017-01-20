@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MenuTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuTableViewCell" id="KGk-i7-Jjw" customClass="MenuTableViewCell" customModule="giaohangongvong" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2s-5B-UHv">
+                        <rect key="frame" x="8" y="4" width="35.5" height="35.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="c2s-5B-UHv" secondAttribute="height" multiplier="1:1" id="Z6w-7R-4ub"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEP-Sb-qua">
+                        <rect key="frame" x="55.5" y="11.5" width="256.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="c2s-5B-UHv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BMl-N5-6no"/>
+                    <constraint firstItem="XEP-Sb-qua" firstAttribute="leading" secondItem="c2s-5B-UHv" secondAttribute="trailing" constant="12" id="EcQ-3I-QqJ"/>
+                    <constraint firstItem="c2s-5B-UHv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="XLY-DQ-30h"/>
+                    <constraint firstAttribute="bottom" secondItem="c2s-5B-UHv" secondAttribute="bottom" constant="4" id="kWl-Wd-aPh"/>
+                    <constraint firstAttribute="trailing" secondItem="XEP-Sb-qua" secondAttribute="trailing" constant="8" id="pKC-9f-C4y"/>
+                    <constraint firstItem="XEP-Sb-qua" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pfO-HR-r7z"/>
+                </constraints>
+            </tableViewCellContentView>
+        </tableViewCell>
+    </objects>
+</document>
