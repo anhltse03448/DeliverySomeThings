@@ -12,11 +12,11 @@ import SlideMenuControllerSwift
 class MainViewController: UIViewController {
     @IBOutlet weak var btnMenu : UIButton!
     @IBOutlet weak var mainView : UIView!
+    @IBOutlet weak var lblTitle : UILabel!
     static let sharedInstance = MainViewController()
     var slideMenu : SlideMenuController?
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +27,32 @@ class MainViewController: UIViewController {
         mainView.addSubview(slideMenu.view)
         addChildViewController(slideMenu)
         slideMenu.didMove(toParentViewController: self)
-        self.slideMenu = slideMenu
-        // Do any additional setup after loading the view.
+        MainViewController.sharedInstance.slideMenu = slideMenu
+        MainViewController.sharedInstance.lblTitle = self.lblTitle
+        self.lblTitle.text = "Đơn Nhận"
+        let notificationName = Notification.Name("TakePicture")
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.takePicture(notify:)), name: notificationName, object: nil)
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     @IBAction func btnMenuTouchUpInSide(_ sender: Any) {
-        if (self.slideMenu?.slideMenuController()?.isLeftOpen())! {
-            self.slideMenu?.slideMenuController()?.closeLeft()
+        if (MainViewController.sharedInstance.slideMenu?.slideMenuController()?.isLeftOpen())! {
+            MainViewController.sharedInstance.slideMenu?.slideMenuController()?.closeLeft()
         } else {
-            self.slideMenu?.slideMenuController()?.openLeft()
+            MainViewController.sharedInstance.slideMenu?.slideMenuController()?.openLeft()
         }
-    }    
+    }
+    
+    func takePicture(notify : Notification) {
+        NSLog("\(notify.object)") 
+        let takePicVC = TakePictureViewController(nibName: "TakePictureViewController", bundle: nil)
+        self.present(takePicVC, animated: true, completion: nil)
+    }
 }

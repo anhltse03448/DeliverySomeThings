@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="giaohangongvong" customModuleProvider="target">
             <connections>
                 <outlet property="btnMenu" destination="vA4-V6-PU0" id="L8Q-VE-Q0D"/>
+                <outlet property="lblTitle" destination="3Ty-4R-5GS" id="f4C-Sj-RAI"/>
                 <outlet property="mainView" destination="ogP-uo-Vbg" id="h5g-7w-KCr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,7 +25,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vf7-KH-Pz2">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="S4T-bs-YKj"/>
                     </constraints>
@@ -33,34 +34,34 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ty-4R-5GS">
-                            <rect key="frame" x="58" y="11.5" width="42" height="21"/>
+                            <rect key="frame" x="72" y="12" width="42" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ypD-NB-ydP">
-                            <rect key="frame" x="299.5" y="4" width="67.5" height="36"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotline" translatesAutoresizingMaskIntoConstraints="NO" id="ypD-NB-ydP">
+                            <rect key="frame" x="331" y="4" width="36" height="36"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="ypD-NB-ydP" secondAttribute="height" multiplier="15:8" id="szO-WV-GrC"/>
+                                <constraint firstAttribute="width" secondItem="ypD-NB-ydP" secondAttribute="height" id="szO-WV-GrC"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vA4-V6-PU0">
-                            <rect key="frame" x="4" y="4" width="46" height="36"/>
-                            <state key="normal" title="Button"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vA4-V6-PU0">
+                            <rect key="frame" x="16" y="4" width="16" height="36"/>
+                            <state key="normal" image="menu"/>
                             <connections>
                                 <action selector="btnMenuTouchUpInSide:" destination="-1" eventType="touchUpInside" id="xS2-ww-7Cq"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="ypD-NB-ydP" firstAttribute="top" secondItem="AR7-ps-GrK" secondAttribute="top" constant="4" id="6vm-Bt-pQU"/>
                         <constraint firstAttribute="height" constant="44" id="73D-CG-ZB4"/>
                         <constraint firstAttribute="bottom" secondItem="vA4-V6-PU0" secondAttribute="bottom" constant="4" id="CiE-ZT-gyJ"/>
                         <constraint firstAttribute="bottom" secondItem="ypD-NB-ydP" secondAttribute="bottom" constant="4" id="GDu-su-Pnw"/>
                         <constraint firstAttribute="trailing" secondItem="ypD-NB-ydP" secondAttribute="trailing" constant="8" id="VxS-C2-9gY"/>
-                        <constraint firstItem="3Ty-4R-5GS" firstAttribute="leading" secondItem="vA4-V6-PU0" secondAttribute="trailing" constant="8" id="XP5-Nt-M2t"/>
-                        <constraint firstItem="vA4-V6-PU0" firstAttribute="leading" secondItem="AR7-ps-GrK" secondAttribute="leading" constant="4" id="exb-pQ-Oaq"/>
+                        <constraint firstItem="3Ty-4R-5GS" firstAttribute="leading" secondItem="vA4-V6-PU0" secondAttribute="trailing" constant="40" id="XP5-Nt-M2t"/>
+                        <constraint firstItem="vA4-V6-PU0" firstAttribute="leading" secondItem="AR7-ps-GrK" secondAttribute="leading" constant="16" id="exb-pQ-Oaq"/>
                         <constraint firstItem="vA4-V6-PU0" firstAttribute="top" secondItem="AR7-ps-GrK" secondAttribute="top" constant="4" id="g01-WS-4rI"/>
                         <constraint firstItem="3Ty-4R-5GS" firstAttribute="centerY" secondItem="AR7-ps-GrK" secondAttribute="centerY" id="iTu-Fe-V6p"/>
                     </constraints>
@@ -85,4 +86,8 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="hotline" width="16" height="16"/>
+        <image name="menu" width="16" height="16"/>
+    </resources>
 </document>

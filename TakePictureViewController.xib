@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TakePictureViewController" customModule="giaohangongvong" customModuleProvider="target">
+            <connections>
+                <outlet property="lblNumber" destination="v4Q-dH-wLR" id="GiE-2V-ffA"/>
+                <outlet property="previewView" destination="hbX-S7-zyx" id="ObJ-Jn-WaV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2z2-Kx-Oqu">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbX-S7-zyx">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4Q-dH-wLR">
+                                    <rect key="frame" x="174" y="4" width="26.5" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="v4Q-dH-wLR" firstAttribute="top" secondItem="hbX-S7-zyx" secondAttribute="top" constant="4" id="2XX-V5-oRa"/>
+                                <constraint firstItem="v4Q-dH-wLR" firstAttribute="centerX" secondItem="hbX-S7-zyx" secondAttribute="centerX" id="7cA-4Z-hqC"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaZ-Xi-yKZ">
+                            <rect key="frame" x="164" y="617" width="46" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="pqd-Go-DJh"/>
+                                <constraint firstAttribute="height" constant="46" id="wGT-WL-8ME"/>
+                            </constraints>
+                            <state key="normal" image="takePic"/>
+                            <connections>
+                                <action selector="btnTakePicturePress:" destination="-1" eventType="touchUpInside" id="vNY-Jh-B94"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="hbX-S7-zyx" secondAttribute="bottom" id="4d4-yh-kyC"/>
+                        <constraint firstAttribute="trailing" secondItem="hbX-S7-zyx" secondAttribute="trailing" id="N2l-RQ-Htq"/>
+                        <constraint firstItem="EaZ-Xi-yKZ" firstAttribute="centerX" secondItem="2z2-Kx-Oqu" secondAttribute="centerX" id="cYr-iB-xNE"/>
+                        <constraint firstItem="hbX-S7-zyx" firstAttribute="leading" secondItem="2z2-Kx-Oqu" secondAttribute="leading" id="jIQ-PL-YAS"/>
+                        <constraint firstItem="hbX-S7-zyx" firstAttribute="top" secondItem="2z2-Kx-Oqu" secondAttribute="top" id="m1e-NS-0NR"/>
+                        <constraint firstAttribute="bottom" secondItem="EaZ-Xi-yKZ" secondAttribute="bottom" constant="4" id="rcu-Se-E9R"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="2z2-Kx-Oqu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bbn-g6-K0w"/>
+                <constraint firstItem="2z2-Kx-Oqu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FXl-lT-X93"/>
+                <constraint firstAttribute="bottom" secondItem="2z2-Kx-Oqu" secondAttribute="bottom" id="kl9-WX-ScB"/>
+                <constraint firstAttribute="trailing" secondItem="2z2-Kx-Oqu" secondAttribute="trailing" id="oQM-PW-9C9"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="takePic" width="16" height="16"/>
+    </resources>
+</document>

@@ -16,31 +16,35 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2s-5B-UHv">
-                        <rect key="frame" x="8" y="4" width="35.5" height="35.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c2s-5B-UHv">
+                        <rect key="frame" x="24" y="12" width="19.5" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="c2s-5B-UHv" secondAttribute="height" multiplier="1:1" id="Z6w-7R-4ub"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEP-Sb-qua">
-                        <rect key="frame" x="55.5" y="11.5" width="256.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="67.5" y="14.5" width="244.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="c2s-5B-UHv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="BMl-N5-6no"/>
-                    <constraint firstItem="XEP-Sb-qua" firstAttribute="leading" secondItem="c2s-5B-UHv" secondAttribute="trailing" constant="12" id="EcQ-3I-QqJ"/>
-                    <constraint firstItem="c2s-5B-UHv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="XLY-DQ-30h"/>
-                    <constraint firstAttribute="bottom" secondItem="c2s-5B-UHv" secondAttribute="bottom" constant="4" id="kWl-Wd-aPh"/>
+                    <constraint firstItem="c2s-5B-UHv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="BMl-N5-6no"/>
+                    <constraint firstItem="XEP-Sb-qua" firstAttribute="leading" secondItem="c2s-5B-UHv" secondAttribute="trailing" constant="24" id="EcQ-3I-QqJ"/>
+                    <constraint firstItem="c2s-5B-UHv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="XLY-DQ-30h"/>
+                    <constraint firstAttribute="bottom" secondItem="c2s-5B-UHv" secondAttribute="bottom" constant="12" id="kWl-Wd-aPh"/>
                     <constraint firstAttribute="trailing" secondItem="XEP-Sb-qua" secondAttribute="trailing" constant="8" id="pKC-9f-C4y"/>
                     <constraint firstItem="XEP-Sb-qua" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pfO-HR-r7z"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="img" destination="c2s-5B-UHv" id="5L8-jI-1Os"/>
+                <outlet property="lbl" destination="XEP-Sb-qua" id="G5R-dL-hMN"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
