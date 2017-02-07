@@ -17,6 +17,11 @@
 		361395441E3398CC00AA980C /* PurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361395421E3398CC00AA980C /* PurchaseViewController.xib */; };
 		3618E57B1E31B91300756DB6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3618E5791E31B91300756DB6 /* RegisterViewController.swift */; };
 		3618E57C1E31B91300756DB6 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3618E57A1E31B91300756DB6 /* RegisterViewController.xib */; };
+		362B775A1E49BC1700768F32 /* PhoneSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */; };
+		362B775B1E49BC1700768F32 /* PhoneSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */; };
+		362B775D1E49C77100768F32 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; };
+		362B775E1E49C77E00768F32 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; };
+		362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3648DB361E37436E0037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
 		3648DB371E3743750037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
 		3648DB381E3743750037F710 /* CarbonKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -106,6 +111,7 @@
 				365F676A1E3641BB001B6CEC /* SwiftyJSON.framework in Embed Frameworks */,
 				36D76A0A1E3758B300E6E08B /* MBProgressHUD.framework in Embed Frameworks */,
 				36D76A1C1E38978700E6E08B /* STPopup.framework in Embed Frameworks */,
+				362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */,
 				367CA5881E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Embed Frameworks */,
 				364E0F8A1E311D4E0012BD45 /* SlideMenuControllerSwift.framework in Embed Frameworks */,
 				36696C361E3CDF9D005354BE /* DLRadioButton.framework in Embed Frameworks */,
@@ -127,6 +133,9 @@
 		361395421E3398CC00AA980C /* PurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseViewController.xib; sourceTree = "<group>"; };
 		3618E5791E31B91300756DB6 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3618E57A1E31B91300756DB6 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSearchTableViewCell.swift; sourceTree = "<group>"; };
+		362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneSearchTableViewCell.xib; sourceTree = "<group>"; };
+		362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = giaohangongvong/Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		3648DB351E37436E0037F710 /* CarbonKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarbonKit.framework; path = giaohangongvong/Carthage/Build/iOS/CarbonKit.framework; sourceTree = "<group>"; };
 		364E0F581E311A2C0012BD45 /* giaohangongvong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = giaohangongvong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364E0F5B1E311A2C0012BD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +209,7 @@
 				36D76A1A1E38978000E6E08B /* STPopup.framework in Frameworks */,
 				3648DB371E3743750037F710 /* CarbonKit.framework in Frameworks */,
 				365F67691E3641BB001B6CEC /* SwiftyJSON.framework in Frameworks */,
+				362B775D1E49C77100768F32 /* ToastSwiftFramework.framework in Frameworks */,
 				367CA5861E34C7A9004A6D59 /* CoreActionSheetPicker.framework in Frameworks */,
 				364E0F741E311AD30012BD45 /* SlideMenuControllerSwift.framework in Frameworks */,
 				36E2CAC81E31D4FB00CBC4A3 /* Alamofire.framework in Frameworks */,
@@ -209,6 +219,7 @@
 				36D76A091E3758B300E6E08B /* MBProgressHUD.framework in Frameworks */,
 				36D76A1B1E38978700E6E08B /* STPopup.framework in Frameworks */,
 				364E0F891E311D4E0012BD45 /* SlideMenuControllerSwift.framework in Frameworks */,
+				362B775E1E49C77E00768F32 /* ToastSwiftFramework.framework in Frameworks */,
 				36696C341E3CDF92005354BE /* DLRadioButton.framework in Frameworks */,
 				3648DB361E37436E0037F710 /* CarbonKit.framework in Frameworks */,
 				36696C351E3CDF9D005354BE /* DLRadioButton.framework in Frameworks */,
@@ -270,6 +281,15 @@
 			name = RegisVC;
 			sourceTree = "<group>";
 		};
+		362B77571E49BBFB00768F32 /* PhoneSearchCell */ = {
+			isa = PBXGroup;
+			children = (
+				362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */,
+				362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */,
+			);
+			name = PhoneSearchCell;
+			sourceTree = "<group>";
+		};
 		364E0F4F1E311A2C0012BD45 = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +328,7 @@
 		364E0F6D1E311A9B0012BD45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */,
 				36696C331E3CDF92005354BE /* DLRadioButton.framework */,
 				36D76A191E38978000E6E08B /* STPopup.framework */,
 				36D76A071E3758AE00E6E08B /* MBProgressHUD.framework */,
@@ -386,6 +407,7 @@
 		364E0F831E311BFD0012BD45 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				362B77571E49BBFB00768F32 /* PhoneSearchCell */,
 				36665D651E336B30006B18C0 /* ReceiveCell */,
 				369AA96F1E312422008C7272 /* DeliveryCell */,
 				364E0F841E311C040012BD45 /* MenuCell */,
@@ -704,6 +726,7 @@
 				3613953F1E3398BA00AA980C /* HangVeKhoViewController.xib in Resources */,
 				36D76A111E3877D300E6E08B /* DeliveryTableViewCell.xib in Resources */,
 				367CA58F1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib in Resources */,
+				362B775B1E49BC1700768F32 /* PhoneSearchTableViewCell.xib in Resources */,
 				36D76A181E387DE000E6E08B /* DeliveryTappedTableViewCell.xib in Resources */,
 				364E0F811E311B230012BD45 /* MenuViewController.xib in Resources */,
 				361395351E33988600AA980C /* ReceiveTakePicViewController.xib in Resources */,
@@ -758,6 +781,7 @@
 				36D76A0D1E3875C000E6E08B /* DeliveryObject.swift in Sources */,
 				36D76A101E3877D300E6E08B /* DeliveryTableViewCell.swift in Sources */,
 				369AA9791E312904008C7272 /* LoginViewController.swift in Sources */,
+				362B775A1E49BC1700768F32 /* PhoneSearchTableViewCell.swift in Sources */,
 				365F676E1E364491001B6CEC /* ReceivePerson.swift in Sources */,
 				361395391E3398AA00AA980C /* NhanDonGiaoViewController.swift in Sources */,
 			);

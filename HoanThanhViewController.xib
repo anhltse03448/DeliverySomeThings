@@ -15,6 +15,9 @@
                 <outlet property="btnCoGuiXe" destination="3Tw-h7-kTp" id="qZh-IQ-Owb"/>
                 <outlet property="btnCoHangHoan" destination="geG-vS-upK" id="g5n-oW-J85"/>
                 <outlet property="heightPriceConstraint" destination="jiS-92-ciC" id="ZRa-Kv-AZY"/>
+                <outlet property="lblGhiChu" destination="fOC-cU-GUZ" id="Wyp-Vs-6WB"/>
+                <outlet property="lblGuiXe" destination="78g-ki-UWc" id="1jg-OM-E7Y"/>
+                <outlet property="lblThucThu" destination="hhh-99-RAm" id="gPV-Zd-mZd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -194,6 +197,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teL-eB-TsH">
                                             <rect key="frame" x="33" y="5" width="80" height="30"/>
+                                            <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Hoàn thành"/>
                                             <connections>
                                                 <action selector="doneTouchUp:" destination="-1" eventType="touchUpInside" id="zmD-MP-eJG"/>
@@ -212,6 +216,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AO5-jf-Lgw">
                                             <rect key="frame" x="55.5" y="5" width="37" height="30"/>
+                                            <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="Đóng"/>
                                             <connections>
                                                 <action selector="closePopUp:" destination="-1" eventType="touchUpInside" id="kPj-N3-cQ2"/>

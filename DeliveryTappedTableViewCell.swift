@@ -31,7 +31,7 @@ class DeliveryTappedTableViewCell: UITableViewCell {
     var delegate : DeliveryDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.lblNote.lineBreakMode = NSLineBreakMode.byWordWrapping
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,7 +46,9 @@ class DeliveryTappedTableViewCell: UITableViewCell {
         self.viewTop.backgroundColor = UIColor.init(rgba: "#EBB003")
         self.lblId.text = deo.id_don_hang
         self.lblPhone.text = deo.sdt_nguoi_nhan
-        self.lblNote.text = deo.ghi_chu
+        let ghichu = deo.ghi_chu.replacingOccurrences(of: "\n", with: " \n ")
+        self.lblNote.text = ghichu
+        
     }
     @IBAction func btnTap(_ sender : UIButton) {
         if delegate != nil {

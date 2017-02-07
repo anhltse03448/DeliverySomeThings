@@ -9,12 +9,16 @@
 import UIKit
 import STPopup
 import Alamofire
+import SwiftyJSON
 
 class HoanThanhViewController: UIViewController {
     let HEIGHT_PRICE : CGFloat = 40
     @IBOutlet weak var heightPriceConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnCoHangHoan : UIButton!
     @IBOutlet weak var btnCoGuiXe : UIButton!
+    @IBOutlet weak var lblThucThu : UITextField!
+    @IBOutlet weak var lblGuiXe : UITextField!
+    @IBOutlet weak var lblGhiChu : UITextView!
     var item : DeliveryObject?
     var boolguixe : Bool = false
     
@@ -38,20 +42,29 @@ class HoanThanhViewController: UIViewController {
     }
     
     @IBAction func doneTouchUp(_ sender : UIButton){
-        let session = ""
-        let id_don_hang = ""
-        let co_hang_hoan = ""
-        let thuc_thu = ""
-        let gui_xe = ""
-        let ghi_chu = ""
-        let param : [String : String] = ["session" : session ,
-                                         "id_don_hang" : id_don_hang ,
-                                         "co_hang_hoan" : co_hang_hoan ,
-                                         "thuc_thu" : thuc_thu ,
-                                         "gui_xe" : gui_xe,
-                                         "ghi_chu" : ghi_chu
+        let session = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String
+        let id_don_hang = "\(item?.id_don_hang)"
+        var co_hang_hoan = ""
+        if isCoHangHoan {
+            co_hang_hoan = "true"
+        } else {
+            co_hang_hoan = "false"
+        }
+        let thuc_thu = lblThucThu.text ?? ""
+        let gui_xe = lblGuiXe.text ?? ""
+        let ghi_chu = lblGhiChu.text ?? ""
+        let param : [String : String] = ["session" : session.toBase64() ,
+                                         "id_don_hang" : id_don_hang.toBase64() ,
+                                         "co_hang_hoan" : co_hang_hoan.toBase64() ,
+                                         "thuc_thu" : thuc_thu.toBase64() ,
+                                         "gui_xe" : gui_xe.toBase64(),
+                                         "ghi_chu" : ghi_chu.toBase64()
         ]
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/hoan-thanh-don", method: .post, parameters: param).responseJSON { (response) in
+            let json = JSON.init(data: response.data!)
+            NSLog("\(json)")
+            let warning = json["warning"].stringValue
+            DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2, position: .center)
             self.popupController?.dismiss()
         }
     }

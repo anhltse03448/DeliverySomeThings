@@ -12,6 +12,8 @@ import AVFoundation
 class TakePictureViewController: BaseViewController {
     @IBOutlet weak var previewView : UIView!
     @IBOutlet weak var lblNumber : UILabel!
+    @IBOutlet weak var imgRemove : UIButton!
+    
     var numberPic : Int?
     var captureSession = AVCaptureSession();
     var sessionOutput = AVCaptureStillImageOutput();
@@ -51,6 +53,11 @@ class TakePictureViewController: BaseViewController {
     
     @IBAction func btnTakePicturePress(_ sender : UIButton) {
         takePicture()
+    }
+    @IBAction func btnEnd(_ sender : UIButton) {
+        self.dismiss(animated: true) { 
+            
+        }
     }
     
     func takePicture() {

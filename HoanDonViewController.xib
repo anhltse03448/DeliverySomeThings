@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HoanDonViewController" customModule="giaohangongvong" customModuleProvider="target">
             <connections>
+                <outlet property="txtGhiChu" destination="LmJ-oa-Khd" id="QXR-pW-ya6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,11 +43,19 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qq-PJ-cgd">
                             <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Hoàn đơn"/>
+                            <connections>
+                                <action selector="hoandonTouchUp:" destination="-1" eventType="touchUpInside" id="DOG-Dl-hNj"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yi9-sl-lo4">
                             <rect key="frame" x="189" y="0.0" width="170" height="50"/>
+                            <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Đóng"/>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="0gm-AV-pZz"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,7 +78,6 @@
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LmJ-oa-Khd">
                             <rect key="frame" x="0.0" y="0.0" width="359" height="102"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
@@ -118,10 +126,16 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-VG-eVI">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
                                     <state key="normal" title="Xem hàng từ chối"/>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="F6e-mK-BSh"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-gn-cgE">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
                                     <state key="normal" title="Khách báo hủy"/>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="FId-RJ-AN6"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,10 +157,16 @@
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK9-hj-dQY">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
                                     <state key="normal" title="Sản phẩm lỗi"/>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="mjL-NO-SpD"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-SP-8DD">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
                                     <state key="normal" title="3 ngày kll được"/>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="ZX2-Nb-mDK"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,6 +187,9 @@
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-mo-3P9">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
                                     <state key="normal" title="Nhầm sản phẩm"/>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="2nJ-QY-67I"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-Nd-YUJ">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
@@ -191,6 +214,9 @@
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3v-e3-vBF">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
                                     <state key="normal" title="Đến nơi KLL được"/>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="9y3-zn-jBe"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fg5-zk-Rde">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>

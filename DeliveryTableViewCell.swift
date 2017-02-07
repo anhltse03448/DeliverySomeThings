@@ -20,7 +20,8 @@ class DeliveryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        icon_map.isUserInteractionEnabled = true
+        icon_map.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DeliveryTableViewCell.mapTouchUp(_:))))
         // Configure the view for the selected state
     }
     
@@ -28,6 +29,10 @@ class DeliveryTableViewCell: UITableViewCell {
         self.lblDcNhan.text = deo.dia_chi_nguoi_nhan
         self.lblNgayHenGiao.text = deo.ngay_hen_giao
         self.gioHenGiao.text = deo.ngay_hen_giao
+    }
+    
+    func mapTouchUp(_ gesture : UITapGestureRecognizer) {
+        NSLog("Map Touch Up")
     }
     
 }

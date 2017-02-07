@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "PhoneSearchViewController.(searchPhone(UIButton) -&gt; ()).(closure #2):PhoneSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listDvo.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhoneSearchViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:PhoneSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listDvo.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhoneSearchViewController.searchPhone(UIButton) -&gt; ():PhoneSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listDvo.count">
+            </PersistentString>
+            <PersistentString
+               value = "tmp">
+            </PersistentString>
+            <PersistentString
+               value = "tmp.count">
+            </PersistentString>
+            <PersistentString
+               value = "dvo">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

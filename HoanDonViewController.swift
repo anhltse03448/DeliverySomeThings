@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import Alamofire
+import ToastSwiftFramework
 
 class HoanDonViewController: UIViewController {
     @IBOutlet weak var txtGhiChu : UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.contentSizeInPopup  = CGSize(width: 300, height: 300)
+        self.popupController?.navigationBarHidden = true
+        self.contentSizeInPopup  = CGSize(width: 300, height: 500)
         self.landscapeContentSizeInPopup = CGSize(width: 300, height: 300)
-
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismisKeyboard(_:))))
         // Do any additional setup after loading the view.
     }
     
@@ -41,10 +44,24 @@ class HoanDonViewController: UIViewController {
         default:
             str =  "Shop báo hủy"
         }
+        txtGhiChu.text = str
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func close(_ sender : UIButton) {
+        self.popupController?.dismiss()
+    }
+    
+    @IBAction func hoandonTouchUp(_ sender : UIButton){
+        let param : [String : String] = ["" : ""]
+        Alamofire.request("", method: .post, parameters: param).responseJSON { (response) in
+            
+        }
+    }
+    func dismisKeyboard(_ gesture : UITapGestureRecognizer) {
+        txtGhiChu.resignFirstResponder()
     }
 }

@@ -37,11 +37,13 @@ class ReceiveViewController: UIViewController {
                 let rcPerson = ReceivePerson(json: item)
                 tmp.append(rcPerson)
             }
+            self.listReceive = tmp
+            DispatchQueue.main.async {
+                self.tbl.reloadData()
+            }
         }
-        self.listReceive = tmp
-        DispatchQueue.main.async {
-            self.tbl.reloadData()
-        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

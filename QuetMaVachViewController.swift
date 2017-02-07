@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import ToastSwiftFramework
 
-class QuetMaVachViewController: UIViewController {
+class QuetMaVachViewController: BaseViewController {
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -23,7 +24,8 @@ class QuetMaVachViewController: UIViewController {
                               AVMetadataObjectTypeEAN13Code,
                               AVMetadataObjectTypeAztecCode,
                               AVMetadataObjectTypePDF417Code,
-                              AVMetadataObjectTypeQRCode]
+                              AVMetadataObjectTypeQRCode ]
+    var endTime : Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +92,7 @@ extension QuetMaVachViewController : AVCaptureMetadataOutputObjectsDelegate {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             //messageLabel.text = "No QR/barcode is detected"
+            NSLog("No hihi")
             return
         }
         
@@ -103,7 +106,15 @@ extension QuetMaVachViewController : AVCaptureMetadataOutputObjectsDelegate {
             
             if metadataObj.stringValue != nil {
                 NSLog("\(metadataObj.stringValue ?? "")")
-         //       messageLabel.text = metadataObj.stringValue
+                if endTime != nil {
+                    if Date().seconds(from: endTime!) >= 2 {
+                        self.view.makeToast("Ahihi", duration: 2.0, position: ToastPosition.center, style: nil)
+                        endTime = Date()
+                    }
+                } else {
+                    self.view.makeToast("Ahihi", duration: 2.0, position: ToastPosition.center, style: nil)
+                    endTime = Date()
+                }
             }
         }
     }

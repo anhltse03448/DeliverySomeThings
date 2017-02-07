@@ -31,7 +31,8 @@ class DeliveryViewController: UIViewController {
         loadDonGiao()
         tbl.isEditing = true
         tbl.allowsSelectionDuringEditing = true
-        tbl.rowHeight = UITableViewAutomaticDimension
+//        tbl.rowHeight = UITableViewAutomaticDimension
+//        tbl.estimatedRowHeight = 100
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +48,6 @@ class DeliveryViewController: UIViewController {
             let data = JSON.init(data: response.data!)
             let detail = data["detail"]
             for item in detail.array! {
-                NSLog("\(item)")
                 let deo = DeliveryObject(json: item)
                 self.listDeliverys?.append(deo)
                 DispatchQueue.main.async {
@@ -91,23 +91,25 @@ extension DeliveryViewController : UITableViewDataSource , UITableViewDelegate {
         } else {
             selectedIndexPath = indexPath    
         }
-        DispatchQueue.main.async {
-            self.tbl.beginUpdates()
-            self.tbl.endUpdates()
-            self.tbl.reloadData()
+        
+        self.tbl.reloadData()
+        self.tbl.beginUpdates()
+        self.tbl.endUpdates()
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if selectedIndexPath == nil {
+            return 40
+        } else {
+            if selectedIndexPath?.row == indexPath.row {
+//                let cell = self.tbl.cellForRow(at: indexPath)
+//                return cell!.bounds.size.height
+                return 300
+            } else {
+                return 40
+            }
         }
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if selectedIndexPath == nil {
-//            return 40
-//        } else {
-//            if selectedIndexPath?.row == indexPath.row {
-//                return UITableViewAutomaticDimension
-//            } else {
-//                return 40
-//            }
-//        }
-//    }
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -142,7 +144,7 @@ extension DeliveryViewController : DeliveryDelegate {
     func ghichu(cell: DeliveryTappedTableViewCell) {
         let index = self.tbl.indexPath(for: cell)
         let item = self.listDeliverys?[(index?.row)!]
-        let ghichuVC = GhiChuViewController(nibName: "", bundle: nil)
+        let ghichuVC = GhiChuViewController(nibName: "GhiChuViewController", bundle: nil)
         let stpopup = STPopupController(rootViewController: ghichuVC)
         stpopup.present(in: self)
     }
