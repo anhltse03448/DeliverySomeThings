@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import MessageUI
+import Alamofire
+import SwiftyJSON
+import STPopup
 
 class GhiChuViewController: UIViewController {
-
+    @IBOutlet weak var txtghichu : UITextView!
+    var dov : DeliveryObject?
+    static let sharedInstance = GhiChuViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+//
+     //   self.popupController?.navigationBar.isHidden = true
+        self.contentSizeInPopup  = CGSize(width: 300, height: 300)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.popupController?.navigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +33,61 @@ class GhiChuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func ghichuTouchUp(_ sender : UIButton){
+        let session = UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session) 
+        let id_don_hang = dov?.id_don_hang
+        let ghichu = txtghichu.text ?? ""
+        if ghichu != "" {
+            let param : [String : String] = ["session" : session.toBase64(),
+                                             "id_don_hang" : (id_don_hang?.toBase64())!,
+                                             "ghi_chu" : ghichu.toBase64()]
+            Alamofire.request("", method: .post, parameters: param).response(completionHandler: { (response) in
+                let data = JSON.init(data: response.data!)
+                let warning = data["warning"].stringValue
+                DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+            })
+        }
     }
-    */
-
+    
+    @IBAction func closeTouchUp(_ sender : UIButton) {
+        self.popupController?.dismiss()
+    }
+    @IBAction func lydoTouchUp(_ sender : UIButton){
+        let tag = sender.tag
+        var str = ""
+        switch tag {
+            case 0:
+                str = "Không liên lạc được người nhận"
+            let controller = MFMessageComposeViewController()
+            controller.body = "Chao a/c. Em ben GiaoHangOngVang.vn. A/c co hang tu \(dov?.ten_nguoi_gui). Em da lien lac voi a/c nhung khong duoc. Luc nao co thoi gian a/c ll lai voi em. Em cam on"
+            controller.recipients = [(dov?.sdt_nguoi_nhan)!]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+            case 1:
+                str = "Hẹn giờ"
+                let hengioVC = HenGioViewController(nibName: "HenGioViewController", bundle: nil)
+                hengioVC.dov = self.dov
+                let stpopup = STPopupController(rootViewController: hengioVC)
+                stpopup.present(in: self)
+            case 2:
+                str = "Đơn hàng sai số điện thoại người nhận"
+            case 3:
+                str = "Phụ cước"
+            case 4:
+                //str = "Gọi shop"
+                let phone = dov?.sdt_nguoi_nhan
+                guard let number = URL(string: "telprompt://" + phone!) else { return }
+                UIApplication.shared.open(number, options: [:], completionHandler: nil)
+            default:
+                str = "Đổi địa chỉ"
+        }
+        txtghichu.text = str
+    }
+}
+extension GhiChuViewController : MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true) { 
+            
+        }
+    }
 }

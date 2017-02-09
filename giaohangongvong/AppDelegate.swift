@@ -8,6 +8,7 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
+        IQKeyboardManager.sharedManager().enable = true
         let mainVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
         
         //AppDelegate.slideMenu = mainVC

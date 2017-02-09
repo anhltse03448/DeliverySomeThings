@@ -68,6 +68,7 @@
 		367CA58F1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367CA58D1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib */; };
 		367CA5931E34C924004A6D59 /* RegisInfoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CA5911E34C924004A6D59 /* RegisInfoAccountViewController.swift */; };
 		367CA5941E34C924004A6D59 /* RegisInfoAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367CA5921E34C924004A6D59 /* RegisInfoAccountViewController.xib */; };
+		367DF2251E4C6964005352EA /* ds_tinh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 367DF2241E4C6964005352EA /* ds_tinh.txt */; };
 		368CDF911E31CF7600A9C579 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368CDF901E31CF7600A9C579 /* Extension.swift */; };
 		369AA9681E312093008C7272 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369AA9661E312093008C7272 /* ReceiveViewController.swift */; };
 		369AA9691E312093008C7272 /* ReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369AA9671E312093008C7272 /* ReceiveViewController.xib */; };
@@ -98,6 +99,11 @@
 		36E2CAC81E31D4FB00CBC4A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; };
 		36E2CACE1E31D61600CBC4A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; };
 		36E2CACF1E31D61600CBC4A3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36FCE9611E4B1A5C00A72871 /* HenGioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCE95F1E4B1A5C00A72871 /* HenGioViewController.swift */; };
+		36FCE9621E4B1A5C00A72871 /* HenGioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCE9601E4B1A5C00A72871 /* HenGioViewController.xib */; };
+		36FCE9641E4B470300A72871 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */; };
+		36FCE9651E4B472600A72871 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */; };
+		36FCE9661E4B472600A72871 /* IQKeyboardManagerSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +119,7 @@
 				36D76A1C1E38978700E6E08B /* STPopup.framework in Embed Frameworks */,
 				362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */,
 				367CA5881E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Embed Frameworks */,
+				36FCE9661E4B472600A72871 /* IQKeyboardManagerSwift.framework in Embed Frameworks */,
 				364E0F8A1E311D4E0012BD45 /* SlideMenuControllerSwift.framework in Embed Frameworks */,
 				36696C361E3CDF9D005354BE /* DLRadioButton.framework in Embed Frameworks */,
 				36E2CACF1E31D61600CBC4A3 /* Alamofire.framework in Embed Frameworks */,
@@ -174,6 +181,7 @@
 		367CA58D1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisInforFamilyViewController.xib; sourceTree = "<group>"; };
 		367CA5911E34C924004A6D59 /* RegisInfoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisInfoAccountViewController.swift; sourceTree = "<group>"; };
 		367CA5921E34C924004A6D59 /* RegisInfoAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisInfoAccountViewController.xib; sourceTree = "<group>"; };
+		367DF2241E4C6964005352EA /* ds_tinh.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ds_tinh.txt; sourceTree = "<group>"; };
 		368CDF901E31CF7600A9C579 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		369AA9661E312093008C7272 /* ReceiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		369AA9671E312093008C7272 /* ReceiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveViewController.xib; sourceTree = "<group>"; };
@@ -199,6 +207,9 @@
 		36D76A1F1E38A67500E6E08B /* HoanThanhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoanThanhViewController.xib; sourceTree = "<group>"; };
 		36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = giaohangongvong/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		36E2CACA1E31D55900CBC4A3 /* giaohangongvong-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "giaohangongvong-Bridging-Header.h"; sourceTree = "<group>"; };
+		36FCE95F1E4B1A5C00A72871 /* HenGioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HenGioViewController.swift; sourceTree = "<group>"; };
+		36FCE9601E4B1A5C00A72871 /* HenGioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HenGioViewController.xib; sourceTree = "<group>"; };
+		36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = giaohangongvong/Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +223,7 @@
 				362B775D1E49C77100768F32 /* ToastSwiftFramework.framework in Frameworks */,
 				367CA5861E34C7A9004A6D59 /* CoreActionSheetPicker.framework in Frameworks */,
 				364E0F741E311AD30012BD45 /* SlideMenuControllerSwift.framework in Frameworks */,
+				36FCE9651E4B472600A72871 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				36E2CAC81E31D4FB00CBC4A3 /* Alamofire.framework in Frameworks */,
 				36D76A081E3758AE00E6E08B /* MBProgressHUD.framework in Frameworks */,
 				367CA5871E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Frameworks */,
@@ -220,6 +232,7 @@
 				36D76A1B1E38978700E6E08B /* STPopup.framework in Frameworks */,
 				364E0F891E311D4E0012BD45 /* SlideMenuControllerSwift.framework in Frameworks */,
 				362B775E1E49C77E00768F32 /* ToastSwiftFramework.framework in Frameworks */,
+				36FCE9641E4B470300A72871 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				36696C341E3CDF92005354BE /* DLRadioButton.framework in Frameworks */,
 				3648DB361E37436E0037F710 /* CarbonKit.framework in Frameworks */,
 				36696C351E3CDF9D005354BE /* DLRadioButton.framework in Frameworks */,
@@ -328,6 +341,7 @@
 		364E0F6D1E311A9B0012BD45 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */,
 				362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */,
 				36696C331E3CDF92005354BE /* DLRadioButton.framework */,
 				36D76A191E38978000E6E08B /* STPopup.framework */,
@@ -346,6 +360,7 @@
 		364E0F6E1E311AAB0012BD45 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				367DF2241E4C6964005352EA /* ds_tinh.txt */,
 				364E0F6F1E311ABF0012BD45 /* UIColor-Hex-Swift.swift */,
 				364E0F701E311ABF0012BD45 /* UIView+IBInspectable.swift */,
 				368CDF901E31CF7600A9C579 /* Extension.swift */,
@@ -551,6 +566,8 @@
 		369AA96A1E3123A2008C7272 /* DeliveryVC */ = {
 			isa = PBXGroup;
 			children = (
+				36FCE95E1E4B18E000A72871 /* DoiDiaChiVC */,
+				36FCE95D1E4B18D600A72871 /* HenGioVC */,
 				365024651E38ED3F00963E0B /* GhiChuPopUp */,
 				365024641E38ED2600963E0B /* HoanDonPopUP */,
 				36D76A1D1E38A65F00E6E08B /* HoanThanhPopUp */,
@@ -648,6 +665,22 @@
 			name = MD5;
 			sourceTree = "<group>";
 		};
+		36FCE95D1E4B18D600A72871 /* HenGioVC */ = {
+			isa = PBXGroup;
+			children = (
+				36FCE95F1E4B1A5C00A72871 /* HenGioViewController.swift */,
+				36FCE9601E4B1A5C00A72871 /* HenGioViewController.xib */,
+			);
+			name = HenGioVC;
+			sourceTree = "<group>";
+		};
+		36FCE95E1E4B18E000A72871 /* DoiDiaChiVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DoiDiaChiVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -732,8 +765,10 @@
 				361395351E33988600AA980C /* ReceiveTakePicViewController.xib in Resources */,
 				369AA9691E312093008C7272 /* ReceiveViewController.xib in Resources */,
 				36665D6A1E336B62006B18C0 /* ReceiveTappedTableViewCell.xib in Resources */,
+				367DF2251E4C6964005352EA /* ds_tinh.txt in Resources */,
 				369AA9741E312442008C7272 /* ReceiveTableViewCell.xib in Resources */,
 				364E0F611E311A2C0012BD45 /* Main.storyboard in Resources */,
+				36FCE9621E4B1A5C00A72871 /* HenGioViewController.xib in Resources */,
 				3613953A1E3398AA00AA980C /* NhanDonGiaoViewController.xib in Resources */,
 				369AA96E1E3123DE008C7272 /* DeliveryViewController.xib in Resources */,
 				36D76A211E38A67500E6E08B /* HoanThanhViewController.xib in Resources */,
@@ -775,6 +810,7 @@
 				364E0F7A1E311B070012BD45 /* MainViewController.swift in Sources */,
 				36D76A171E387DE000E6E08B /* DeliveryTappedTableViewCell.swift in Sources */,
 				361395341E33988600AA980C /* ReceiveTakePicViewController.swift in Sources */,
+				36FCE9611E4B1A5C00A72871 /* HenGioViewController.swift in Sources */,
 				36D76A061E3756CB00E6E08B /* BaseViewController.swift in Sources */,
 				36D76A031E37462A00E6E08B /* DonHoanViewController.swift in Sources */,
 				36662D441E3C284B00B30245 /* TakePictureViewController.swift in Sources */,

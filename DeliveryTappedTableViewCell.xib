@@ -116,11 +116,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oh-Px-lSi">
-                        <rect key="frame" x="-24" y="100" width="513" height="509.5"/>
+                        <rect key="frame" x="-24" y="100" width="513" height="8"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e64-a3-Rsv">
-                                <rect key="frame" x="28" y="4" width="481" height="501.5"/>
-                                <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e64-a3-Rsv">
+                                <rect key="frame" x="28" y="4" width="481" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -143,10 +142,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4k-o4-gQb">
-                        <rect key="frame" x="-24" y="609.5" width="513" height="50"/>
+                        <rect key="frame" x="-24" y="108" width="513" height="80"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xS-JM-Sfo">
-                                <rect key="frame" x="4" y="4" width="124" height="42"/>
+                                <rect key="frame" x="4" y="4" width="124" height="72"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="H.THÀNH"/>
@@ -155,7 +154,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mro-6W-BsN">
-                                <rect key="frame" x="132" y="4" width="124" height="42"/>
+                                <rect key="frame" x="132" y="4" width="124" height="72"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="HOÀN ĐƠN"/>
@@ -164,7 +163,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaC-il-5Jo">
-                                <rect key="frame" x="260" y="4" width="124" height="42"/>
+                                <rect key="frame" x="260" y="4" width="124" height="72"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="GHI CHÚ"/>
@@ -173,7 +172,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8d-Fd-bak">
-                                <rect key="frame" x="388" y="4" width="124" height="42"/>
+                                <rect key="frame" x="388" y="4" width="124" height="72"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="GỌI"/>
@@ -199,7 +198,7 @@
                             <constraint firstItem="t8d-Fd-bak" firstAttribute="width" secondItem="PaC-il-5Jo" secondAttribute="width" id="hUA-r7-ekc"/>
                             <constraint firstItem="Mro-6W-BsN" firstAttribute="bottom" secondItem="8xS-JM-Sfo" secondAttribute="bottom" id="iiw-yQ-aHY"/>
                             <constraint firstItem="t8d-Fd-bak" firstAttribute="bottom" secondItem="PaC-il-5Jo" secondAttribute="bottom" id="m8i-eL-BuC"/>
-                            <constraint firstAttribute="height" constant="50" id="oF7-Tc-Ien"/>
+                            <constraint firstAttribute="height" constant="80" id="oF7-Tc-Ien"/>
                             <constraint firstItem="Mro-6W-BsN" firstAttribute="leading" secondItem="8xS-JM-Sfo" secondAttribute="trailing" constant="4" id="sUH-Hd-bDG"/>
                             <constraint firstItem="PaC-il-5Jo" firstAttribute="bottom" secondItem="Mro-6W-BsN" secondAttribute="bottom" id="tdz-nw-eGN"/>
                             <constraint firstItem="t8d-Fd-bak" firstAttribute="top" secondItem="PaC-il-5Jo" secondAttribute="top" id="uh4-pX-v1s"/>

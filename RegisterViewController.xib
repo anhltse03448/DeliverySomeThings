@@ -14,11 +14,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="giaohangongvong" customModuleProvider="target">
             <connections>
                 <outlet property="btnNext" destination="Pde-k5-Af3" id="GkH-3G-njT"/>
+                <outlet property="imgPick" destination="BNl-SF-CUx" id="NmY-3Y-FkM"/>
                 <outlet property="img_back" destination="YTC-Ki-2WW" id="abh-Qs-Dm6"/>
                 <outlet property="txtAddress" destination="VP5-9o-1cN" id="dxE-AY-OFo"/>
                 <outlet property="txtCMND" destination="Qio-Lq-MfG" id="2ne-w8-L5v"/>
                 <outlet property="txtName" destination="pZq-8X-TUk" id="WKk-71-cVa"/>
                 <outlet property="txtNgayCap" destination="Q2R-C5-0Q2" id="pJa-Qf-j4R"/>
+                <outlet property="txtNgaySinh" destination="9NM-TQ-fgU" id="XWc-xH-Egc"/>
+                <outlet property="txtNoiCap" destination="8Ck-g4-nqc" id="YRD-9a-XXW"/>
                 <outlet property="txtNumberPhone" destination="8BR-sK-kSU" id="gLF-0L-wlG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,6 +33,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pde-k5-Af3">
                     <rect key="frame" x="8" y="513.5" width="359" height="145.5"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="TIẾP THEO"/>
                     <connections>
                         <action selector="btnNextTouchUpInsde:" destination="-2" eventType="touchUpInside" id="FHT-rL-3mK"/>
@@ -98,7 +102,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="keyBoardShowWithSender:" destination="-1" eventType="editingDidBegin" id="bH7-tu-oUq"/>
                                                 <outlet property="delegate" destination="-1" id="4N5-Oq-nPj"/>
                                             </connections>
                                         </textField>
@@ -113,7 +116,27 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-ky-ueQ">
                                     <rect key="frame" x="0.0" y="39" width="375" height="39"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyS-kz-BNZ">
+                                            <rect key="frame" x="0.0" y="2" width="187.5" height="37"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-zl-zUY">
+                                            <rect key="frame" x="187.5" y="2" width="187.5" height="37"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="HyS-kz-BNZ" firstAttribute="top" secondItem="ocR-ky-ueQ" secondAttribute="top" constant="2" id="93q-Fs-dy2"/>
+                                        <constraint firstAttribute="bottom" secondItem="HyS-kz-BNZ" secondAttribute="bottom" id="Gni-gb-7YU"/>
+                                        <constraint firstItem="dKO-zl-zUY" firstAttribute="bottom" secondItem="HyS-kz-BNZ" secondAttribute="bottom" id="IjS-jQ-VbD"/>
+                                        <constraint firstItem="dKO-zl-zUY" firstAttribute="top" secondItem="HyS-kz-BNZ" secondAttribute="top" id="KSt-pS-JJl"/>
+                                        <constraint firstItem="HyS-kz-BNZ" firstAttribute="leading" secondItem="ocR-ky-ueQ" secondAttribute="leading" id="bKX-0I-Zc7"/>
+                                        <constraint firstAttribute="trailing" secondItem="dKO-zl-zUY" secondAttribute="trailing" id="bhD-dJ-jDK"/>
+                                        <constraint firstItem="HyS-kz-BNZ" firstAttribute="width" secondItem="ocR-ky-ueQ" secondAttribute="width" multiplier="1:2" id="cjh-P6-QgG"/>
+                                        <constraint firstItem="dKO-zl-zUY" firstAttribute="width" secondItem="HyS-kz-BNZ" secondAttribute="width" id="eqr-8q-8Qa"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-Go-Mc5">
                                     <rect key="frame" x="0.0" y="78" width="375" height="38.5"/>
@@ -124,7 +147,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             <connections>
-                                                <action selector="keyBoardShowWithSender:" destination="-1" eventType="editingDidBegin" id="l3H-cz-yyx"/>
                                                 <outlet property="delegate" destination="-1" id="kbr-1x-oT6"/>
                                             </connections>
                                         </textField>
@@ -146,7 +168,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="keyBoardShowWithSender:" destination="-1" eventType="editingDidBegin" id="rTb-15-HQP"/>
                                                 <outlet property="delegate" destination="-1" id="J4T-zQ-7QF"/>
                                             </connections>
                                         </textField>
@@ -161,7 +182,22 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNf-bo-Ls8">
                                     <rect key="frame" x="0.0" y="155" width="375" height="38.5"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày sinh" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9NM-TQ-fgU">
+                                            <rect key="frame" x="4" y="4" width="367" height="30.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="dpWithSender:" destination="-1" eventType="editingDidBegin" id="IQm-mJ-aAQ"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="9NM-TQ-fgU" firstAttribute="top" secondItem="xNf-bo-Ls8" secondAttribute="top" constant="4" id="PqP-rU-9Vs"/>
+                                        <constraint firstAttribute="bottom" secondItem="9NM-TQ-fgU" secondAttribute="bottom" constant="4" id="QUa-YF-f0k"/>
+                                    </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qF-sL-KC8">
                                     <rect key="frame" x="0.0" y="193.5" width="375" height="38"/>
@@ -170,9 +206,8 @@
                                             <rect key="frame" x="4" y="4" width="367" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             <connections>
-                                                <action selector="keyBoardShowWithSender:" destination="-1" eventType="editingDidBegin" id="du7-rK-lPp"/>
                                                 <outlet property="delegate" destination="-1" id="VeI-dH-Ve4"/>
                                             </connections>
                                         </textField>
@@ -194,7 +229,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="txtNgayCapDidChangeWithSender:" destination="-2" eventType="editingDidBegin" id="TW0-ng-znM"/>
+                                                <action selector="txtNgayCapDidChangeWithSender:" destination="-1" eventType="editingDidBegin" id="pHS-QQ-128"/>
                                                 <outlet property="delegate" destination="-1" id="ye8-xl-ERt"/>
                                             </connections>
                                         </textField>
@@ -205,6 +240,28 @@
                                         <constraint firstAttribute="trailing" secondItem="Q2R-C5-0Q2" secondAttribute="trailing" constant="4" id="RlZ-XB-57F"/>
                                         <constraint firstAttribute="bottom" secondItem="Q2R-C5-0Q2" secondAttribute="bottom" constant="4" id="WUl-VC-6iV"/>
                                         <constraint firstItem="Q2R-C5-0Q2" firstAttribute="leading" secondItem="5fG-E4-Ekx" secondAttribute="leading" constant="4" id="bwA-dv-Tbh"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-cW-XJv">
+                                    <rect key="frame" x="0.0" y="269.5" width="375" height="38"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nơi cấp" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ck-g4-nqc">
+                                            <rect key="frame" x="4" y="4" width="367" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="txtNgayCapDidChangeWithSender:" destination="-1" eventType="editingDidBegin" id="E7r-jO-fLj"/>
+                                                <outlet property="delegate" destination="-1" id="GNO-Ka-dmq"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="8Ck-g4-nqc" firstAttribute="top" secondItem="JhE-cW-XJv" secondAttribute="top" constant="4" id="b47-XQ-YrQ"/>
+                                        <constraint firstItem="8Ck-g4-nqc" firstAttribute="leading" secondItem="JhE-cW-XJv" secondAttribute="leading" constant="4" id="rqg-iB-gJC"/>
+                                        <constraint firstAttribute="bottom" secondItem="8Ck-g4-nqc" secondAttribute="bottom" constant="4" id="t2N-0t-xwi"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Ck-g4-nqc" secondAttribute="trailing" constant="4" id="yOU-xr-Q6k"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -220,6 +277,7 @@
                                 <constraint firstItem="ocR-ky-ueQ" firstAttribute="leading" secondItem="YwA-e7-yVG" secondAttribute="leading" id="Elv-Ko-FkD"/>
                                 <constraint firstItem="xNf-bo-Ls8" firstAttribute="trailing" secondItem="Zy4-ip-ewf" secondAttribute="trailing" id="Eu8-UR-JoF"/>
                                 <constraint firstItem="Q90-Go-Mc5" firstAttribute="leading" secondItem="ocR-ky-ueQ" secondAttribute="leading" id="FWe-9w-uxw"/>
+                                <constraint firstItem="JhE-cW-XJv" firstAttribute="trailing" secondItem="5fG-E4-Ekx" secondAttribute="trailing" id="GNS-d4-Mnt"/>
                                 <constraint firstItem="xNf-bo-Ls8" firstAttribute="top" secondItem="Zy4-ip-ewf" secondAttribute="bottom" id="GdZ-Yo-INZ"/>
                                 <constraint firstAttribute="trailing" secondItem="YwA-e7-yVG" secondAttribute="trailing" id="Lhd-pv-QqO"/>
                                 <constraint firstItem="Zy4-ip-ewf" firstAttribute="trailing" secondItem="Q90-Go-Mc5" secondAttribute="trailing" id="MME-lH-8jf"/>
@@ -234,9 +292,14 @@
                                 <constraint firstAttribute="trailing" secondItem="5fG-E4-Ekx" secondAttribute="trailing" id="YHw-iL-cA2"/>
                                 <constraint firstItem="ocR-ky-ueQ" firstAttribute="top" secondItem="YwA-e7-yVG" secondAttribute="bottom" id="ZUV-2o-pOv"/>
                                 <constraint firstItem="5fG-E4-Ekx" firstAttribute="height" secondItem="7qF-sL-KC8" secondAttribute="height" id="afE-ih-FN1"/>
+                                <constraint firstItem="9NM-TQ-fgU" firstAttribute="trailing" secondItem="VP5-9o-1cN" secondAttribute="trailing" id="b1a-IC-aOo"/>
                                 <constraint firstItem="7qF-sL-KC8" firstAttribute="height" secondItem="xNf-bo-Ls8" secondAttribute="height" id="cfw-oK-TXW"/>
+                                <constraint firstItem="JhE-cW-XJv" firstAttribute="leading" secondItem="5fG-E4-Ekx" secondAttribute="leading" id="mWI-WL-upr"/>
+                                <constraint firstItem="JhE-cW-XJv" firstAttribute="top" secondItem="5fG-E4-Ekx" secondAttribute="bottom" id="oze-5a-8dL"/>
+                                <constraint firstItem="9NM-TQ-fgU" firstAttribute="leading" secondItem="VP5-9o-1cN" secondAttribute="leading" id="sa3-zA-mmv"/>
                                 <constraint firstItem="Q90-Go-Mc5" firstAttribute="height" secondItem="ocR-ky-ueQ" secondAttribute="height" id="tC7-XW-jLu"/>
                                 <constraint firstItem="ocR-ky-ueQ" firstAttribute="trailing" secondItem="YwA-e7-yVG" secondAttribute="trailing" id="tOM-51-o5a"/>
+                                <constraint firstItem="JhE-cW-XJv" firstAttribute="height" secondItem="5fG-E4-Ekx" secondAttribute="height" id="uPE-OT-zdi"/>
                                 <constraint firstItem="xNf-bo-Ls8" firstAttribute="height" secondItem="Zy4-ip-ewf" secondAttribute="height" id="uVU-TG-eYy"/>
                             </constraints>
                         </view>

@@ -19,10 +19,11 @@ class TakePictureViewController: BaseViewController {
     var sessionOutput = AVCaptureStillImageOutput();
     var sessionOutputSetting = AVCapturePhotoSettings(format: [AVVideoCodecKey:AVVideoCodecJPEG]);
     var previewLayer = AVCaptureVideoPreviewLayer();
-    
+    var count : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        lblNumber.text = "0 / \(numberPic ?? 0)"
+        count = 0
         setupSession()
         let deviceDiscoverySession = AVCaptureDeviceDiscoverySession(deviceTypes: [AVCaptureDeviceType.builtInDuoCamera, AVCaptureDeviceType.builtInTelephotoCamera,AVCaptureDeviceType.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: AVCaptureDevicePosition.unspecified)
         for device in (deviceDiscoverySession?.devices)! {
@@ -61,19 +62,28 @@ class TakePictureViewController: BaseViewController {
     }
     
     func takePicture() {
-        
+        count = count + 1
+        lblNumber.text = "\(count) / \(numberPic ?? 0)"
         if let videoConnection = sessionOutput.connection(withMediaType: AVMediaTypeVideo) {
             
             sessionOutput.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (CMSampleBuffer, Error) in
                 if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(CMSampleBuffer) {
                     
                     if let cameraImage = UIImage(data: imageData) {
-                        
-                        UIImageWriteToSavedPhotosAlbum(cameraImage, nil, nil, nil)
+                        if let data = UIImagePNGRepresentation(cameraImage) {
+                            let filename = self.getDocumentsDirectory().appendingPathComponent("GHOV").appendingPathComponent("1.png")
+                            try? data.write(to: filename)
+                        }
                     }
                 }
             })
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
     }
     
     override func viewDidLayoutSubviews() {
@@ -103,6 +113,7 @@ extension TakePictureViewController : AVCapturePhotoCaptureDelegate {
         }
         if let sampleBuffer = photoSampleBuffer, let previewBuffer = previewPhotoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
             //    print(image: UIImage(data: dataImage)?.size)
+            
         }
     }
 }

@@ -22,6 +22,7 @@ class ReceiveViewController: UIViewController {
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
         tbl.register(UINib.init(nibName: identifierTapped, bundle: nil), forCellReuseIdentifier: identifierTapped)
         tbl.isEditing = true
+        tbl.separatorStyle = .none
         // Do any additional setup after loading the view.
     }
     
@@ -32,6 +33,7 @@ class ReceiveViewController: UIViewController {
         var tmp = [ReceivePerson]()
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/list-donhang-nhan", method: .post, parameters: param).responseJSON { (response) in
             let json = JSON(data: response.data!)
+            NSLog("\(json)")
             let datas = json["detail"].arrayValue
             for item in datas {
                 let rcPerson = ReceivePerson(json: item)
@@ -100,23 +102,4 @@ extension ReceiveViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return UITableViewCellEditingStyle.none
     }
-    
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        if (editing) {
-//            for view in self.view.subviews as [UIView] {
-//                //if type(of: view).description().rangeOfString("Reorder") != nil 
-//                if view.description.range(of: "Reorder") != nil
-//                {
-//                    for subview in view.subviews as! [UIImageView] {
-//                        //if subview.isKindOfClass(UIImageView) 
-//                        if subview.isKind(of: UIImageView.self)
-//                        {
-//                            subview.image = UIImage(named: "image")
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
 }

@@ -46,7 +46,9 @@ class DeliveryTappedTableViewCell: UITableViewCell {
         self.viewTop.backgroundColor = UIColor.init(rgba: "#EBB003")
         self.lblId.text = deo.id_don_hang
         self.lblPhone.text = deo.sdt_nguoi_nhan
+        NSLog("\(deo.ghi_chu)")
         let ghichu = deo.ghi_chu.replacingOccurrences(of: "\n", with: " \n ")
+        NSLog("\(ghichu)")
         self.lblNote.text = ghichu
         
     }

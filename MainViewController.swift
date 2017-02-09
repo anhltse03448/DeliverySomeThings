@@ -51,8 +51,14 @@ class MainViewController: UIViewController {
     }
     
     func takePicture(notify : Notification) {
-        NSLog("\(notify.object)") 
+        NSLog("\(notify.object)")
+        let dict = notify.object as! NSDictionary
+        NSLog("\(dict)")
+        let num = dict.value(forKey: "numberPic")
+        let k = Int(num as! String)
+        
         let takePicVC = TakePictureViewController(nibName: "TakePictureViewController", bundle: nil)
+        takePicVC.numberPic = k
         self.present(takePicVC, animated: true, completion: nil)
     }
 }

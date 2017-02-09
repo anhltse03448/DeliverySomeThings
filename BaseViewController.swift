@@ -32,6 +32,19 @@ class BaseViewController: UIViewController {
         //MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
     }
     
+    func readDsTinh() -> [String] {
+        var result = [String]()
+        let path = Bundle.main.path(forResource: "ds_tinh", ofType: "txt")
+        do {
+            let text = try  String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            NSLog("\(text)")
+            result = text.components(separatedBy: "\n")
+        } catch {
+            
+        }
+        return result
+    }
+    
 }
 extension Date {
     /// Returns the amount of years from another date

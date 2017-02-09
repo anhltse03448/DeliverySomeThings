@@ -44,7 +44,10 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qq-PJ-cgd">
                             <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
                             <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Hoàn đơn"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <state key="normal" title="Hoàn đơn">
+                                <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="hoandonTouchUp:" destination="-1" eventType="touchUpInside" id="DOG-Dl-hNj"/>
                             </connections>
@@ -52,7 +55,10 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yi9-sl-lo4">
                             <rect key="frame" x="189" y="0.0" width="170" height="50"/>
                             <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="Đóng"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <state key="normal" title="Đóng">
+                                <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="close:" destination="-1" eventType="touchUpInside" id="0gm-AV-pZz"/>
                             </connections>
@@ -80,6 +86,17 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -125,14 +142,22 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-VG-eVI">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Xem hàng từ chối"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Xem hàng từ chối">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="F6e-mK-BSh"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mle-gn-cgE">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Khách báo hủy"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Khách báo hủy">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="FId-RJ-AN6"/>
                                     </connections>
@@ -156,14 +181,22 @@
                             <subviews>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DK9-hj-dQY">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Sản phẩm lỗi"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Sản phẩm lỗi">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="mjL-NO-SpD"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1w-SP-8DD">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="3 ngày kll được"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="3 ngày kll được">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="ZX2-Nb-mDK"/>
                                     </connections>
@@ -186,14 +219,25 @@
                             <subviews>
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lg0-mo-3P9">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Nhầm sản phẩm"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Nhầm sản phẩm">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="2nJ-QY-67I"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3T-Nd-YUJ">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Ngoài giờ , khu vực"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Ngoài giờ , khu vực">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="dZ1-Mq-uO4"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -213,14 +257,25 @@
                             <subviews>
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3v-e3-vBF">
                                     <rect key="frame" x="4" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Đến nơi KLL được"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Đến nơi KLL được">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="9y3-zn-jBe"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fg5-zk-Rde">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Hẹn nhiều lần"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Hẹn nhiều lần">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="bOP-8m-yYS"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -240,7 +295,14 @@
                             <subviews>
                                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1x-2f-mpA">
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
-                                    <state key="normal" title="Hẹn nhiều lần"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Hẹn nhiều lần">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="yo8-g7-x0I"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

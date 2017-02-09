@@ -27,10 +27,13 @@ class HoanThanhViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.popupController?.navigationBar.backgroundColor = UIColor.init(rgba: "#EBB003")
+        //self.popupController?.navigationBar.backgroundColor = UIColor.init(rgba: "#EBB003")        
+        self.contentSizeInPopup  = CGSize(width: 300, height: 350 - HEIGHT_PRICE)
+        self.landscapeContentSizeInPopup = CGSize(width: 300, height: 350 - HEIGHT_PRICE)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.popupController?.navigationBarHidden = true
-        self.contentSizeInPopup  = CGSize(width: 300, height: 300 - HEIGHT_PRICE)
-        self.landscapeContentSizeInPopup = CGSize(width: 300, height: 300 - 40)
     }
 
     override func didReceiveMemoryWarning() {

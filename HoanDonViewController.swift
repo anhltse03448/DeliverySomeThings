@@ -12,13 +12,17 @@ import ToastSwiftFramework
 
 class HoanDonViewController: UIViewController {
     @IBOutlet weak var txtGhiChu : UITextView!
+    var dov : DeliveryObject?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.popupController?.navigationBarHidden = true
+        
         self.contentSizeInPopup  = CGSize(width: 300, height: 500)
         self.landscapeContentSizeInPopup = CGSize(width: 300, height: 300)
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismisKeyboard(_:))))
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.popupController?.navigationBarHidden = true
     }
     
     @IBAction func btnLyDoTouchUp(_ sender : UIButton) {

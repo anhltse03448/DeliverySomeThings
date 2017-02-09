@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisInforFamilyViewController" customModule="giaohangongvong" customModuleProvider="target">
             <connections>
+                <outlet property="imgBack" destination="wIW-ZT-CK9" id="IQj-Ou-GIb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

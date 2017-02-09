@@ -7,3 +7,4 @@ github "jdg/MBProgressHUD" ~> 1.0.0
 github "ermalkaleci/CarbonKit"
 github "kevin0571/STPopup"
 github "DavydLiu/DLRadioButton" ~> 1.4
+github "hackiftekhar/IQKeyboardManager"

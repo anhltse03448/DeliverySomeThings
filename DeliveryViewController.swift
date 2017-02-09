@@ -21,6 +21,7 @@ class DeliveryViewController: UIViewController {
     
     var hoandonVC : HoanDonViewController?
     var hoanthanhVC : HoanThanhViewController?
+    var ghiChuVC : GhiChuViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,6 @@ class DeliveryViewController: UIViewController {
         tbl.register(UINib.init(nibName: identifierNormal, bundle: nil), forCellReuseIdentifier: identifierNormal)
         tbl.register(UINib.init(nibName: identifierTapped, bundle: nil), forCellReuseIdentifier: identifierTapped)
         self.tbl.tableFooterView = UIView.init(frame: CGRect.zero)
-        loadDonGiao()
         tbl.isEditing = true
         tbl.allowsSelectionDuringEditing = true
 //        tbl.rowHeight = UITableViewAutomaticDimension
@@ -39,6 +39,9 @@ class DeliveryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadDonGiao()
+    }
     
     func loadDonGiao() {
         let link = "http://www.giaohangongvang.com/api/nhanvien/list-donhang-giao"
@@ -46,7 +49,7 @@ class DeliveryViewController: UIViewController {
         let param : [String : String] = ["session" : session.toBase64()]
         Alamofire.request(link, method: .post, parameters: param).responseJSON { (response) in
             let data = JSON.init(data: response.data!)
-            let detail = data["detail"]
+            let detail = data["detail"]            
             for item in detail.array! {
                 let deo = DeliveryObject(json: item)
                 self.listDeliverys?.append(deo)
@@ -104,7 +107,7 @@ extension DeliveryViewController : UITableViewDataSource , UITableViewDelegate {
             if selectedIndexPath?.row == indexPath.row {
 //                let cell = self.tbl.cellForRow(at: indexPath)
 //                return cell!.bounds.size.height
-                return 300
+                return 350
             } else {
                 return 40
             }
@@ -130,22 +133,29 @@ extension DeliveryViewController : DeliveryDelegate {
         if hoandonVC == nil {
             hoandonVC = HoanDonViewController(nibName: "HoanDonViewController", bundle: nil)
         }
+        hoandonVC?.dov = item
         let stpopup = STPopupController(rootViewController: self.hoandonVC!)
         stpopup.present(in: self)
     }
     func hoanthanh(cell: DeliveryTappedTableViewCell) {
         let index = self.tbl.indexPath(for: cell)
         let item = self.listDeliverys?[(index?.row)!]
-        let hoanthanhpopupVC = HoanThanhViewController(nibName: "HoanThanhViewController", bundle: nil)
-        hoanthanhpopupVC.item = item
-        let stpopup = STPopupController(rootViewController: hoanthanhpopupVC)
+        if hoanthanhVC == nil {
+            hoanthanhVC = HoanThanhViewController(nibName: "HoanThanhViewController", bundle: nil)
+        }
+        
+        hoanthanhVC?.item = item
+        let stpopup = STPopupController(rootViewController: hoanthanhVC!)
         stpopup.present(in: self)
     }
     func ghichu(cell: DeliveryTappedTableViewCell) {
         let index = self.tbl.indexPath(for: cell)
         let item = self.listDeliverys?[(index?.row)!]
-        let ghichuVC = GhiChuViewController(nibName: "GhiChuViewController", bundle: nil)
-        let stpopup = STPopupController(rootViewController: ghichuVC)
+        if ghiChuVC == nil {
+            ghiChuVC = GhiChuViewController(nibName: "GhiChuViewController", bundle: nil)
+        }
+        ghiChuVC?.dov = item
+        let stpopup = STPopupController(rootViewController: ghiChuVC!)
         stpopup.present(in: self)
     }
     func call(cell: DeliveryTappedTableViewCell) {

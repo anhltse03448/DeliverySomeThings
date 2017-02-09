@@ -28,8 +28,17 @@ class ReceiveTakePicViewController: UIViewController {
     }
     
     @IBAction func confirmTouchUp(_ sender : UIButton) {
-        let num = (txtNumber.text ?? "0")
-        let userInfo : [String : String] = ["numberPic" : num]
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TakePicture"), object: userInfo)        
+        let store = Txtstore.text ?? ""
+        let num = txtNumber.text ?? ""
+        
+        if store == "" {
+            self.view.makeToast("Chưa nhập cửa hàng", duration: 2.0, position: .center)
+        } else if num == "" {
+            self.view.makeToast("Chưa nhập số lượng", duration: 2.0, position: .center)
+        } else {
+            let num = (txtNumber.text ?? "0")
+            let userInfo : [String : String] = ["numberPic" : num]
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "TakePicture"), object: userInfo)
+        }        
     }
 }
