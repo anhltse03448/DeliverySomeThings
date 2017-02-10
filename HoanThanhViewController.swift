@@ -46,7 +46,8 @@ class HoanThanhViewController: UIViewController {
     
     @IBAction func doneTouchUp(_ sender : UIButton){
         let session = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String
-        let id_don_hang = "\(item?.id_don_hang)"
+        
+        let id_don_hang = item?.id_don_hang
         var co_hang_hoan = ""
         if isCoHangHoan {
             co_hang_hoan = "true"
@@ -57,7 +58,7 @@ class HoanThanhViewController: UIViewController {
         let gui_xe = lblGuiXe.text ?? ""
         let ghi_chu = lblGhiChu.text ?? ""
         let param : [String : String] = ["session" : session.toBase64() ,
-                                         "id_don_hang" : id_don_hang.toBase64() ,
+                                         "id_don_hang" : id_don_hang!.toBase64() ,
                                          "co_hang_hoan" : co_hang_hoan.toBase64() ,
                                          "thuc_thu" : thuc_thu.toBase64() ,
                                          "gui_xe" : gui_xe.toBase64(),
@@ -86,11 +87,11 @@ class HoanThanhViewController: UIViewController {
         if isCoGuiXe {
             btnCoGuiXe.setImage(UIImage.init(named: "checked"), for: UIControlState.normal)
             heightPriceConstraint.constant = HEIGHT_PRICE
-            self.contentSizeInPopup = CGSize(width: 300, height: 300)
+            self.contentSizeInPopup = CGSize(width: 300, height: 350)
         } else {
             btnCoGuiXe.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
             heightPriceConstraint.constant = 0
-            self.contentSizeInPopup = CGSize(width: 300, height: 300 - HEIGHT_PRICE)
+            self.contentSizeInPopup = CGSize(width: 300, height: 350 - HEIGHT_PRICE)
         }
     }
 }

@@ -38,10 +38,10 @@ class HenGioViewController: UIViewController {
                                              "id_don_hang" : id_don_hang,
                                              "ngay_hen" : ngay_hen.toBase64(),
                                              "gio_hen":gio_hen.toBase64()]
-            Alamofire.request("", method: .post, parameters: param).response(completionHandler: { (response) in
+            Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/hengio", method: .post, parameters: param).response(completionHandler: { (response) in
                 let data = JSON.init(data: response.data!)
                 let warning = data["warning"].stringValue
-                GhiChuViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
                 self.popupController?.dismiss()
             })
         }
@@ -53,6 +53,12 @@ class HenGioViewController: UIViewController {
         datePickerView.datePickerMode = UIDatePickerMode.date
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(HenGioViewController.handleDatePicker(sender:)), for: .valueChanged)
+        let ngay = txtNgay.text ?? ""
+        if ngay == "" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            txtNgay.text = dateFormatter.string(from: Date())
+        }
     }
     
     @IBAction func hp(sender: UITextField) {
@@ -61,6 +67,12 @@ class HenGioViewController: UIViewController {
         datePickerView.datePickerMode = UIDatePickerMode.time
         sender.inputView = datePickerView
         datePickerView.addTarget(self, action: #selector(HenGioViewController.handleTimePicker(sender:)), for: .valueChanged)
+        let hour = txtGio.text ?? ""
+        if hour == "" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm"
+            txtGio.text = dateFormatter.string(from: Date())
+        }
     }
     
     func handleTimePicker (sender : UIDatePicker) {

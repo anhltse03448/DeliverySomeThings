@@ -13,6 +13,7 @@ protocol DeliveryDelegate {
     func hoandon(cell : DeliveryTappedTableViewCell)
     func ghichu(cell : DeliveryTappedTableViewCell)
     func call(cell : DeliveryTappedTableViewCell)
+    func TappedCell(cell : DeliveryTappedTableViewCell)
 }
 
 class DeliveryTappedTableViewCell: UITableViewCell {
@@ -50,7 +51,13 @@ class DeliveryTappedTableViewCell: UITableViewCell {
         let ghichu = deo.ghi_chu.replacingOccurrences(of: "\n", with: " \n ")
         NSLog("\(ghichu)")
         self.lblNote.text = ghichu
-        
+        self.viewTop.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DeliveryTappedTableViewCell.tappedTop(_:))))
+    }
+    
+    func tappedTop(_ gesture : UITapGestureRecognizer) {
+        if delegate != nil {
+            delegate?.TappedCell(cell: self)
+        }
     }
     @IBAction func btnTap(_ sender : UIButton) {
         if delegate != nil {

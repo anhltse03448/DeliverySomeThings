@@ -251,7 +251,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="txtNgayCapDidChangeWithSender:" destination="-1" eventType="editingDidBegin" id="E7r-jO-fLj"/>
                                                 <outlet property="delegate" destination="-1" id="GNO-Ka-dmq"/>
                                             </connections>
                                         </textField>

@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="316" height="70"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="316" height="69.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="316" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="CMP-og-OrF">
@@ -26,24 +26,26 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gpd-Aw-WrM">
-                        <rect key="frame" x="37" y="4" width="259" height="61"/>
+                        <rect key="frame" x="37" y="12.5" width="259" height="45"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlA-Sd-lrx">
-                                <rect key="frame" x="4" y="0.0" width="251" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="4" y="0.0" width="251" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF9-rU-1Op">
-                                <rect key="frame" x="4" y="36" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SF9-rU-1Op">
+                                <rect key="frame" x="4" y="23" width="251" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SF9-rU-1Op" secondAttribute="trailing" constant="4" id="6eA-SR-TPO"/>
                             <constraint firstItem="PlA-Sd-lrx" firstAttribute="leading" secondItem="gpd-Aw-WrM" secondAttribute="leading" constant="4" id="N82-bf-rIh"/>
+                            <constraint firstItem="SF9-rU-1Op" firstAttribute="top" secondItem="PlA-Sd-lrx" secondAttribute="bottom" constant="5" id="NYK-NA-mH7"/>
                             <constraint firstItem="PlA-Sd-lrx" firstAttribute="top" secondItem="gpd-Aw-WrM" secondAttribute="top" id="T7t-TZ-B1P"/>
                             <constraint firstAttribute="bottom" secondItem="SF9-rU-1Op" secondAttribute="bottom" constant="4" id="bff-hy-Uh8"/>
                             <constraint firstItem="SF9-rU-1Op" firstAttribute="leading" secondItem="PlA-Sd-lrx" secondAttribute="leading" id="bj2-Ej-BoD"/>
@@ -54,13 +56,16 @@
                 <constraints>
                     <constraint firstItem="gpd-Aw-WrM" firstAttribute="leading" secondItem="CMP-og-OrF" secondAttribute="trailing" id="3we-2t-VYC"/>
                     <constraint firstItem="CMP-og-OrF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="EjX-as-whh"/>
-                    <constraint firstItem="gpd-Aw-WrM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="VDd-Bg-Iq9"/>
-                    <constraint firstAttribute="bottom" secondItem="gpd-Aw-WrM" secondAttribute="bottom" constant="4" id="Ynk-5C-bpK"/>
+                    <constraint firstItem="gpd-Aw-WrM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IC2-xE-Ejj"/>
                     <constraint firstItem="CMP-og-OrF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="-24" id="egN-a9-ife"/>
                     <constraint firstAttribute="trailing" secondItem="gpd-Aw-WrM" secondAttribute="trailing" constant="20" id="mt9-Dg-9rp"/>
-                    <constraint firstAttribute="bottom" secondItem="CMP-og-OrF" secondAttribute="bottom" constant="4" id="ql2-QS-iMO"/>
+                    <constraint firstAttribute="bottom" secondItem="CMP-og-OrF" secondAttribute="bottom" constant="5" id="ql2-QS-iMO"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="lbl1" destination="PlA-Sd-lrx" id="Q7M-wm-quF"/>
+                <outlet property="lbl2" destination="SF9-rU-1Op" id="Aku-ex-ffG"/>
+            </connections>
             <point key="canvasLocation" x="23" y="35.5"/>
         </tableViewCell>
     </objects>

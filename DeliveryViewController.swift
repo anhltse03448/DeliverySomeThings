@@ -90,7 +90,8 @@ extension DeliveryViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if selectedIndexPath?.row == indexPath.row {
-            selectedIndexPath = nil
+            //selectedIndexPath = nil
+            return
         } else {
             selectedIndexPath = indexPath    
         }
@@ -102,14 +103,14 @@ extension DeliveryViewController : UITableViewDataSource , UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if selectedIndexPath == nil {
-            return 40
+            return 80
         } else {
             if selectedIndexPath?.row == indexPath.row {
 //                let cell = self.tbl.cellForRow(at: indexPath)
 //                return cell!.bounds.size.height
-                return 350
+                return 300
             } else {
-                return 40
+                return 80
             }
         }
     }
@@ -163,5 +164,16 @@ extension DeliveryViewController : DeliveryDelegate {
         let phone = listDeliverys?[(index?.row)!].sdt_nguoi_nhan
         guard let number = URL(string: "telprompt://" + phone!) else { return }
         UIApplication.shared.open(number, options: [:], completionHandler: nil)
+    }
+    func TappedCell(cell: DeliveryTappedTableViewCell) {
+        let index = self.tbl.indexPath(for: cell)
+        if selectedIndexPath?.row == index?.row {
+            selectedIndexPath = nil
+        } else {
+        }
+        
+        self.tbl.reloadData()
+        self.tbl.beginUpdates()
+        self.tbl.endUpdates()
     }
 }

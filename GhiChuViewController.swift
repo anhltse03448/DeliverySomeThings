@@ -21,11 +21,12 @@ class GhiChuViewController: UIViewController {
         super.viewDidLoad()
 //
      //   self.popupController?.navigationBar.isHidden = true
+         self.popupController?.navigationBarHidden = true
         self.contentSizeInPopup  = CGSize(width: 300, height: 300)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.popupController?.navigationBarHidden = true
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,10 +42,12 @@ class GhiChuViewController: UIViewController {
             let param : [String : String] = ["session" : session.toBase64(),
                                              "id_don_hang" : (id_don_hang?.toBase64())!,
                                              "ghi_chu" : ghichu.toBase64()]
-            Alamofire.request("", method: .post, parameters: param).response(completionHandler: { (response) in
+            Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/ghichu", method: .post, parameters: param).response(completionHandler: { (response) in
                 let data = JSON.init(data: response.data!)
+                NSLog("\(data)")
                 let warning = data["warning"].stringValue
                 DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                self.popupController?.dismiss()
             })
         }
     }
@@ -65,10 +68,12 @@ class GhiChuViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
             case 1:
                 str = "Hẹn giờ"
+                self.popupController?.dismiss()
                 let hengioVC = HenGioViewController(nibName: "HenGioViewController", bundle: nil)
                 hengioVC.dov = self.dov
                 let stpopup = STPopupController(rootViewController: hengioVC)
-                stpopup.present(in: self)
+                stpopup.present(in: DeliveryViewController.sharedInstance)
+                //
             case 2:
                 str = "Đơn hàng sai số điện thoại người nhận"
             case 3:
@@ -79,7 +84,12 @@ class GhiChuViewController: UIViewController {
                 guard let number = URL(string: "telprompt://" + phone!) else { return }
                 UIApplication.shared.open(number, options: [:], completionHandler: nil)
             default:
-                str = "Đổi địa chỉ"
+                
+            self.popupController?.dismiss()
+            let doiDC = DoiDiaChiViewController(nibName: "DoiDiaChiViewController", bundle: nil)
+            doiDC.dov = self.dov
+            let stpopup = STPopupController(rootViewController: doiDC)
+            stpopup.present(in: DeliveryViewController.sharedInstance)
         }
         txtghichu.text = str
     }

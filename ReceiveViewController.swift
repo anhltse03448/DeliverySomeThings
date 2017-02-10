@@ -60,12 +60,15 @@ extension ReceiveViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //cell.lbl.text = "\(indexPath.row)"
+        let item = listReceive[indexPath.row]
         if selectedIndexPaths.contains(indexPath) {
             let cell = tbl.dequeueReusableCell(withIdentifier: identifierTapped, for: indexPath) as! ReceiveTappedTableViewCell
             cell.accessoryType = .none
+            
             return cell
         } else {
             let cell = tbl.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ReceiveTableViewCell
+            cell.setData(rcp: item)
             return cell
         }
         

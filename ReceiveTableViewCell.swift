@@ -9,7 +9,8 @@
 import UIKit
 
 class ReceiveTableViewCell: UITableViewCell {
-    @IBOutlet weak var lbl : UILabel!
+    @IBOutlet weak var lbl1 : UILabel!
+    @IBOutlet weak var lbl2 : UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +21,8 @@ class ReceiveTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func setData(rcp : ReceivePerson) {
+        lbl1.text = rcp.ten_nguoi_gui
+        lbl2.text = rcp.dia_chi_nhan
+    }
 }

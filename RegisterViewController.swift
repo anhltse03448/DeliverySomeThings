@@ -109,7 +109,7 @@ class RegisterViewController: BaseViewController {
         let pickerView = UIPickerView()
         pickerView.dataSource = self
         pickerView.delegate = self
-        txtCMND.inputView = pickerView
+        txtNoiCap.inputView = pickerView
     }
     
     func handleDatePicker(sender: UIDatePicker) {
@@ -144,4 +144,8 @@ extension RegisterViewController : UIPickerViewDataSource , UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return dstinh[row]
     }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        txtNoiCap.text = dstinh[row]
+    }
+    
 }

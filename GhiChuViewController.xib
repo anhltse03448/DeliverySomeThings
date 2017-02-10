@@ -58,7 +58,7 @@
                                         <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
-                                        <action selector="closeTouchUp:" destination="-1" eventType="touchUpInside" id="O5h-zA-EFH"/>
+                                        <action selector="closeTouchUp:" destination="-1" eventType="touchUpInside" id="DoT-tv-Pdd"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -85,7 +85,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EHR-hR-4fB">
-                    <rect key="frame" x="0.0" y="140" width="300" height="100"/>
+                    <rect key="frame" x="4" y="140" width="300" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="pkv-1w-iOS"/>
@@ -313,8 +313,8 @@
                 <constraint firstAttribute="trailing" secondItem="drW-Ez-M2t" secondAttribute="trailing" id="AXH-eW-Uva"/>
                 <constraint firstItem="drW-Ez-M2t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BZR-ms-qvk"/>
                 <constraint firstItem="EHR-hR-4fB" firstAttribute="top" secondItem="drW-Ez-M2t" secondAttribute="bottom" id="Lcp-j6-pci"/>
-                <constraint firstItem="EHR-hR-4fB" firstAttribute="leading" secondItem="Zky-i8-3fg" secondAttribute="leading" id="b3n-3W-jW6"/>
-                <constraint firstItem="EHR-hR-4fB" firstAttribute="trailing" secondItem="Zky-i8-3fg" secondAttribute="trailing" id="bBG-7s-kQk"/>
+                <constraint firstItem="EHR-hR-4fB" firstAttribute="leading" secondItem="Zky-i8-3fg" secondAttribute="leading" constant="4" id="b3n-3W-jW6"/>
+                <constraint firstItem="EHR-hR-4fB" firstAttribute="trailing" secondItem="Zky-i8-3fg" secondAttribute="trailing" constant="4" id="bBG-7s-kQk"/>
                 <constraint firstItem="Zky-i8-3fg" firstAttribute="top" secondItem="EHR-hR-4fB" secondAttribute="bottom" id="k8d-Sg-ohj"/>
                 <constraint firstItem="Zky-i8-3fg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uJO-z7-csr"/>
             </constraints>

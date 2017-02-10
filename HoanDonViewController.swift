@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ToastSwiftFramework
+import SwiftyJSON
 
 class HoanDonViewController: UIViewController {
     @IBOutlet weak var txtGhiChu : UITextView!
@@ -60,9 +61,19 @@ class HoanDonViewController: UIViewController {
     }
     
     @IBAction func hoandonTouchUp(_ sender : UIButton){
-        let param : [String : String] = ["" : ""]
-        Alamofire.request("", method: .post, parameters: param).responseJSON { (response) in
-            
+        let session = UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)
+        let id_don_hang = dov?.id_don_hang
+        let ghi_chu = txtGhiChu.text ?? ""
+        if ghi_chu != "" {
+            let param : [String : String] = ["session" : session.toBase64(),
+                                             "id_don_hang": (id_don_hang?.toBase64())!,
+                                             "ghi_chu" : ghi_chu.toBase64()]
+            Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/ghichu", method: .post, parameters: param).responseJSON { (response) in
+                let json = JSON.init(data: response.data!)
+                let warning = json["warning"].string ?? ""
+                DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                self.popupController?.dismiss()
+            }
         }
     }
     func dismisKeyboard(_ gesture : UITapGestureRecognizer) {
