@@ -12,7 +12,7 @@ import CarbonKit
 class NhanDonGiaoViewController: UIViewController {
     static let sharedInstance = NhanDonGiaoViewController()
     @IBOutlet weak var contentView : UIView!
-    var tabsName : [String] = ["QUÉT MÃ VẠCH" , "NHẬP SĐT"]
+    var tabsName : [String] = ["NHẬP SĐT","QUÉT MÃ VẠCH "]
     var quetMaVachVC : QuetMaVachViewController?
     var phoneSearch : PhoneSearchViewController?
     
@@ -58,9 +58,9 @@ extension NhanDonGiaoViewController : CarbonTabSwipeNavigationDelegate {
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         switch index {
         case 0:
-            return quetMaVachVC!
-        default:
             return phoneSearch!
+        default:
+            return quetMaVachVC!
         }
     }
 }

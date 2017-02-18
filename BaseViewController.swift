@@ -44,7 +44,9 @@ class BaseViewController: UIViewController {
         }
         return result
     }
-    
+    func getSession() -> String {
+        return (UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String).toBase64()
+    }
 }
 extension Date {
     /// Returns the amount of years from another date

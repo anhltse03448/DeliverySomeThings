@@ -11,7 +11,7 @@ import STPopup
 import Alamofire
 import SwiftyJSON
 
-class HoanThanhViewController: UIViewController {
+class HoanThanhViewController: BaseViewController {
     let HEIGHT_PRICE : CGFloat = 40
     @IBOutlet weak var heightPriceConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnCoHangHoan : UIButton!
@@ -41,12 +41,11 @@ class HoanThanhViewController: UIViewController {
     }
     
     @IBAction func closePopUp(_ sender : UIButton){
+        DeliveryViewController.shouldLoad = false
         self.popupController?.dismiss()
     }
     
     @IBAction func doneTouchUp(_ sender : UIButton){
-        let session = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String
-        
         let id_don_hang = item?.id_don_hang
         var co_hang_hoan = ""
         if isCoHangHoan {
@@ -56,20 +55,35 @@ class HoanThanhViewController: UIViewController {
         }
         let thuc_thu = lblThucThu.text ?? ""
         let gui_xe = lblGuiXe.text ?? ""
-        let ghi_chu = lblGhiChu.text ?? ""
-        let param : [String : String] = ["session" : session.toBase64() ,
+        var ghi_chu = lblGhiChu.text ?? ""
+        if ghi_chu == "" {
+            if isCoHangHoan {
+                self.view.makeToast("Nhập ghi chú", duration: 2.0, position: .center)
+                return
+            }
+        }
+        
+        if isCoGuiXe {
+            ghi_chu = ghi_chu + "gui xe: \(gui_xe)"
+        }
+        let param : [String : String] = ["session" : self.getSession() ,
                                          "id_don_hang" : id_don_hang!.toBase64() ,
                                          "co_hang_hoan" : co_hang_hoan.toBase64() ,
                                          "thuc_thu" : thuc_thu.toBase64() ,
                                          "gui_xe" : gui_xe.toBase64(),
                                          "ghi_chu" : ghi_chu.toBase64()
         ]
+        
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/hoan-thanh-don", method: .post, parameters: param).responseJSON { (response) in
-            let json = JSON.init(data: response.data!)
-            NSLog("\(json)")
-            let warning = json["warning"].stringValue
-            DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2, position: .center)
-            self.popupController?.dismiss()
+            if response.data != nil {
+                let json = JSON.init(data: response.data!)
+                NSLog("\(json)")
+                let warning = json["warning"].stringValue
+                DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2, position: .center)
+                self.popupController?.dismiss()
+            } else {
+                self.popupController?.dismiss()
+            }
         }
     }
     

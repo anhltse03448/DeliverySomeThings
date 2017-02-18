@@ -9,8 +9,10 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import STPopup
 
-class PhoneSearchViewController: UIViewController {
+class PhoneSearchViewController: BaseViewController {
+    static let sharedInstance = PhoneSearchViewController()
     @IBOutlet weak var txtSearch : UITextField!
     @IBOutlet weak var imgSearch : UIButton!
     @IBOutlet weak var tbl : UITableView!
@@ -22,7 +24,7 @@ class PhoneSearchViewController: UIViewController {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismisKeyboard(_:))))
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
-        tbl.separatorStyle = .none
+        tbl.separatorStyle = .none        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,26 +32,53 @@ class PhoneSearchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func searchPhone(_ sender : UIButton) {
         txtSearch.resignFirstResponder()
         let phone = txtSearch.text ?? ""
+        if phone == "" {
+            self.view.makeToast("Chưa nhập phone", duration: 2.0, position: .center)
+            return
+        }
         let session = (UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String ).toBase64()
         let param : [String : String] = ["session" : session ,
                                          "sdt_nguoi_nhan" : phone.toBase64()]
         var tmp = [DeliveryObject]()
         Alamofire.request("http://www.giaohangongvang.com/api/donhang/search-don-ton", method: .post, parameters: param).responseJSON { (response) in
-            let json = JSON.init(data: response.data!)
-            let content = json["detail"]
-            for item in content.arrayValue {
-                let dvo = DeliveryObject.init(json: item)
-                tmp.append(dvo)
+            if response.data != nil {
+                let json = JSON.init(data: response.data!)
+                let status = json["status"].stringValue
+                if status == "fail" {
+                    let warning = json["warning"].stringValue
+                    NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                } else {
+                    let content = json["detail"]
+                    if content.arrayValue.count == 0 {
+                        let dongiaoMoi = DonGIaoMoiViewController(nibName: "DonGIaoMoiViewController", bundle: nil)
+                        let stpopup = STPopupController(rootViewController: dongiaoMoi)
+                        dongiaoMoi.sdt = self.txtSearch.text
+                        stpopup.present(in: self)
+                        return
+                    }
+                    for item in content.arrayValue {
+                        let dvo = DeliveryObject.init(json: item)
+                        tmp.append(dvo)
+                    }
+                    self.listDvo = tmp
+                    DispatchQueue.main.async {
+                        self.tbl.reloadData()
+                    }
+
+                }
+            } else {
+                self.listDvo = tmp
+                DispatchQueue.main.async {
+                    self.tbl.reloadData()
+                }
             }
-            self.listDvo = tmp
         }
         
-        DispatchQueue.main.async {
-            self.tbl.reloadData()
-        }
+        
     }
     func dismisKeyboard(_ gesture : UITapGestureRecognizer) {
         txtSearch.resignFirstResponder()
@@ -79,13 +108,19 @@ extension PhoneSearchViewController : PhoneSearchDelegate {
         let indexPath = tbl.indexPath(for: cell)
         let dov = listDvo[(indexPath?.row)!]
         
-        let session = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String
         let id = dov.id_don_hang
-        NSLog("\(dov.id_don_hang)")
-        let param : [String : String] = ["session": session.toBase64() , "list" : (id.toBase64()) ]
-        Alamofire.request("", method: .post, parameters: param).responseJSON { (response) in
-            let json = JSON.init(data: response.data!)
-            NSLog("\(json["warning"])")
+        self.listDvo.remove(at: (indexPath?.row)!)
+        tbl.deleteRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
+        //NSLog("\(dov.id_don_hang)")
+        let param : [String : String] = ["session": self.getSession() , "list" : (id.toBase64()) ]
+        Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/nhan-donhang-ton", method: .post, parameters: param).responseJSON { (response) in
+            if response.data != nil {
+                let json = JSON.init(data: response.data!)
+                let warning = json["warning"].stringValue
+                NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+            } else {
+                
+            }
         }
     }
 }

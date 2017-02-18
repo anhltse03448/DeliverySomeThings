@@ -20,6 +20,11 @@ class RegisterViewController: BaseViewController {
     @IBOutlet weak var imgPick : UIImageView!
     @IBOutlet weak var txtNoiCap : UITextField!
     
+    @IBOutlet weak var btnNam : UIButton!
+    @IBOutlet weak var btnNu : UIButton!
+    
+    var nameOrNu : Bool = true
+    
     let imagePicker = UIImagePickerController()
     var dstinh = [String]()
     
@@ -32,6 +37,13 @@ class RegisterViewController: BaseViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismisKeyboard(_:))))
         imgPick.isUserInteractionEnabled = true
         imgPick.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.pickImage(_:))))
+        
+        btnNam.setImage(UIImage.init(named: "checked"), for: UIControlState.selected)
+        btnNu.setImage(UIImage.init(named: "checked"), for: UIControlState.selected)
+        
+        btnNam.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
+        btnNu.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
+        
         setPickerView()
     }
     
@@ -101,7 +113,12 @@ class RegisterViewController: BaseViewController {
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.date
         sender.inputView = datePickerView
-        datePickerView.addTarget(self, action: #selector(RegisterViewController.handleDatePicker(sender:)), for: .valueChanged)
+        datePickerView.addTarget(self, action: #selector(RegisterViewController.handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+        if txtNgaySinh.text == "" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            txtNgaySinh.text = dateFormatter.string(from: Date())
+        }
     }
     
     func setPickerView() {
@@ -116,6 +133,18 @@ class RegisterViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         txtNgaySinh.text = dateFormatter.string(from: sender.date)
+    }
+    
+    @IBAction func namTouchUp(_ sender : UIButton) {
+        nameOrNu = true
+        btnNam.isSelected = true
+        btnNu.isSelected = false
+    }
+    
+    @IBAction func nuTouchUp(_ sender : UIButton) {
+        nameOrNu = false
+        btnNam.isSelected = false
+        btnNu.isSelected = true
     }
 }
 extension RegisterViewController : UITextFieldDelegate {

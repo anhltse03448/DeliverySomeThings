@@ -23,11 +23,15 @@
 		361AC03B1E4DF83300783D00 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC03A1E4DF83300783D00 /* libz.tbd */; };
 		361AC03D1E4DF83C00783D00 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC03C1E4DF83C00783D00 /* SystemConfiguration.framework */; };
 		361AC03F1E4DF84500783D00 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC03E1E4DF84500783D00 /* Security.framework */; };
+		361DCB281E5313950077755A /* DonGIaoMoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361DCB261E5313950077755A /* DonGIaoMoiViewController.swift */; };
+		361DCB291E5313950077755A /* DonGIaoMoiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361DCB271E5313950077755A /* DonGIaoMoiViewController.xib */; };
 		362B775A1E49BC1700768F32 /* PhoneSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */; };
 		362B775B1E49BC1700768F32 /* PhoneSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */; };
 		362B775D1E49C77100768F32 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; };
 		362B775E1E49C77E00768F32 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; };
 		362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		363DCC201E54B03E0012B0DF /* DonHoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */; };
+		363DCC211E54B03E0012B0DF /* DonHoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */; };
 		3648DB361E37436E0037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
 		3648DB371E3743750037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
 		3648DB381E3743750037F710 /* CarbonKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -50,7 +54,17 @@
 		365024691E38ED5C00963E0B /* HoanDonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365024671E38ED5C00963E0B /* HoanDonViewController.xib */; };
 		3650246E1E38F3E800963E0B /* GhiChuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650246C1E38F3E800963E0B /* GhiChuViewController.swift */; };
 		3650246F1E38F3E800963E0B /* GhiChuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3650246D1E38F3E800963E0B /* GhiChuViewController.xib */; };
+		36534BFC1E4ED4C200229DD5 /* HuyDonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36534BFA1E4ED4C200229DD5 /* HuyDonViewController.swift */; };
+		36534BFD1E4ED4C200229DD5 /* HuyDonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36534BFB1E4ED4C200229DD5 /* HuyDonViewController.xib */; };
+		36534C011E4EE8D300229DD5 /* ChuyenDonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36534BFF1E4EE8D300229DD5 /* ChuyenDonViewController.swift */; };
+		36534C021E4EE8D300229DD5 /* ChuyenDonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36534C001E4EE8D300229DD5 /* ChuyenDonViewController.xib */; };
+		36534C051E4EF2F800229DD5 /* NhanVien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36534C041E4EF2F800229DD5 /* NhanVien.swift */; };
+		36534C0A1E4F039100229DD5 /* RegisInfoFamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36534C081E4F039100229DD5 /* RegisInfoFamilyTableViewCell.swift */; };
+		36534C0B1E4F039100229DD5 /* RegisInfoFamilyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36534C091E4F039100229DD5 /* RegisInfoFamilyTableViewCell.xib */; };
 		3655827E1E363C1C002CD1A1 /* UtilsConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3655827D1E363C1C002CD1A1 /* UtilsConvert.swift */; };
+		365D68541E51A29F0022F0B5 /* DeliveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D68531E51A29F0022F0B5 /* DeliveryViewController.xib */; };
+		365D68581E51A45B0022F0B5 /* DeliveryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D68561E51A45B0022F0B5 /* DeliveryCollectionViewCell.swift */; };
+		365D68591E51A45B0022F0B5 /* DeliveryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365D68571E51A45B0022F0B5 /* DeliveryCollectionViewCell.xib */; };
 		365F67681E3641B4001B6CEC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365F67671E3641B4001B6CEC /* SwiftyJSON.framework */; };
 		365F67691E3641BB001B6CEC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 365F67671E3641B4001B6CEC /* SwiftyJSON.framework */; };
 		365F676A1E3641BB001B6CEC /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 365F67671E3641B4001B6CEC /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,7 +93,6 @@
 		369AA9681E312093008C7272 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369AA9661E312093008C7272 /* ReceiveViewController.swift */; };
 		369AA9691E312093008C7272 /* ReceiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369AA9671E312093008C7272 /* ReceiveViewController.xib */; };
 		369AA96D1E3123DE008C7272 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369AA96B1E3123DE008C7272 /* DeliveryViewController.swift */; };
-		369AA96E1E3123DE008C7272 /* DeliveryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369AA96C1E3123DE008C7272 /* DeliveryViewController.xib */; };
 		369AA9731E312442008C7272 /* ReceiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369AA9711E312442008C7272 /* ReceiveTableViewCell.swift */; };
 		369AA9741E312442008C7272 /* ReceiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369AA9721E312442008C7272 /* ReceiveTableViewCell.xib */; };
 		369AA9791E312904008C7272 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369AA9771E312904008C7272 /* LoginViewController.swift */; };
@@ -93,10 +106,6 @@
 		36D76A091E3758B300E6E08B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A071E3758AE00E6E08B /* MBProgressHUD.framework */; };
 		36D76A0A1E3758B300E6E08B /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A071E3758AE00E6E08B /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36D76A0D1E3875C000E6E08B /* DeliveryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D76A0C1E3875C000E6E08B /* DeliveryObject.swift */; };
-		36D76A101E3877D300E6E08B /* DeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D76A0E1E3877D300E6E08B /* DeliveryTableViewCell.swift */; };
-		36D76A111E3877D300E6E08B /* DeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D76A0F1E3877D300E6E08B /* DeliveryTableViewCell.xib */; };
-		36D76A171E387DE000E6E08B /* DeliveryTappedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D76A151E387DE000E6E08B /* DeliveryTappedTableViewCell.swift */; };
-		36D76A181E387DE000E6E08B /* DeliveryTappedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D76A161E387DE000E6E08B /* DeliveryTappedTableViewCell.xib */; };
 		36D76A1A1E38978000E6E08B /* STPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A191E38978000E6E08B /* STPopup.framework */; };
 		36D76A1B1E38978700E6E08B /* STPopup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A191E38978000E6E08B /* STPopup.framework */; };
 		36D76A1C1E38978700E6E08B /* STPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A191E38978000E6E08B /* STPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -105,6 +114,10 @@
 		36E2CAC81E31D4FB00CBC4A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; };
 		36E2CACE1E31D61600CBC4A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; };
 		36E2CACF1E31D61600CBC4A3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36FA676F1E4EA50400061217 /* CallDieuVanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FA676D1E4EA50400061217 /* CallDieuVanViewController.swift */; };
+		36FA67701E4EA50400061217 /* CallDieuVanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FA676E1E4EA50400061217 /* CallDieuVanViewController.xib */; };
+		36FA67751E4EB2BA00061217 /* ReceiveDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FA67731E4EB2BA00061217 /* ReceiveDetailTableViewCell.swift */; };
+		36FA67761E4EB2BA00061217 /* ReceiveDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FA67741E4EB2BA00061217 /* ReceiveDetailTableViewCell.xib */; };
 		36FCE9611E4B1A5C00A72871 /* HenGioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FCE95F1E4B1A5C00A72871 /* HenGioViewController.swift */; };
 		36FCE9621E4B1A5C00A72871 /* HenGioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36FCE9601E4B1A5C00A72871 /* HenGioViewController.xib */; };
 		36FCE9641E4B470300A72871 /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */; };
@@ -152,9 +165,13 @@
 		361AC03A1E4DF83300783D00 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		361AC03C1E4DF83C00783D00 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		361AC03E1E4DF84500783D00 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		361DCB261E5313950077755A /* DonGIaoMoiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonGIaoMoiViewController.swift; sourceTree = "<group>"; };
+		361DCB271E5313950077755A /* DonGIaoMoiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonGIaoMoiViewController.xib; sourceTree = "<group>"; };
 		362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSearchTableViewCell.swift; sourceTree = "<group>"; };
 		362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneSearchTableViewCell.xib; sourceTree = "<group>"; };
 		362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = giaohangongvong/Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonHoanTableViewCell.swift; sourceTree = "<group>"; };
+		363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonHoanTableViewCell.xib; sourceTree = "<group>"; };
 		3648DB351E37436E0037F710 /* CarbonKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarbonKit.framework; path = giaohangongvong/Carthage/Build/iOS/CarbonKit.framework; sourceTree = "<group>"; };
 		364E0F581E311A2C0012BD45 /* giaohangongvong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = giaohangongvong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		364E0F5B1E311A2C0012BD45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +192,17 @@
 		365024671E38ED5C00963E0B /* HoanDonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoanDonViewController.xib; sourceTree = "<group>"; };
 		3650246C1E38F3E800963E0B /* GhiChuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhiChuViewController.swift; sourceTree = "<group>"; };
 		3650246D1E38F3E800963E0B /* GhiChuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GhiChuViewController.xib; sourceTree = "<group>"; };
+		36534BFA1E4ED4C200229DD5 /* HuyDonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HuyDonViewController.swift; sourceTree = "<group>"; };
+		36534BFB1E4ED4C200229DD5 /* HuyDonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuyDonViewController.xib; sourceTree = "<group>"; };
+		36534BFF1E4EE8D300229DD5 /* ChuyenDonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChuyenDonViewController.swift; sourceTree = "<group>"; };
+		36534C001E4EE8D300229DD5 /* ChuyenDonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChuyenDonViewController.xib; sourceTree = "<group>"; };
+		36534C041E4EF2F800229DD5 /* NhanVien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NhanVien.swift; sourceTree = "<group>"; };
+		36534C081E4F039100229DD5 /* RegisInfoFamilyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisInfoFamilyTableViewCell.swift; sourceTree = "<group>"; };
+		36534C091E4F039100229DD5 /* RegisInfoFamilyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisInfoFamilyTableViewCell.xib; sourceTree = "<group>"; };
 		3655827D1E363C1C002CD1A1 /* UtilsConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsConvert.swift; sourceTree = "<group>"; };
+		365D68531E51A29F0022F0B5 /* DeliveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryViewController.xib; sourceTree = "<group>"; };
+		365D68561E51A45B0022F0B5 /* DeliveryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryCollectionViewCell.swift; sourceTree = "<group>"; };
+		365D68571E51A45B0022F0B5 /* DeliveryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryCollectionViewCell.xib; sourceTree = "<group>"; };
 		365F67671E3641B4001B6CEC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = giaohangongvong/Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		365F676D1E364491001B6CEC /* ReceivePerson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceivePerson.swift; sourceTree = "<group>"; };
 		36662D421E3C284B00B30245 /* TakePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +225,6 @@
 		369AA9661E312093008C7272 /* ReceiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		369AA9671E312093008C7272 /* ReceiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveViewController.xib; sourceTree = "<group>"; };
 		369AA96B1E3123DE008C7272 /* DeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
-		369AA96C1E3123DE008C7272 /* DeliveryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryViewController.xib; sourceTree = "<group>"; };
 		369AA9711E312442008C7272 /* ReceiveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveTableViewCell.swift; sourceTree = "<group>"; };
 		369AA9721E312442008C7272 /* ReceiveTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveTableViewCell.xib; sourceTree = "<group>"; };
 		369AA9771E312904008C7272 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -210,15 +236,15 @@
 		36D76A051E3756CB00E6E08B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		36D76A071E3758AE00E6E08B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = giaohangongvong/Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
 		36D76A0C1E3875C000E6E08B /* DeliveryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryObject.swift; sourceTree = "<group>"; };
-		36D76A0E1E3877D300E6E08B /* DeliveryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewCell.swift; sourceTree = "<group>"; };
-		36D76A0F1E3877D300E6E08B /* DeliveryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryTableViewCell.xib; sourceTree = "<group>"; };
-		36D76A151E387DE000E6E08B /* DeliveryTappedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTappedTableViewCell.swift; sourceTree = "<group>"; };
-		36D76A161E387DE000E6E08B /* DeliveryTappedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryTappedTableViewCell.xib; sourceTree = "<group>"; };
 		36D76A191E38978000E6E08B /* STPopup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STPopup.framework; path = giaohangongvong/Carthage/Build/iOS/STPopup.framework; sourceTree = "<group>"; };
 		36D76A1E1E38A67500E6E08B /* HoanThanhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoanThanhViewController.swift; sourceTree = "<group>"; };
 		36D76A1F1E38A67500E6E08B /* HoanThanhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoanThanhViewController.xib; sourceTree = "<group>"; };
 		36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = giaohangongvong/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		36E2CACA1E31D55900CBC4A3 /* giaohangongvong-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "giaohangongvong-Bridging-Header.h"; sourceTree = "<group>"; };
+		36FA676D1E4EA50400061217 /* CallDieuVanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallDieuVanViewController.swift; sourceTree = "<group>"; };
+		36FA676E1E4EA50400061217 /* CallDieuVanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CallDieuVanViewController.xib; sourceTree = "<group>"; };
+		36FA67731E4EB2BA00061217 /* ReceiveDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveDetailTableViewCell.swift; sourceTree = "<group>"; };
+		36FA67741E4EB2BA00061217 /* ReceiveDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveDetailTableViewCell.xib; sourceTree = "<group>"; };
 		36FCE95F1E4B1A5C00A72871 /* HenGioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HenGioViewController.swift; sourceTree = "<group>"; };
 		36FCE9601E4B1A5C00A72871 /* HenGioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HenGioViewController.xib; sourceTree = "<group>"; };
 		36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = giaohangongvong/Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
@@ -272,6 +298,7 @@
 		361395361E33989C00AA980C /* NhanDonGiao */ = {
 			isa = PBXGroup;
 			children = (
+				361DCB251E53137C0077755A /* DonGiaoMoiVC */,
 				36662D471E3C292200B30245 /* PhoneSearchVC */,
 				36662D461E3C291800B30245 /* QuetMaVachVC */,
 				361395371E3398AA00AA980C /* NhanDonGiaoViewController.swift */,
@@ -321,6 +348,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		361DCB251E53137C0077755A /* DonGiaoMoiVC */ = {
+			isa = PBXGroup;
+			children = (
+				361DCB261E5313950077755A /* DonGIaoMoiViewController.swift */,
+				361DCB271E5313950077755A /* DonGIaoMoiViewController.xib */,
+			);
+			name = DonGiaoMoiVC;
+			sourceTree = "<group>";
+		};
 		362B77571E49BBFB00768F32 /* PhoneSearchCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +364,15 @@
 				362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */,
 			);
 			name = PhoneSearchCell;
+			sourceTree = "<group>";
+		};
+		363DCC1D1E54B0280012B0DF /* DonHoan */ = {
+			isa = PBXGroup;
+			children = (
+				363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */,
+				363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */,
+			);
+			name = DonHoan;
 			sourceTree = "<group>";
 		};
 		364E0F4F1E311A2C0012BD45 = {
@@ -424,6 +469,7 @@
 		364E0F771E311AF70012BD45 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				36FA676C1E4EA4EC00061217 /* CallDieuVan */,
 				364E0F781E311B070012BD45 /* MainViewController.swift */,
 				364E0F791E311B070012BD45 /* MainViewController.xib */,
 			);
@@ -450,6 +496,8 @@
 		364E0F831E311BFD0012BD45 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				363DCC1D1E54B0280012B0DF /* DonHoan */,
+				36534C061E4F037600229DD5 /* Regis */,
 				362B77571E49BBFB00768F32 /* PhoneSearchCell */,
 				36665D651E336B30006B18C0 /* ReceiveCell */,
 				369AA96F1E312422008C7272 /* DeliveryCell */,
@@ -485,6 +533,49 @@
 			name = GhiChuPopUp;
 			sourceTree = "<group>";
 		};
+		36534BF91E4ED4B000229DD5 /* HuyDonVC */ = {
+			isa = PBXGroup;
+			children = (
+				36534BFA1E4ED4C200229DD5 /* HuyDonViewController.swift */,
+				36534BFB1E4ED4C200229DD5 /* HuyDonViewController.xib */,
+			);
+			name = HuyDonVC;
+			sourceTree = "<group>";
+		};
+		36534BFE1E4EE8C300229DD5 /* ChuyenDonVC */ = {
+			isa = PBXGroup;
+			children = (
+				36534BFF1E4EE8D300229DD5 /* ChuyenDonViewController.swift */,
+				36534C001E4EE8D300229DD5 /* ChuyenDonViewController.xib */,
+			);
+			name = ChuyenDonVC;
+			sourceTree = "<group>";
+		};
+		36534C031E4EF2E900229DD5 /* NhanVien */ = {
+			isa = PBXGroup;
+			children = (
+				36534C041E4EF2F800229DD5 /* NhanVien.swift */,
+			);
+			name = NhanVien;
+			sourceTree = "<group>";
+		};
+		36534C061E4F037600229DD5 /* Regis */ = {
+			isa = PBXGroup;
+			children = (
+				36534C071E4F037D00229DD5 /* RegisInfoFamily */,
+			);
+			name = Regis;
+			sourceTree = "<group>";
+		};
+		36534C071E4F037D00229DD5 /* RegisInfoFamily */ = {
+			isa = PBXGroup;
+			children = (
+				36534C081E4F039100229DD5 /* RegisInfoFamilyTableViewCell.swift */,
+				36534C091E4F039100229DD5 /* RegisInfoFamilyTableViewCell.xib */,
+			);
+			name = RegisInfoFamily;
+			sourceTree = "<group>";
+		};
 		3655827C1E363C0A002CD1A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,9 +584,19 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		365D68551E51A4430022F0B5 /* collectionView */ = {
+			isa = PBXGroup;
+			children = (
+				365D68561E51A45B0022F0B5 /* DeliveryCollectionViewCell.swift */,
+				365D68571E51A45B0022F0B5 /* DeliveryCollectionViewCell.xib */,
+			);
+			name = collectionView;
+			sourceTree = "<group>";
+		};
 		365F676B1E36447B001B6CEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				36534C031E4EF2E900229DD5 /* NhanVien */,
 				36D76A0B1E3875AC00E6E08B /* Delivery */,
 				365F676C1E364481001B6CEC /* Receive */,
 			);
@@ -540,6 +641,7 @@
 		36665D651E336B30006B18C0 /* ReceiveCell */ = {
 			isa = PBXGroup;
 			children = (
+				36FA67721E4EB2A100061217 /* ReceiveDetailCell */,
 				36665D661E336B3C006B18C0 /* ReceiveCellClicked */,
 				369AA9701E31242A008C7272 /* ReceiveCellNormal */,
 			);
@@ -585,6 +687,8 @@
 		369AA9651E312068008C7272 /* ReceiveVC */ = {
 			isa = PBXGroup;
 			children = (
+				36534BFE1E4EE8C300229DD5 /* ChuyenDonVC */,
+				36534BF91E4ED4B000229DD5 /* HuyDonVC */,
 				369AA9661E312093008C7272 /* ReceiveViewController.swift */,
 				369AA9671E312093008C7272 /* ReceiveViewController.xib */,
 			);
@@ -600,7 +704,7 @@
 				365024641E38ED2600963E0B /* HoanDonPopUP */,
 				36D76A1D1E38A65F00E6E08B /* HoanThanhPopUp */,
 				369AA96B1E3123DE008C7272 /* DeliveryViewController.swift */,
-				369AA96C1E3123DE008C7272 /* DeliveryViewController.xib */,
+				365D68531E51A29F0022F0B5 /* DeliveryViewController.xib */,
 			);
 			name = DeliveryVC;
 			sourceTree = "<group>";
@@ -608,9 +712,7 @@
 		369AA96F1E312422008C7272 /* DeliveryCell */ = {
 			isa = PBXGroup;
 			children = (
-				36D76A121E3877DC00E6E08B /* DeliveryTappedCell */,
-				36D76A0E1E3877D300E6E08B /* DeliveryTableViewCell.swift */,
-				36D76A0F1E3877D300E6E08B /* DeliveryTableViewCell.xib */,
+				365D68551E51A4430022F0B5 /* collectionView */,
 			);
 			name = DeliveryCell;
 			sourceTree = "<group>";
@@ -668,15 +770,6 @@
 			name = Delivery;
 			sourceTree = "<group>";
 		};
-		36D76A121E3877DC00E6E08B /* DeliveryTappedCell */ = {
-			isa = PBXGroup;
-			children = (
-				36D76A151E387DE000E6E08B /* DeliveryTappedTableViewCell.swift */,
-				36D76A161E387DE000E6E08B /* DeliveryTappedTableViewCell.xib */,
-			);
-			name = DeliveryTappedCell;
-			sourceTree = "<group>";
-		};
 		36D76A1D1E38A65F00E6E08B /* HoanThanhPopUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -691,6 +784,24 @@
 			children = (
 			);
 			name = MD5;
+			sourceTree = "<group>";
+		};
+		36FA676C1E4EA4EC00061217 /* CallDieuVan */ = {
+			isa = PBXGroup;
+			children = (
+				36FA676D1E4EA50400061217 /* CallDieuVanViewController.swift */,
+				36FA676E1E4EA50400061217 /* CallDieuVanViewController.xib */,
+			);
+			name = CallDieuVan;
+			sourceTree = "<group>";
+		};
+		36FA67721E4EB2A100061217 /* ReceiveDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				36FA67731E4EB2BA00061217 /* ReceiveDetailTableViewCell.swift */,
+				36FA67741E4EB2BA00061217 /* ReceiveDetailTableViewCell.xib */,
+			);
+			name = ReceiveDetailCell;
 			sourceTree = "<group>";
 		};
 		36FCE95D1E4B18D600A72871 /* HenGioVC */ = {
@@ -773,6 +884,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36FA67761E4EB2BA00061217 /* ReceiveDetailTableViewCell.xib in Resources */,
 				36662D451E3C284B00B30245 /* TakePictureViewController.xib in Resources */,
 				3650246F1E38F3E800963E0B /* GhiChuViewController.xib in Resources */,
 				3618E57C1E31B91300756DB6 /* RegisterViewController.xib in Resources */,
@@ -781,6 +893,7 @@
 				36662D4F1E3C294700B30245 /* PhoneSearchViewController.xib in Resources */,
 				367CA5941E34C924004A6D59 /* RegisInfoAccountViewController.xib in Resources */,
 				36D76A041E37462A00E6E08B /* DonHoanViewController.xib in Resources */,
+				365D68541E51A29F0022F0B5 /* DeliveryViewController.xib in Resources */,
 				36662D4B1E3C293600B30245 /* QuetMaVachViewController.xib in Resources */,
 				361AC02E1E4DEAA800783D00 /* DoiDiaChiViewController.xib in Resources */,
 				364E0F881E311C170012BD45 /* MenuTableViewCell.xib in Resources */,
@@ -788,10 +901,11 @@
 				361395441E3398CC00AA980C /* PurchaseViewController.xib in Resources */,
 				365024691E38ED5C00963E0B /* HoanDonViewController.xib in Resources */,
 				3613953F1E3398BA00AA980C /* HangVeKhoViewController.xib in Resources */,
-				36D76A111E3877D300E6E08B /* DeliveryTableViewCell.xib in Resources */,
+				36534C0B1E4F039100229DD5 /* RegisInfoFamilyTableViewCell.xib in Resources */,
 				367CA58F1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib in Resources */,
 				362B775B1E49BC1700768F32 /* PhoneSearchTableViewCell.xib in Resources */,
-				36D76A181E387DE000E6E08B /* DeliveryTappedTableViewCell.xib in Resources */,
+				36534C021E4EE8D300229DD5 /* ChuyenDonViewController.xib in Resources */,
+				361DCB291E5313950077755A /* DonGIaoMoiViewController.xib in Resources */,
 				364E0F811E311B230012BD45 /* MenuViewController.xib in Resources */,
 				361395351E33988600AA980C /* ReceiveTakePicViewController.xib in Resources */,
 				369AA9691E312093008C7272 /* ReceiveViewController.xib in Resources */,
@@ -801,10 +915,13 @@
 				364E0F611E311A2C0012BD45 /* Main.storyboard in Resources */,
 				36FCE9621E4B1A5C00A72871 /* HenGioViewController.xib in Resources */,
 				3613953A1E3398AA00AA980C /* NhanDonGiaoViewController.xib in Resources */,
-				369AA96E1E3123DE008C7272 /* DeliveryViewController.xib in Resources */,
+				36FA67701E4EA50400061217 /* CallDieuVanViewController.xib in Resources */,
 				36D76A211E38A67500E6E08B /* HoanThanhViewController.xib in Resources */,
 				364E0F7B1E311B070012BD45 /* MainViewController.xib in Resources */,
+				36534BFD1E4ED4C200229DD5 /* HuyDonViewController.xib in Resources */,
+				365D68591E51A45B0022F0B5 /* DeliveryCollectionViewCell.xib in Resources */,
 				36D769FF1E37461A00E6E08B /* DonHenGiaoViewController.xib in Resources */,
+				363DCC211E54B03E0012B0DF /* DonHoanTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,32 +943,39 @@
 				3618E57B1E31B91300756DB6 /* RegisterViewController.swift in Sources */,
 				364E0F871E311C170012BD45 /* MenuTableViewCell.swift in Sources */,
 				364E0F711E311ABF0012BD45 /* UIColor-Hex-Swift.swift in Sources */,
+				363DCC201E54B03E0012B0DF /* DonHoanTableViewCell.swift in Sources */,
 				3613953E1E3398BA00AA980C /* HangVeKhoViewController.swift in Sources */,
 				365024681E38ED5C00963E0B /* HoanDonViewController.swift in Sources */,
 				369AA96D1E3123DE008C7272 /* DeliveryViewController.swift in Sources */,
 				364E0F721E311ABF0012BD45 /* UIView+IBInspectable.swift in Sources */,
 				36D769FE1E37461A00E6E08B /* DonHenGiaoViewController.swift in Sources */,
+				365D68581E51A45B0022F0B5 /* DeliveryCollectionViewCell.swift in Sources */,
 				369AA9731E312442008C7272 /* ReceiveTableViewCell.swift in Sources */,
 				361395431E3398CC00AA980C /* PurchaseViewController.swift in Sources */,
 				36D76A201E38A67500E6E08B /* HoanThanhViewController.swift in Sources */,
+				36FA676F1E4EA50400061217 /* CallDieuVanViewController.swift in Sources */,
 				364E0F5C1E311A2C0012BD45 /* AppDelegate.swift in Sources */,
+				36534C011E4EE8D300229DD5 /* ChuyenDonViewController.swift in Sources */,
 				368CDF911E31CF7600A9C579 /* Extension.swift in Sources */,
 				36662D4A1E3C293600B30245 /* QuetMaVachViewController.swift in Sources */,
 				367CA58E1E34C8FC004A6D59 /* RegisInforFamilyViewController.swift in Sources */,
 				364E0F7A1E311B070012BD45 /* MainViewController.swift in Sources */,
-				36D76A171E387DE000E6E08B /* DeliveryTappedTableViewCell.swift in Sources */,
 				361395341E33988600AA980C /* ReceiveTakePicViewController.swift in Sources */,
+				36534C0A1E4F039100229DD5 /* RegisInfoFamilyTableViewCell.swift in Sources */,
+				36534BFC1E4ED4C200229DD5 /* HuyDonViewController.swift in Sources */,
 				36FCE9611E4B1A5C00A72871 /* HenGioViewController.swift in Sources */,
 				36D76A061E3756CB00E6E08B /* BaseViewController.swift in Sources */,
 				36D76A031E37462A00E6E08B /* DonHoanViewController.swift in Sources */,
 				36662D441E3C284B00B30245 /* TakePictureViewController.swift in Sources */,
 				36D76A0D1E3875C000E6E08B /* DeliveryObject.swift in Sources */,
-				36D76A101E3877D300E6E08B /* DeliveryTableViewCell.swift in Sources */,
+				36534C051E4EF2F800229DD5 /* NhanVien.swift in Sources */,
 				369AA9791E312904008C7272 /* LoginViewController.swift in Sources */,
 				361AC02D1E4DEAA800783D00 /* DoiDiaChiViewController.swift in Sources */,
 				362B775A1E49BC1700768F32 /* PhoneSearchTableViewCell.swift in Sources */,
+				361DCB281E5313950077755A /* DonGIaoMoiViewController.swift in Sources */,
 				365F676E1E364491001B6CEC /* ReceivePerson.swift in Sources */,
 				361395391E3398AA00AA980C /* NhanDonGiaoViewController.swift in Sources */,
+				36FA67751E4EB2BA00061217 /* ReceiveDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +1108,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = giaohangongvong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linecentury.giaohangongvong;
@@ -1006,6 +1131,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = giaohangongvong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lc++";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linecentury.giaohangongvong;

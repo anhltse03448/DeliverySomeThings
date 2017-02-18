@@ -105,14 +105,15 @@ extension QuetMaVachViewController : AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                NSLog("\(metadataObj.stringValue ?? "")")
+                //NSLog("\(metadataObj.stringValue ?? "")")
+                let value = metadataObj.stringValue ?? ""
                 if endTime != nil {
                     if Date().seconds(from: endTime!) >= 2 {
-                        self.view.makeToast("Ahihi", duration: 2.0, position: ToastPosition.center, style: nil)
+                        self.view.makeToast(value, duration: 2.0, position: ToastPosition.center, style: nil)
                         endTime = Date()
                     }
                 } else {
-                    self.view.makeToast("Ahihi", duration: 2.0, position: ToastPosition.center, style: nil)
+                    self.view.makeToast(value, duration: 2.0, position: ToastPosition.center, style: nil)
                     endTime = Date()
                 }
             }

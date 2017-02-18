@@ -8,11 +8,14 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import STPopup
 
 class MainViewController: UIViewController {
     @IBOutlet weak var btnMenu : UIButton!
     @IBOutlet weak var mainView : UIView!
     @IBOutlet weak var lblTitle : UILabel!
+    @IBOutlet weak var hotlineIcon : UIImageView!
+    
     static let sharedInstance = MainViewController()
     var slideMenu : SlideMenuController?
     override func awakeFromNib() {
@@ -32,9 +35,20 @@ class MainViewController: UIViewController {
         self.lblTitle.text = "Đơn Nhận"
         let notificationName = Notification.Name("TakePicture")
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.takePicture(notify:)), name: notificationName, object: nil)
+        hotlineIcon.isUserInteractionEnabled = true
+        hotlineIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MainViewController.callDieuVan(_:))))
     }
     
     override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    func callDieuVan(_ gesture : UITapGestureRecognizer) {
+//        let callDVVC = CallDieuVanViewController(nibName: "CallDieuVanViewController", bundle: nil)
+//        let stpopup = STPopupController(rootViewController: callDVVC)
+//        stpopup.present(in: self)
+        let phone = "0916661523"
+        guard let number = URL(string: "telprompt://" + phone) else { return }
+        UIApplication.shared.openURL(number)
     }
     
     override func didReceiveMemoryWarning() {

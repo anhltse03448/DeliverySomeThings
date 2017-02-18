@@ -26,6 +26,7 @@ class HenGioViewController: UIViewController {
     }
     
     @IBAction func closeTouchUp(_ sender : UIButton) {
+        DeliveryViewController.shouldLoad = false
         self.popupController?.dismiss()
     }
     @IBAction func datHenTouchUp(_ sender : UIButton) {
@@ -33,17 +34,23 @@ class HenGioViewController: UIViewController {
         let id_don_hang = dov?.id_don_hang ?? ""
         let ngay_hen = txtNgay.text ?? ""
         let gio_hen = txtGio.text ?? ""
-        if (ngay_hen != "") && (gio_hen != "") {
+        if (ngay_hen != "") {
             let param : [String : String] = ["session" : session.toBase64(),
                                              "id_don_hang" : id_don_hang,
                                              "ngay_hen" : ngay_hen.toBase64(),
                                              "gio_hen":gio_hen.toBase64()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/hengio", method: .post, parameters: param).response(completionHandler: { (response) in
-                let data = JSON.init(data: response.data!)
-                let warning = data["warning"].stringValue
-                DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
-                self.popupController?.dismiss()
+                if response.data != nil {
+                    let data = JSON.init(data: response.data!)
+                    let warning = data["warning"].stringValue
+                    DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                    self.popupController?.dismiss()
+                } else {
+                    self.popupController?.dismiss()
+                }                
             })
+        } else {
+            self.view.makeToast("Mời hẹn ngày ", duration: 2.0, position: .center)
         }
     }
     

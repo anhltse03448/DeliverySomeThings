@@ -93,9 +93,10 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
         switch index {
         case 0:
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveViewController.sharedInstance
+            NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
         case 1:
             MainViewController.sharedInstance.slideMenu?.mainViewController = DeliveryViewController.sharedInstance
-            let item = listItem[indexPath.section * 2 + indexPath.row]
+            NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
         case 2:
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveTakePicViewController.sharedInstance
         case 3:
@@ -112,6 +113,7 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
             
             let param : [String : String] = [session as! String : "session" ]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/logout", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
+                UserDefaults.standard.removeObject(forKey: "session")
                 self.hideLoadingHUD()
                 if response.response?.statusCode == 200 {
                     let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)

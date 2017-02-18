@@ -43,8 +43,7 @@ class GhiChuViewController: UIViewController {
                                              "id_don_hang" : (id_don_hang?.toBase64())!,
                                              "ghi_chu" : ghichu.toBase64()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/ghichu", method: .post, parameters: param).response(completionHandler: { (response) in
-                let data = JSON.init(data: response.data!)
-                NSLog("\(data)")
+                let data = JSON.init(data: response.data!)                
                 let warning = data["warning"].stringValue
                 DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
                 self.popupController?.dismiss()
@@ -53,6 +52,7 @@ class GhiChuViewController: UIViewController {
     }
     
     @IBAction func closeTouchUp(_ sender : UIButton) {
+        DeliveryViewController.shouldLoad = false
         self.popupController?.dismiss()
     }
     @IBAction func lydoTouchUp(_ sender : UIButton){
@@ -62,10 +62,14 @@ class GhiChuViewController: UIViewController {
             case 0:
                 str = "Không liên lạc được người nhận"
             let controller = MFMessageComposeViewController()
-            controller.body = "Chao a/c. Em ben GiaoHangOngVang.vn. A/c co hang tu \(dov?.ten_nguoi_gui). Em da lien lac voi a/c nhung khong duoc. Luc nao co thoi gian a/c ll lai voi em. Em cam on"
+            controller.body = "Chao a/c. Em ben GiaoHangOngVang.vn. A/c co hang tu \(dov?.ten_nguoi_gui ?? ""). Em da lien lac voi a/c nhung khong duoc. Luc nao co thoi gian a/c ll lai voi em. Em cam on"
             controller.recipients = [(dov?.sdt_nguoi_nhan)!]
             controller.messageComposeDelegate = self
+            DeliveryViewController.shouldLoad = false
+            //self.popupController?.dismiss()
             self.present(controller, animated: true, completion: nil)
+                
+            //self.popupController?.dismiss()
             case 1:
                 str = "Hẹn giờ"
                 self.popupController?.dismiss()
@@ -82,7 +86,8 @@ class GhiChuViewController: UIViewController {
                 //str = "Gọi shop"
                 let phone = dov?.sdt_nguoi_nhan
                 guard let number = URL(string: "telprompt://" + phone!) else { return }
-                UIApplication.shared.open(number, options: [:], completionHandler: nil)
+            UIApplication.shared.openURL(number)
+                //UIApplication.shared.open(number, options: [:], completionHandler: nil)
             default:
                 
             self.popupController?.dismiss()
@@ -97,7 +102,9 @@ class GhiChuViewController: UIViewController {
 extension GhiChuViewController : MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         self.dismiss(animated: true) { 
-            
+            self.popupController?.dismiss(completion: { 
+                
+            })
         }
     }
 }

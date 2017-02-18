@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HoanDonViewController" customModule="giaohangongvong" customModuleProvider="target">
             <connections>
+                <outlet property="heightMoney" destination="9D8-df-kHk" id="3lL-qs-X6k"/>
+                <outlet property="money" destination="g80-7P-Oip" id="H7V-1T-WPZ"/>
                 <outlet property="txtGhiChu" destination="LmJ-oa-Khd" id="QXR-pW-ya6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -112,7 +114,7 @@
                     <rect key="frame" x="8" y="398" width="359" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N.Nhận T.toán cước" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzf-6J-YEq">
-                            <rect key="frame" x="2" y="4.5" width="152" height="21"/>
+                            <rect key="frame" x="2" y="5" width="152" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -128,6 +130,8 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="g80-7P-Oip" secondAttribute="trailing" constant="4" id="7ek-YW-4LS"/>
                         <constraint firstAttribute="height" constant="30" id="9D8-df-kHk"/>
+                        <constraint firstItem="uzf-6J-YEq" firstAttribute="height" relation="lessThanOrEqual" secondItem="rtv-vx-sZb" secondAttribute="height" id="QJH-ZT-4Tr"/>
+                        <constraint firstItem="g80-7P-Oip" firstAttribute="height" relation="lessThanOrEqual" secondItem="rtv-vx-sZb" secondAttribute="height" id="ZNZ-1r-2kb"/>
                         <constraint firstItem="g80-7P-Oip" firstAttribute="leading" secondItem="uzf-6J-YEq" secondAttribute="trailing" constant="4" id="d40-FB-zH3"/>
                         <constraint firstItem="uzf-6J-YEq" firstAttribute="centerY" secondItem="rtv-vx-sZb" secondAttribute="centerY" id="mEU-C8-ZEM"/>
                         <constraint firstItem="g80-7P-Oip" firstAttribute="centerY" secondItem="rtv-vx-sZb" secondAttribute="centerY" id="mYO-M9-SUq"/>

@@ -22,12 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         IQKeyboardManager.sharedManager().enable = true
-        let mainVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        
-        //AppDelegate.slideMenu = mainVC
-        self.window?.rootViewController = mainVC
-        self.window?.makeKeyAndVisible()
-
+        if UserDefaults.standard.value(forKey: "session") == nil {
+            let mainVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            self.window?.rootViewController = mainVC
+            self.window?.makeKeyAndVisible()
+        } else {
+            let mainVC = MainViewController(nibName: "MainViewController", bundle: nil)
+            self.window?.rootViewController = mainVC
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
    
