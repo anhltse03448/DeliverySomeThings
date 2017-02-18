@@ -111,6 +111,9 @@
 		36D76A1C1E38978700E6E08B /* STPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A191E38978000E6E08B /* STPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36D76A201E38A67500E6E08B /* HoanThanhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D76A1E1E38A67500E6E08B /* HoanThanhViewController.swift */; };
 		36D76A211E38A67500E6E08B /* HoanThanhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D76A1F1E38A67500E6E08B /* HoanThanhViewController.xib */; };
+		36E22D601E57DE1100E5E149 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E22D5E1E57DE1100E5E149 /* PurchaseTableViewCell.swift */; };
+		36E22D611E57DE1100E5E149 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E22D5F1E57DE1100E5E149 /* PurchaseTableViewCell.xib */; };
+		36E22D641E57E26600E5E149 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E22D631E57E26600E5E149 /* Purchase.swift */; };
 		36E2CAC81E31D4FB00CBC4A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; };
 		36E2CACE1E31D61600CBC4A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; };
 		36E2CACF1E31D61600CBC4A3 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -239,6 +242,9 @@
 		36D76A191E38978000E6E08B /* STPopup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STPopup.framework; path = giaohangongvong/Carthage/Build/iOS/STPopup.framework; sourceTree = "<group>"; };
 		36D76A1E1E38A67500E6E08B /* HoanThanhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoanThanhViewController.swift; sourceTree = "<group>"; };
 		36D76A1F1E38A67500E6E08B /* HoanThanhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoanThanhViewController.xib; sourceTree = "<group>"; };
+		36E22D5E1E57DE1100E5E149 /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
+		36E22D5F1E57DE1100E5E149 /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
+		36E22D631E57E26600E5E149 /* Purchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = giaohangongvong/Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		36E2CACA1E31D55900CBC4A3 /* giaohangongvong-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "giaohangongvong-Bridging-Header.h"; sourceTree = "<group>"; };
 		36FA676D1E4EA50400061217 /* CallDieuVanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallDieuVanViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +502,7 @@
 		364E0F831E311BFD0012BD45 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				36E22D5D1E57DE0000E5E149 /* ThanhToan */,
 				363DCC1D1E54B0280012B0DF /* DonHoan */,
 				36534C061E4F037600229DD5 /* Regis */,
 				362B77571E49BBFB00768F32 /* PhoneSearchCell */,
@@ -596,6 +603,7 @@
 		365F676B1E36447B001B6CEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				36E22D621E57E25700E5E149 /* ThanhToan */,
 				36534C031E4EF2E900229DD5 /* NhanVien */,
 				36D76A0B1E3875AC00E6E08B /* Delivery */,
 				365F676C1E364481001B6CEC /* Receive */,
@@ -779,6 +787,23 @@
 			name = HoanThanhPopUp;
 			sourceTree = "<group>";
 		};
+		36E22D5D1E57DE0000E5E149 /* ThanhToan */ = {
+			isa = PBXGroup;
+			children = (
+				36E22D5E1E57DE1100E5E149 /* PurchaseTableViewCell.swift */,
+				36E22D5F1E57DE1100E5E149 /* PurchaseTableViewCell.xib */,
+			);
+			name = ThanhToan;
+			sourceTree = "<group>";
+		};
+		36E22D621E57E25700E5E149 /* ThanhToan */ = {
+			isa = PBXGroup;
+			children = (
+				36E22D631E57E26600E5E149 /* Purchase.swift */,
+			);
+			name = ThanhToan;
+			sourceTree = "<group>";
+		};
 		36E2CAC91E31D54D00CBC4A3 /* MD5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -919,6 +944,7 @@
 				36D76A211E38A67500E6E08B /* HoanThanhViewController.xib in Resources */,
 				364E0F7B1E311B070012BD45 /* MainViewController.xib in Resources */,
 				36534BFD1E4ED4C200229DD5 /* HuyDonViewController.xib in Resources */,
+				36E22D611E57DE1100E5E149 /* PurchaseTableViewCell.xib in Resources */,
 				365D68591E51A45B0022F0B5 /* DeliveryCollectionViewCell.xib in Resources */,
 				36D769FF1E37461A00E6E08B /* DonHenGiaoViewController.xib in Resources */,
 				363DCC211E54B03E0012B0DF /* DonHoanTableViewCell.xib in Resources */,
@@ -960,12 +986,14 @@
 				36662D4A1E3C293600B30245 /* QuetMaVachViewController.swift in Sources */,
 				367CA58E1E34C8FC004A6D59 /* RegisInforFamilyViewController.swift in Sources */,
 				364E0F7A1E311B070012BD45 /* MainViewController.swift in Sources */,
+				36E22D641E57E26600E5E149 /* Purchase.swift in Sources */,
 				361395341E33988600AA980C /* ReceiveTakePicViewController.swift in Sources */,
 				36534C0A1E4F039100229DD5 /* RegisInfoFamilyTableViewCell.swift in Sources */,
 				36534BFC1E4ED4C200229DD5 /* HuyDonViewController.swift in Sources */,
 				36FCE9611E4B1A5C00A72871 /* HenGioViewController.swift in Sources */,
 				36D76A061E3756CB00E6E08B /* BaseViewController.swift in Sources */,
 				36D76A031E37462A00E6E08B /* DonHoanViewController.swift in Sources */,
+				36E22D601E57DE1100E5E149 /* PurchaseTableViewCell.swift in Sources */,
 				36662D441E3C284B00B30245 /* TakePictureViewController.swift in Sources */,
 				36D76A0D1E3875C000E6E08B /* DeliveryObject.swift in Sources */,
 				36534C051E4EF2F800229DD5 /* NhanVien.swift in Sources */,

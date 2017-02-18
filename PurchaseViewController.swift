@@ -12,10 +12,16 @@ import SwiftyJSON
 
 class PurchaseViewController: BaseViewController {
     @IBOutlet weak var tbl : UITableView!
+    
+    @IBOutlet weak var lblCanThanhToan : UILabel!
+    @IBOutlet weak var lblTTTrongNgay : UILabel!
+    @IBOutlet weak var lblNo : UILabel!
+    
     static let sharedInstance = PurchaseViewController()
     var sotien : Int = 0
     var listDelivery = [DeliveryObject]()
-    let identifier = "DonHoanTableViewCell"
+    let identifier = "PurchaseTableViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tbl.rowHeight = UITableViewAutomaticDimension
@@ -85,7 +91,7 @@ extension PurchaseViewController : UITableViewDataSource, UITableViewDelegate {
         return self.listDelivery.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbl.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DonHoanTableViewCell
+        let cell = tbl.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PurchaseTableViewCell
         cell.setData(dov: self.listDelivery[indexPath.row])
         
         return cell
