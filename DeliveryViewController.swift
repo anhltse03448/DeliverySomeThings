@@ -25,6 +25,8 @@ class DeliveryViewController: BaseViewController {
     var selectedIndexPath = [IndexPath]()
     static var shouldLoad : Bool = true
     
+    var arrOrder = [String]()
+    var listShowOnly = [DeliveryObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listDeliverys = [DeliveryObject]()
@@ -112,7 +114,6 @@ class DeliveryViewController: BaseViewController {
                     return
                 }
                 let data = JSON.init(data: response.data!)
-                NSLog("\(data)")
                 self.hideLoadingHUD()
                 let detail = data["detail"]
                 
@@ -123,6 +124,10 @@ class DeliveryViewController: BaseViewController {
                         //self.listDeliverys?.append(deo)
                     }
                     self.listDeliverys = tmp
+                    
+                    self.listShowOnly = self.processDataOrder() //showonly
+                    self.saveOrderData()
+                    
                     DispatchQueue.main.async {
                         self.tbl.reloadData()
                     }
@@ -140,6 +145,10 @@ class DeliveryViewController: BaseViewController {
                         self.tbl.reloadData()
                     }
                     self.listDeliverys = tmp
+                    
+                    
+                    self.listShowOnly = self.processDataOrder()  //show only
+                    self.saveOrderData()
                 }
             }
         }
@@ -150,14 +159,14 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listDeliverys?.count ?? 0
+        return min(70,listShowOnly.count)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierNormal, for: indexPath) as! DeliveryCollectionViewCell
         
         //cell.imgChuyen.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DeliveryViewController.handleLongGesture(gesture:))))
         
-        cell.setData(item: (listDeliverys?[indexPath.row])!)
+        cell.setData(item: (listShowOnly[indexPath.row]))
         cell.delegate = self
         if selectedIndexPath.contains(indexPath) {
             cell.viewTop.backgroundColor = UIColor.init(rgba: "#EBB003")
@@ -168,25 +177,25 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if selectedIndexPath.contains(indexPath) {
-            let item = listDeliverys?[indexPath.row]
+            let item = listShowOnly[indexPath.row]
             let width = collectionView.frame.width - 42
-            let height = item?.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))//50
+            let height = item.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))//50
             
             let width2 = collectionView.frame.width - 50
-            let height2 = item?.ghi_chu.heightWithConstrainedWidth(width: width2, font: UIFont.systemFont(ofSize: 15))
-            if height! <= 32 {
-                return CGSize.init(width: collectionView.frame.width, height: CGFloat(40 + 300 + height2!))
+            let height2 = item.ghi_chu.heightWithConstrainedWidth(width: width2, font: UIFont.systemFont(ofSize: 15))
+            if height <= 32 {
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(40 + 300 + height2))
             } else {
-                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height! + 8 + 300 + height2!))
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 8 + 300 + height2))
             }
         } else {
-            let item = listDeliverys?[indexPath.row]
+            let item = listShowOnly[indexPath.row]
             let width = collectionView.frame.width - 42
-            let height = item?.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))
-            if height! <= 32 {
+            let height = item.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))
+            if height <= 32 {
                 return CGSize.init(width: collectionView.frame.width, height: 40)
             } else {
-                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height! + 8 ))
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 8 ))
             }
             
         }
@@ -196,14 +205,57 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
         return true
     }
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let obj = listDeliverys?.remove(at: sourceIndexPath.row)
-        listDeliverys?.insert(obj!, at: destinationIndexPath.row)
+        let obj = listShowOnly.remove(at: sourceIndexPath.row)
+        listShowOnly.insert(obj, at: destinationIndexPath.row)
         saveOrderData()
+    }
+    
+    func processDataOrder() -> [DeliveryObject]{
+        var tmp : [DeliveryObject?] = []
+        let orderData = getOrderData()
+        for _ in orderData {
+            tmp.append(nil)
+        }
+        //var tmp : [DeliveryObject] = Array<DeliveryObject>.init(repeating: nil, count: orderData.count)
+        if orderData.count == 0 {
+            return self.listDeliverys!
+        }
+        for item2 in self.listDeliverys! {
+            let idDonHang = item2.id_don_hang
+            if orderData.contains(idDonHang) {
+                let pos = orderData.index(of: idDonHang)
+                tmp[pos!] = item2
+            } else {
+                tmp.append(item2)
+            }
+        }
+        for i in 0 ..< tmp.count {
+            if i < tmp.count {
+                if tmp[i] == nil {
+                    tmp.remove(at: i)
+                }
+            }
+        }
+        return tmp as! [DeliveryObject]
+    }
+    
+    func getOrderData() -> [String] {
+        let tmp = UserDefaults.standard.value(forKey: "OrderDonGiao")
+        if tmp != nil {
+            let arr = tmp as? [String]
+            if arr != nil {
+                return arr!
+            } else {
+                return []
+            }
+        } else {
+            return []
+        }
     }
     
     func saveOrderData(){
         var tmp = [String]()
-        for item in self.listDeliverys! {
+        for item in self.listShowOnly {
             let id = item.id_don_hang
             tmp.append(id)
         }

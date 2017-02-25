@@ -61,8 +61,12 @@ extension String {
         let formatter = NumberFormatter()
         formatter.groupingSeparator = ","
         formatter.numberStyle = .decimal
+        var aaa = self
+        if self == "" {
+            aaa = "0"
+        }
         
-        let str = formatter.number(from: self)
+        let str = formatter.number(from: aaa)
         return Number.formatterWithSeparator.string(from: str!)!
     }
 }

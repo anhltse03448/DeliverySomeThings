@@ -34,7 +34,11 @@ class TakePictureViewController: BaseViewController {
         for device in devices {
             if(device.position == AVCaptureDevicePosition.back){
                 do{
-                    
+                    if(device.isFocusModeSupported(.continuousAutoFocus)) {
+                        try! device.lockForConfiguration()
+                        device.focusMode = .continuousAutoFocus
+                        device.unlockForConfiguration()
+                    }
                     let input = try AVCaptureDeviceInput(device: device)
                     if(captureSession.canAddInput(input)){
                         captureSession.addInput(input);
@@ -150,27 +154,7 @@ class TakePictureViewController: BaseViewController {
                                             case .failure(let encodingError):
                                                 print("error:\(encodingError)")
                                             }
-                                })
-                                /*
-                                Alamofire.request("http://www.giaohangongvang.com/files/upload", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
-                                    let data = JSON.init(data: response.data!)
-                                    NSLog("Anh ne: \(data)")
-                                    let status = data["status"].stringValue
-                                    if status == "fail" {
-                                        let param : [String : String] = ["session" : self.getSession()]
-                                        Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/logout", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
-                                            UserDefaults.standard.removeObject(forKey: "session")
-                                            self.hideLoadingHUD()
-                                            if response.response?.statusCode == 200 {
-                                                let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-                                                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                                appDelegate.window?.rootViewController = loginVC
-                                            }
-                                        })
-                                    }
-                                })
-                                 */
-                            } catch let error as NSError {
+                                })                                                          } catch let error as NSError {
                                 print("Error creating directory: \(error.localizedDescription)")
                             }
                         }

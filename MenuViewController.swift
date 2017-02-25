@@ -44,7 +44,6 @@ class MenuViewController: BaseViewController {
         listItem.append(ItemObj(name: "Nhận đơn giao", img: "nhandon"))
         listItem.append(ItemObj(name: "Hàng về kho", img: "hangton"))
         listItem.append(ItemObj(name: "Thanh toán", img: "thanhtoan"))
-        listItem.append(ItemObj(name: "Update ứng dụng", img: "update"))
         listItem.append(ItemObj(name: "Đăng xuât", img: "logout"))
         tbl.showsVerticalScrollIndicator = false
     }
@@ -59,6 +58,9 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
         return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 3 {
+            return 1
+        }
         return 2
     }    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -116,8 +118,6 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
             MainViewController.sharedInstance.slideMenu?.mainViewController = HangVeKhoViewController.sharedInstance
         case 5:
             MainViewController.sharedInstance.slideMenu?.mainViewController = PurchaseViewController.sharedInstance
-        case 6:
-            NSLog("Update")
         default:
             self.showLoadingHUD()
             
