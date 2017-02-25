@@ -36,6 +36,9 @@ class DeliveryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var height5: NSLayoutConstraint!
     @IBOutlet weak var height6: NSLayoutConstraint!
     @IBOutlet weak var height7: NSLayoutConstraint!
+    
+    @IBOutlet weak var imgChuyen : UIImageView!
+    
     var delegate : DeliveryDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,12 +48,15 @@ class DeliveryCollectionViewCell: UICollectionViewCell {
     }
     func setData(item : DeliveryObject) {
         self.lblDC.text = item.dia_chi_nguoi_nhan
+        if self.lblDC.text == "" {
+            self.lblDC.text = "Chưa có địa chỉ nhận"
+        }
         self.lblbarcode.text = item.id_don_hang
         self.lbltenNhan.text = item.ten_nguoi_gui
         self.lblName.text = item.ten_nguoi_nhan
-        self.lblPhone.text = item.sdt_nguoi_gui
-        self.lblCash.text = item.cod
-        self.lblNote.text = item.ghi_chu
+        self.lblPhone.text = item.sdt_nguoi_nhan
+        self.lblCash.text = Int(item.cod)?.stringFormattedWithSeparator
+        self.lblNote.text = item.ghi_chu.replacingOccurrences(of: "\\n", with: "\n")
         
     }
     
