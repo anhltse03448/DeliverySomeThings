@@ -24,6 +24,7 @@ class DeliveryObject: NSObject {
     var lon : Double
     var cod: String
     var id_thanhpho_gui : String
+    var hang_lien_tinh : String
     init(json : JSON) {
         self.id_don_hang = json["id_don_hang"].stringValue
         self.ten_nguoi_gui = json["ten_nguoi_gui"].stringValue
@@ -39,5 +40,6 @@ class DeliveryObject: NSObject {
         self.lon = json["lon"].doubleValue
         self.cod = json["cod"].stringValue
         self.id_thanhpho_gui = json["id_thanhpho_gui"].stringValue
+        self.hang_lien_tinh = json["hang_lien_tinh"].stringValue
     }        
 }

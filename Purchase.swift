@@ -37,10 +37,13 @@ class Purchase: NSObject {
         self.id_don_hang = json["id_don_hang"].stringValue
         self.sdt_nguoi_nhan = json["sdt_nguoi_nhan"].stringValue
         self.dia_chi_nguoi_nhan = json["dia_chi_nguoi_nhan"].stringValue
-        self.nguoi_nhan_thanh_toan = json[nguoi_nhan_thanh_toan"].stringValue
+        self.nguoi_nhan_thanh_toan = json["nguoi_nhan_thanh_toan"].stringValue
         self.ten_nguoi_gui = json["ten_nguoi_gui"].stringValue
         self.ghi_chu = json["ghi_chu"].stringValue
         self.cod = json["cod"].stringValue
-
+        self.ngay_hoan_thanh = json["ngay_hoan_thanh"].stringValue
+        self.ten_nguoi_nhan = json["ten_nguoi_nhan"].stringValue
+        self.tinh_trang_don_hang = json["tinh_trang_don_hang"].stringValue
+        self.sdt_nguoi_gui = json["sdt_nguoi_gui"].stringValue
     }
 }

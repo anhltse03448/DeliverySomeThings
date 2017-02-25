@@ -27,8 +27,14 @@ class PurchaseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData() {
-        
+    func setData(purchase : Purchase) {
+        self.lblID.text = "ID đơn hàng: " + purchase.id_don_hang.replacingOccurrences(of: "\\n", with: "\n")
+        self.lblNguoiGui.text = "Người gửi: " + purchase.ten_nguoi_gui.replacingOccurrences(of: "\\n", with: "\n")
+        self.lblDCNguoiNhan.text = "Địa chỉ người nhận: " + purchase.dia_chi_nguoi_nhan.replacingOccurrences(of: "\\n", with: "\n")
+        self.sdt_nguoi_nhan.text = "SDT: " + purchase.sdt_nguoi_nhan.replacingOccurrences(of: "\\n", with: "\n")
+        self.lblCod.text = "COD: " + purchase.cod.replacingOccurrences(of: "\\n", with: "\n").stringFormattedWithSeprator
+        self.lblThucThu.text = "Thực thu: " + purchase.nguoi_nhan_thanh_toan.replacingOccurrences(of: "\\n", with: "\n").stringFormattedWithSeprator
+        self.lblGhiChu.text = "Ghi Chú: " + purchase.ghi_chu.replacingOccurrences(of: "\\n", with: "\n")
     }
     
 }

@@ -49,14 +49,20 @@ class DoiDiaChiViewController: BaseViewController {
     }
     
     @IBAction func doiDCTouchUp(_ sender : UIButton) {
+        DeliveryViewController.shouldLoad = true
         let dcdoi = txtDCNhap.text ?? ""
         let id_don_hang = dov?.id_don_hang ?? ""
+        if id_quan == "" {
+            self.view.makeToast("Chọn quận", duration: 2.0, position: .center)
+            return
+        }
         let param : [String : String] = ["session" : self.getSession(),
                                          "id_don_hang" : id_don_hang.toBase64(),
                                          "dia_chi_doi" : dcdoi.toBase64(),
                                          "id_thanh_pho" : "\(chooseTP!)".toBase64(),
                                          "id_quan" :  id_quan.toBase64()]
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/doi-diachi", method: .post, parameters: param).responseJSON { (response) in
+            DeliveryViewController.shouldLoad = true
             let data = JSON.init(data: response.data!)
             let warning = data["warning"].stringValue
             DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)

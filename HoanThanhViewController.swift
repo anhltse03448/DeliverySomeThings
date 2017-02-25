@@ -19,6 +19,7 @@ class HoanThanhViewController: BaseViewController {
     @IBOutlet weak var lblThucThu : UITextField!
     @IBOutlet weak var lblGuiXe : UITextField!
     @IBOutlet weak var lblGhiChu : UITextView!
+    @IBOutlet weak var lblThuHo : UILabel!
     var item : DeliveryObject?
     var boolguixe : Bool = false
     
@@ -28,12 +29,17 @@ class HoanThanhViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.popupController?.navigationBar.backgroundColor = UIColor.init(rgba: "#EBB003")        
-        self.contentSizeInPopup  = CGSize(width: 300, height: 350 - HEIGHT_PRICE)
-        self.landscapeContentSizeInPopup = CGSize(width: 300, height: 350 - HEIGHT_PRICE)
+        self.contentSizeInPopup  = CGSize(width: 300, height: 390 - HEIGHT_PRICE)
+        self.landscapeContentSizeInPopup = CGSize(width: 300, height: 390 - HEIGHT_PRICE)
+        
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.popupController?.navigationBarHidden = true
+        lblThuHo.text = Int((item?.cod)!)?.stringFormattedWithSeparator
+        lblThucThu.text = Int((item?.cod)!)?.stringFormattedWithSeparator
+        //lblGuiXe.text = Int(item?)
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,11 +59,20 @@ class HoanThanhViewController: BaseViewController {
         } else {
             co_hang_hoan = "false"
         }
-        let thuc_thu = lblThucThu.text ?? ""
+        var thuc_thu = lblThucThu.text ?? ""
+        thuc_thu = thuc_thu.replacingOccurrences(of: ",", with: "")
         let gui_xe = lblGuiXe.text ?? ""
         var ghi_chu = lblGhiChu.text ?? ""
         if ghi_chu == "" {
             if isCoHangHoan {
+                self.view.makeToast("Nhập ghi chú", duration: 2.0, position: .center)
+                return
+            }
+        }
+        
+        let txtThuHo = lblThuHo.text?.replacingOccurrences(of: ",", with: "").replacingOccurrences(of: " ", with: "")
+        if thuc_thu != txtThuHo {
+            if ghi_chu == "" {
                 self.view.makeToast("Nhập ghi chú", duration: 2.0, position: .center)
                 return
             }
@@ -74,7 +89,15 @@ class HoanThanhViewController: BaseViewController {
                                          "ghi_chu" : ghi_chu.toBase64()
         ]
         
+        if isCoGuiXe {
+            if gui_xe == "" {
+                self.view.makeToast("Nhập tiền gửi xe", duration: 2.0, position: .center)
+                return
+            }
+        }
+        
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/hoan-thanh-don", method: .post, parameters: param).responseJSON { (response) in
+            DeliveryViewController.shouldLoad = true
             if response.data != nil {
                 let json = JSON.init(data: response.data!)
                 NSLog("\(json)")
@@ -96,16 +119,35 @@ class HoanThanhViewController: BaseViewController {
         }
     }
     
+    @IBAction func thucThuDidChange(_ sender: Any) {
+        let txt = lblThucThu.text
+        let txtConvert = txt?.replacingOccurrences(of: ",", with: "")
+        if txtConvert != nil {
+            if txtConvert != "" {
+                lblThucThu.text = Int(txtConvert!)?.stringFormattedWithSeparator
+            }
+        }
+    }
+    
+    @IBAction func guixeDidChange(_ sender: Any) {
+        let txt = lblGuiXe.text
+        let txtConvert = txt?.replacingOccurrences(of: ",", with: "")
+        if txtConvert != nil {
+            if txtConvert != "" {
+                lblGuiXe.text = Int(txtConvert!)?.stringFormattedWithSeparator
+            }
+        }
+    }
     @IBAction func coguixe(_ sender : UIButton){
         isCoGuiXe = !isCoGuiXe
         if isCoGuiXe {
             btnCoGuiXe.setImage(UIImage.init(named: "checked"), for: UIControlState.normal)
             heightPriceConstraint.constant = HEIGHT_PRICE
-            self.contentSizeInPopup = CGSize(width: 300, height: 350)
+            self.contentSizeInPopup = CGSize(width: 300, height: 390)
         } else {
             btnCoGuiXe.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
             heightPriceConstraint.constant = 0
-            self.contentSizeInPopup = CGSize(width: 300, height: 350 - HEIGHT_PRICE)
+            self.contentSizeInPopup = CGSize(width: 300, height: 390 - HEIGHT_PRICE)
         }
     }
 }

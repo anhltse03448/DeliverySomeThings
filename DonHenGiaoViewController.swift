@@ -21,6 +21,7 @@ class DonHenGiaoViewController: BaseViewController {
         tbl.rowHeight = UITableViewAutomaticDimension
         tbl.estimatedRowHeight = 100
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)
         // Do any additional setup after loading the view.
     }
 
@@ -39,6 +40,7 @@ class DonHenGiaoViewController: BaseViewController {
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/list-donhang-hen", method: .post, parameters: param).responseJSON { (response) in
             self.hideLoadingHUD()
             let data = JSON.init(data: response.data!)
+            NSLog("\(data)")
             let status = data["status"].stringValue
             if status != "fail" {
                 let details = data["detail"].arrayValue

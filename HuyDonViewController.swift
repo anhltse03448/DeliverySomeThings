@@ -24,6 +24,10 @@ class HuyDonViewController: BaseViewController {
         self.lblDisplay.text = "Hủy \(count ?? 0) đơn của \(nameShop)"
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        txtLydo.becomeFirstResponder()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,8 +40,10 @@ class HuyDonViewController: BaseViewController {
     }
     
     @IBAction func huydon(_ sender : UIButton) {
-        if (txtLydo.text == nil) {
+        let textLyDo = txtLydo.text ?? ""
+        if (textLyDo == "") {
             self.view.makeToast("Nhập lý do", duration: 2.0, position: .center)
+            return
         } else {
             let session = self.getSession()
             let ghi_chu = txtLydo.text ?? ""
@@ -45,12 +51,12 @@ class HuyDonViewController: BaseViewController {
                                              "ghi_chu" : ghi_chu.toBase64(),
                                              "list" : list.toBase64()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/huy-don", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
+                ReceiveViewController.shouldLoad = true
                 let data = JSON.init(data: response.data!)
-                NSLog("\(data)")
                 let warning = data["warning"].stringValue
                 ReceiveViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
-                NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceive")))
                 self.popupController?.dismiss()
+                NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceive")))                
             })
         }
     }

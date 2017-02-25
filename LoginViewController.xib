@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,6 +63,7 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="touchOutSide:" destination="-2" eventType="touchUpOutside" id="tkv-8V-x3j"/>
+                                                <action selector="txtUserNameChange:" destination="-1" eventType="editingChanged" id="WAJ-l7-VXb"/>
                                             </connections>
                                         </textField>
                                     </subviews>
@@ -80,7 +81,7 @@
                                     <rect key="frame" x="0.0" y="79" width="375" height="80"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EG6-MJ-jPW">
-                                            <rect key="frame" x="16" y="4" width="343" height="72.5"/>
+                                            <rect key="frame" x="16" y="4" width="343" height="73"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -112,16 +113,16 @@
                             <rect key="frame" x="0.0" y="159" width="375" height="106"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oit-c0-E30">
-                                    <rect key="frame" x="16" y="63.5" width="343" height="42.5"/>
+                                    <rect key="frame" x="16" y="64" width="343" height="42"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="upl-WX-o4r">
-                                            <rect key="frame" x="4" y="4" width="35" height="34.5"/>
+                                            <rect key="frame" x="4" y="5" width="35" height="34"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="upl-WX-o4r" secondAttribute="height" multiplier="1:1" id="GFE-X2-hgK"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hiển thị mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdV-Bf-IX0">
-                                            <rect key="frame" x="43" y="13.5" width="113" height="17"/>
+                                            <rect key="frame" x="43" y="14" width="113" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -137,10 +138,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ooc-Pc-aus">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3La-ty-zv2">
-                                            <rect key="frame" x="16" y="4" width="343" height="55.5"/>
+                                            <rect key="frame" x="16" y="4" width="343" height="56"/>
                                             <color key="backgroundColor" red="0.92156862745098034" green="0.69019607843137254" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                             <state key="normal" title="ĐĂNG NHẬP"/>
                                             <userDefinedRuntimeAttributes>
@@ -191,7 +192,7 @@
                     <rect key="frame" x="0.0" y="467" width="375" height="200"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0t-HR-NT8">
-                            <rect key="frame" x="153" y="168.5" width="70.5" height="15.5"/>
+                            <rect key="frame" x="153" y="168" width="71" height="16"/>
                             <attributedString key="attributedText">
                                 <fragment content="Đăng kí mới">
                                     <attributes>

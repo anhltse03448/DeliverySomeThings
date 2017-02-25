@@ -21,7 +21,7 @@ class ChuyenDonViewController: BaseViewController {
     @IBOutlet weak var lblShow : UILabel!
     var listNV = [NhanVien]()
     var nhanVienChon : String = ""
-    
+    var pickerNV = UIPickerView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.popupController?.navigationBarHidden = true
@@ -42,18 +42,28 @@ class ChuyenDonViewController: BaseViewController {
         let session = self.getSession()
         let id_nhan_vien_chuyen = self.nhanVienChon
         let ghi_chu = lydo.text ?? ""
-        
-        let param : [String : String] = ["session" : session,
-                                         "id_nhan_vien_chuyen" : id_nhan_vien_chuyen.toBase64(),
-                                         "ghi_chu" : ghi_chu.toBase64(),
-                                         "list" : list.toBase64()]
-        
-        Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/chuyen-don", method: .post, parameters: param).responseJSON { (response) in
-            let data = JSON.init(data: response.data!)
-            let warning = data["warning"].stringValue
-            ReceiveViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
-            NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceive")))
-            self.popupController?.dismiss()
+        if ghi_chu == "" {
+            self.view.makeToast("Nhập ghi chú", duration: 2.0, position: .center)
+            return
+        } else if id_nhan_vien_chuyen == "" {
+            self.view.makeToast("Chọn Nhân viên", duration: 2.0, position: .center)
+            return
+        }
+        else {
+            let param : [String : String] = ["session" : session,
+                                             "id_nhan_vien_chuyen" : id_nhan_vien_chuyen.toBase64(),
+                                             "ghi_chu" : ghi_chu.toBase64(),
+                                             "list" : list.toBase64()]
+            
+            Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/chuyen-don", method: .post, parameters: param).responseJSON { (response) in
+                ReceiveViewController.shouldLoad = true
+                self.popupController?.dismiss()
+                let data = JSON.init(data: response.data!)
+                let warning = data["warning"].stringValue
+                ReceiveViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceive")))
+                
+            }
         }
     }
     
@@ -77,10 +87,10 @@ class ChuyenDonViewController: BaseViewController {
     }
     
     func setInputView() {
-        let pickerView = UIPickerView()
-        pickerView.dataSource = self
-        pickerView.delegate = self
-        txtNV.inputView = pickerView
+        
+        pickerNV.dataSource = self
+        pickerNV.delegate = self
+        txtNV.inputView = pickerNV
     }
     
     @IBAction func chuyenDonTouchUp(_ sender : UIButton) {
@@ -90,6 +100,13 @@ class ChuyenDonViewController: BaseViewController {
     @IBAction func closeTouchUp(_ sender : UIButton) {
         ReceiveViewController.shouldLoad = false
         self.popupController?.dismiss()
+    }
+    @IBAction func nhanVienDidBegin(_ sender: Any) {
+        if self.nhanVienChon == "" {
+            pickerNV.selectRow(0, inComponent: 0, animated: true)
+            self.nhanVienChon = listNV[0].id_nhan_vien
+            txtNV.text = listNV[0].ho_ten
+        }
     }
 }
 extension ChuyenDonViewController : UIPickerViewDataSource , UIPickerViewDelegate {

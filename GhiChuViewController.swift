@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import STPopup
 
-class GhiChuViewController: UIViewController {
+class GhiChuViewController: BaseViewController {
     @IBOutlet weak var txtghichu : UITextView!
     var dov : DeliveryObject?
     static let sharedInstance = GhiChuViewController()
@@ -35,14 +35,15 @@ class GhiChuViewController: UIViewController {
     }
     
     @IBAction func ghichuTouchUp(_ sender : UIButton){
-        let session = UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session) 
+        DeliveryViewController.shouldLoad = true
         let id_don_hang = dov?.id_don_hang
         let ghichu = txtghichu.text ?? ""
         if ghichu != "" {
-            let param : [String : String] = ["session" : session.toBase64(),
+            let param : [String : String] = ["session" : self.getSession(),
                                              "id_don_hang" : (id_don_hang?.toBase64())!,
                                              "ghi_chu" : ghichu.toBase64()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/ghichu", method: .post, parameters: param).response(completionHandler: { (response) in
+                DeliveryViewController.shouldLoad = true
                 let data = JSON.init(data: response.data!)                
                 let warning = data["warning"].stringValue
                 DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
@@ -53,7 +54,9 @@ class GhiChuViewController: UIViewController {
     
     @IBAction func closeTouchUp(_ sender : UIButton) {
         DeliveryViewController.shouldLoad = false
-        self.popupController?.dismiss()
+        self.popupController?.dismiss(completion: { 
+            ReceiveViewController.shouldLoad = false
+        })
     }
     @IBAction func lydoTouchUp(_ sender : UIButton){
         let tag = sender.tag
@@ -72,25 +75,45 @@ class GhiChuViewController: UIViewController {
             //self.popupController?.dismiss()
             case 1:
                 str = "Hẹn giờ"
-                self.popupController?.dismiss()
-                let hengioVC = HenGioViewController(nibName: "HenGioViewController", bundle: nil)
-                hengioVC.dov = self.dov
-                let stpopup = STPopupController(rootViewController: hengioVC)
-                stpopup.present(in: DeliveryViewController.sharedInstance)
+                //self.popupController?.dismiss()
+                DeliveryViewController.sharedInstance.ghiChuVC?.dismiss(animated: true, completion: { 
+                    let hengioVC = HenGioViewController(nibName: "HenGioViewController", bundle: nil)
+                    hengioVC.dov = self.dov
+                    let stpopup = STPopupController(rootViewController: hengioVC)
+                    stpopup.present(in: DeliveryViewController.sharedInstance)
+                })
+            
                 //
             case 2:
                 str = "Đơn hàng sai số điện thoại người nhận"
             case 3:
                 str = "Phụ cước"
+                if self.dov?.hang_lien_tinh == "" {
+                    DeliveryViewController.sharedInstance.ghiChuVC?.dismiss(animated: true, completion: {
+                        let hengioVC = PhuCuocNoiTinhViewController(nibName: "PhuCuocNoiTinhViewController", bundle: nil)
+                        hengioVC.dov = self.dov
+                        let stpopup = STPopupController(rootViewController: hengioVC)
+                        stpopup.present(in: DeliveryViewController.sharedInstance)
+                    })
+                } else {
+                    DeliveryViewController.sharedInstance.ghiChuVC?.dismiss(animated: true, completion: {
+                        let hengioVC = PhuCuocViewController(nibName: "PhuCuocViewController", bundle: nil)
+                        hengioVC.dov = self.dov
+                        let stpopup = STPopupController(rootViewController: hengioVC)
+                        stpopup.present(in: DeliveryViewController.sharedInstance)
+                    })
+                }
+            
             case 4:
                 //str = "Gọi shop"
-                let phone = dov?.sdt_nguoi_nhan
+                let phone = dov?.sdt_nguoi_gui
                 guard let number = URL(string: "telprompt://" + phone!) else { return }
             UIApplication.shared.openURL(number)
                 //UIApplication.shared.open(number, options: [:], completionHandler: nil)
             default:
-                
+            DeliveryViewController.shouldLoad = false
             self.popupController?.dismiss()
+            
             let doiDC = DoiDiaChiViewController(nibName: "DoiDiaChiViewController", bundle: nil)
             doiDC.dov = self.dov
             let stpopup = STPopupController(rootViewController: doiDC)
@@ -101,10 +124,9 @@ class GhiChuViewController: UIViewController {
 }
 extension GhiChuViewController : MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        self.dismiss(animated: true) { 
-            self.popupController?.dismiss(completion: { 
-                
-            })
+        controller.dismiss(animated: true) { 
+            
         }
+        
     }
 }

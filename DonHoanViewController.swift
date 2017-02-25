@@ -21,7 +21,7 @@ class DonHoanViewController: BaseViewController {
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
         tbl.rowHeight = UITableViewAutomaticDimension
         tbl.estimatedRowHeight = 100
-        // Do any additional setup after loading the view.
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {

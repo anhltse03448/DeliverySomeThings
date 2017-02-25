@@ -44,8 +44,8 @@ class NhanDonGiaoViewController: UIViewController {
         carbonTabSwipeNavigation.setNormalColor(UIColor(rgba: "#040D14"), font: UIFont.systemFont(ofSize: 13))
         carbonTabSwipeNavigation.setSelectedColor(UIColor(rgba: "#007D01"), font: UIFont.boldSystemFont(ofSize: 14))
         
-        for i in 0..<tabsName.count {
-            carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width / 2, forSegmentAt: i)
+        for i in 0..<tabsName.count - 1 {
+            carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width, forSegmentAt: i)
         }
     }
 }

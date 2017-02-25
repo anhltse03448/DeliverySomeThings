@@ -33,10 +33,11 @@ class MenuViewController: BaseViewController {
     @IBOutlet weak var tbl : UITableView!
     let identifier = "MenuTableViewCell"
     var listItem = [ItemObj]()
+    var indexPick : Int = -1
     override func viewDidLoad() {
         super.viewDidLoad()
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
-        tbl.separatorStyle = .none
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)
         listItem.append(ItemObj(name: "Đơn nhận", img: "nhanhang"))
         listItem.append(ItemObj(name: "Đơn giao", img: "delivery"))
         listItem.append(ItemObj(name: "Chụp đơn nhận", img: "camera"))
@@ -83,20 +84,30 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         let index = indexPath.section * 2 + indexPath.row
         if index != 7 {
             MainViewController.sharedInstance.slideMenu?.slideMenuController()?.closeLeft()
         }
         let item = listItem[indexPath.section * 2 + indexPath.row]
         MainViewController.sharedInstance.lblTitle.text = item.name
+        if self.indexPick != 0 {
+            ReceiveViewController.shouldLoad = false
+        } else if self.indexPick != 1{
+            DeliveryViewController.shouldLoad = false
+        }
         switch index {
         case 0:
+            ReceiveViewController.shouldLoad = true
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveViewController.sharedInstance
-            NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
+            if self.indexPick == index {
+                NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
+            }
         case 1:
+            DeliveryViewController.shouldLoad = true
             MainViewController.sharedInstance.slideMenu?.mainViewController = DeliveryViewController.sharedInstance
-            NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
+            if self.indexPick == index {
+                NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
+            }            
         case 2:
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveTakePicViewController.sharedInstance
         case 3:
@@ -109,9 +120,8 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
             NSLog("Update")
         default:
             self.showLoadingHUD()
-            let session = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session))
             
-            let param : [String : String] = [session as! String : "session" ]
+            let param : [String : String] = ["session" : self.getSession()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/logout", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
                 UserDefaults.standard.removeObject(forKey: "session")
                 self.hideLoadingHUD()
@@ -122,6 +132,7 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
                 }
             })
         }
+        self.indexPick = index
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

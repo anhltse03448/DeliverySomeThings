@@ -65,14 +65,38 @@ class MainViewController: UIViewController {
     }
     
     func takePicture(notify : Notification) {
-        NSLog("\(notify.object)")
+        
         let dict = notify.object as! NSDictionary
-        NSLog("\(dict)")
+        
         let num = dict.value(forKey: "numberPic")
         let k = Int(num as! String)
         
+        let date = dict.value(forKey: "Date")
+        var dateTxt = ""
+        if date != nil {
+            dateTxt = date as! String
+        }
+        
+        let shop = dict.value(forKey: "Shop")
+        var shopName = ""
+        if shop != nil {
+            shopName = shop as! String
+        }
+        
+        let nv = dict.value(forKey: "NhanVien")
+        var nvName = ""
+        if nv != nil {
+            nvName = nv as! String
+        }
+        
         let takePicVC = TakePictureViewController(nibName: "TakePictureViewController", bundle: nil)
+        takePicVC.dateTxt = dateTxt
         takePicVC.numberPic = k
+        let tmp = shopName.folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: " ", with: "")
+        NSLog("\(tmp)")
+        takePicVC.shopName = tmp
+        takePicVC.nvName = nvName.folding(options: .diacriticInsensitive, locale: .current).replacingOccurrences(of: " ", with: "")
+        
         self.present(takePicVC, animated: true, completion: nil)
     }
 }

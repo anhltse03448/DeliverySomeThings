@@ -24,7 +24,11 @@ class PhoneSearchViewController: BaseViewController {
         super.viewDidLoad()
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismisKeyboard(_:))))
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
-        tbl.separatorStyle = .none        
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        txtSearch.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +44,7 @@ class PhoneSearchViewController: BaseViewController {
             self.view.makeToast("Chưa nhập phone", duration: 2.0, position: .center)
             return
         }
-        let session = (UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String ).toBase64()
+        let session = self.getSession()
         let param : [String : String] = ["session" : session ,
                                          "sdt_nguoi_nhan" : phone.toBase64()]
         var tmp = [DeliveryObject]()
@@ -118,6 +122,8 @@ extension PhoneSearchViewController : PhoneSearchDelegate {
                 let json = JSON.init(data: response.data!)
                 let warning = json["warning"].stringValue
                 NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                self.listDvo.removeAll()
+                self.txtSearch.text = ""
             } else {
                 
             }

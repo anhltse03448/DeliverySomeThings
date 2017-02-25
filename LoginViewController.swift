@@ -27,10 +27,18 @@ class LoginViewController: BaseViewController {
         lblRegis.isUserInteractionEnabled = true
         lblRegis.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.lblRegisTap(_:))))
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismisKeyboard(_:))))
-        txtUserName.text = "test@gmail.com"
-        txtPassword.text = "123"
+//        txtUserName.text = "test@gmail.com"
+//        txtPassword.text = "123"
         txtPassword.isSecureTextEntry = true
         viewShowPassWord.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginViewController.btnShowPassTouchUp(gesture:))))
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let username = UserDefaults.standard.value(forKey: "Username")
+        if username != nil {
+            txtUserName.text = username as! String
+        } else {
+            
+        }
     }
     
     func dismisKeyboard(_ gesture : UITapGestureRecognizer) {
@@ -73,23 +81,29 @@ class LoginViewController: BaseViewController {
                 let appdelegate = UIApplication.shared.delegate as! AppDelegate
                 let mainVC = MainViewController(nibName: "MainViewController", bundle: nil)
                 let json = JSON(data: response.data!)
-                let details = json["detail"]
-                let session = details["session_id"].stringValue 
-                let ho_ten = details["ho_ten"].stringValue 
-                let id_thanh_pho = details["id_thanh_pho"].stringValue
-                let id_quan = details["id_quan"].stringValue
-                let id_phuong = details["id_phuong"].stringValue
-                
-                UserDefaults.standard.set(session, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session))
-                UserDefaults.standard.set(id_thanh_pho, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_tp))
-                UserDefaults.standard.set(id_quan, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_quan))
-                UserDefaults.standard.set(id_phuong, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_phuong))
-                UserDefaults.standard.set(ho_ten, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.ho_ten))
-                NSLog("\(session.toBase64())")
-                self.hideLoadingHUD()
-                appdelegate.window?.rootViewController = mainVC
+                let status = json["status"].stringValue
+                if status == "success" {
+                    let details = json["detail"]
+                    let session = details["session_id"].stringValue
+                    let ho_ten = details["ho_ten"].stringValue
+                    let id_thanh_pho = details["id_thanh_pho"].stringValue
+                    let id_quan = details["id_quan"].stringValue
+                    let id_phuong = details["id_phuong"].stringValue
+                    
+                    UserDefaults.standard.set(session, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session))
+                    UserDefaults.standard.set(id_thanh_pho, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_tp))
+                    UserDefaults.standard.set(id_quan, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_quan))
+                    UserDefaults.standard.set(id_phuong, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_phuong))
+                    UserDefaults.standard.set(ho_ten, forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.ho_ten))
+                    NSLog("\(session.toBase64())")
+                    self.hideLoadingHUD()
+                    appdelegate.window?.rootViewController = mainVC
+                } else {
+                    let warning = json["warning"].stringValue
+                    self.view.makeToast(warning, duration: 2.0, position: .bottom)
+                    self.hideLoadingHUD()
+                }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +124,10 @@ class LoginViewController: BaseViewController {
         }
     }
     
+    @IBAction func txtUserNameChange(_ sender: Any) {
+        let name = txtUserName.text
+        UserDefaults.standard.set(name, forKey: "Username")
+    }
     
 }
 
