@@ -19,10 +19,6 @@
 		3618E57C1E31B91300756DB6 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3618E57A1E31B91300756DB6 /* RegisterViewController.xib */; };
 		361AC02D1E4DEAA800783D00 /* DoiDiaChiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361AC02B1E4DEAA800783D00 /* DoiDiaChiViewController.swift */; };
 		361AC02E1E4DEAA800783D00 /* DoiDiaChiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361AC02C1E4DEAA800783D00 /* DoiDiaChiViewController.xib */; };
-		361AC0391E4DF82B00783D00 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC0381E4DF82B00783D00 /* libc++.tbd */; };
-		361AC03B1E4DF83300783D00 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC03A1E4DF83300783D00 /* libz.tbd */; };
-		361AC03D1E4DF83C00783D00 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC03C1E4DF83C00783D00 /* SystemConfiguration.framework */; };
-		361AC03F1E4DF84500783D00 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 361AC03E1E4DF84500783D00 /* Security.framework */; };
 		361DCB281E5313950077755A /* DonGIaoMoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361DCB261E5313950077755A /* DonGIaoMoiViewController.swift */; };
 		361DCB291E5313950077755A /* DonGIaoMoiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 361DCB271E5313950077755A /* DonGIaoMoiViewController.xib */; };
 		362B775A1E49BC1700768F32 /* PhoneSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */; };
@@ -32,7 +28,6 @@
 		362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		363DCC201E54B03E0012B0DF /* DonHoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */; };
 		363DCC211E54B03E0012B0DF /* DonHoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */; };
-		3648DB361E37436E0037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
 		3648DB371E3743750037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
 		3648DB381E3743750037F710 /* CarbonKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		364E0F5C1E311A2C0012BD45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364E0F5B1E311A2C0012BD45 /* AppDelegate.swift */; };
@@ -78,12 +73,6 @@
 		36665D641E3365E0006B18C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36665D631E3365E0006B18C0 /* Assets.xcassets */; };
 		36665D691E336B62006B18C0 /* ReceiveTappedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36665D671E336B62006B18C0 /* ReceiveTappedTableViewCell.swift */; };
 		36665D6A1E336B62006B18C0 /* ReceiveTappedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36665D681E336B62006B18C0 /* ReceiveTappedTableViewCell.xib */; };
-		36696C341E3CDF92005354BE /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36696C331E3CDF92005354BE /* DLRadioButton.framework */; };
-		36696C351E3CDF9D005354BE /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36696C331E3CDF92005354BE /* DLRadioButton.framework */; };
-		36696C361E3CDF9D005354BE /* DLRadioButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36696C331E3CDF92005354BE /* DLRadioButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		367CA5861E34C7A9004A6D59 /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CA5851E34C7A9004A6D59 /* CoreActionSheetPicker.framework */; };
-		367CA5871E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367CA5851E34C7A9004A6D59 /* CoreActionSheetPicker.framework */; };
-		367CA5881E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 367CA5851E34C7A9004A6D59 /* CoreActionSheetPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		367CA58E1E34C8FC004A6D59 /* RegisInforFamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CA58C1E34C8FC004A6D59 /* RegisInforFamilyViewController.swift */; };
 		367CA58F1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 367CA58D1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib */; };
 		367CA5931E34C924004A6D59 /* RegisInfoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367CA5911E34C924004A6D59 /* RegisInfoAccountViewController.swift */; };
@@ -147,10 +136,8 @@
 				36D76A0A1E3758B300E6E08B /* MBProgressHUD.framework in Embed Frameworks */,
 				36D76A1C1E38978700E6E08B /* STPopup.framework in Embed Frameworks */,
 				362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */,
-				367CA5881E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Embed Frameworks */,
 				36FCE9661E4B472600A72871 /* IQKeyboardManagerSwift.framework in Embed Frameworks */,
 				364E0F8A1E311D4E0012BD45 /* SlideMenuControllerSwift.framework in Embed Frameworks */,
-				36696C361E3CDF9D005354BE /* DLRadioButton.framework in Embed Frameworks */,
 				36E2CACF1E31D61600CBC4A3 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -224,8 +211,6 @@
 		36665D631E3365E0006B18C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36665D671E336B62006B18C0 /* ReceiveTappedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiveTappedTableViewCell.swift; sourceTree = "<group>"; };
 		36665D681E336B62006B18C0 /* ReceiveTappedTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveTappedTableViewCell.xib; sourceTree = "<group>"; };
-		36696C331E3CDF92005354BE /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLRadioButton.framework; path = giaohangongvong/Carthage/Build/iOS/DLRadioButton.framework; sourceTree = "<group>"; };
-		367CA5851E34C7A9004A6D59 /* CoreActionSheetPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreActionSheetPicker.framework; path = giaohangongvong/Carthage/Build/iOS/CoreActionSheetPicker.framework; sourceTree = "<group>"; };
 		367CA58C1E34C8FC004A6D59 /* RegisInforFamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisInforFamilyViewController.swift; sourceTree = "<group>"; };
 		367CA58D1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisInforFamilyViewController.xib; sourceTree = "<group>"; };
 		367CA5911E34C924004A6D59 /* RegisInfoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisInfoAccountViewController.swift; sourceTree = "<group>"; };
@@ -275,29 +260,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				361AC03F1E4DF84500783D00 /* Security.framework in Frameworks */,
-				361AC03D1E4DF83C00783D00 /* SystemConfiguration.framework in Frameworks */,
-				361AC03B1E4DF83300783D00 /* libz.tbd in Frameworks */,
-				361AC0391E4DF82B00783D00 /* libc++.tbd in Frameworks */,
 				36D76A1A1E38978000E6E08B /* STPopup.framework in Frameworks */,
 				3648DB371E3743750037F710 /* CarbonKit.framework in Frameworks */,
 				365F67691E3641BB001B6CEC /* SwiftyJSON.framework in Frameworks */,
 				362B775D1E49C77100768F32 /* ToastSwiftFramework.framework in Frameworks */,
-				367CA5861E34C7A9004A6D59 /* CoreActionSheetPicker.framework in Frameworks */,
 				364E0F741E311AD30012BD45 /* SlideMenuControllerSwift.framework in Frameworks */,
 				36FCE9651E4B472600A72871 /* IQKeyboardManagerSwift.framework in Frameworks */,
 				36E2CAC81E31D4FB00CBC4A3 /* Alamofire.framework in Frameworks */,
 				36D76A081E3758AE00E6E08B /* MBProgressHUD.framework in Frameworks */,
-				367CA5871E34C7B3004A6D59 /* CoreActionSheetPicker.framework in Frameworks */,
 				365F67681E3641B4001B6CEC /* SwiftyJSON.framework in Frameworks */,
 				36D76A091E3758B300E6E08B /* MBProgressHUD.framework in Frameworks */,
 				36D76A1B1E38978700E6E08B /* STPopup.framework in Frameworks */,
 				364E0F891E311D4E0012BD45 /* SlideMenuControllerSwift.framework in Frameworks */,
 				362B775E1E49C77E00768F32 /* ToastSwiftFramework.framework in Frameworks */,
 				36FCE9641E4B470300A72871 /* IQKeyboardManagerSwift.framework in Frameworks */,
-				36696C341E3CDF92005354BE /* DLRadioButton.framework in Frameworks */,
-				3648DB361E37436E0037F710 /* CarbonKit.framework in Frameworks */,
-				36696C351E3CDF9D005354BE /* DLRadioButton.framework in Frameworks */,
 				36E2CACE1E31D61600CBC4A3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,12 +412,10 @@
 			children = (
 				36FCE9631E4B470300A72871 /* IQKeyboardManagerSwift.framework */,
 				362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */,
-				36696C331E3CDF92005354BE /* DLRadioButton.framework */,
 				36D76A191E38978000E6E08B /* STPopup.framework */,
 				36D76A071E3758AE00E6E08B /* MBProgressHUD.framework */,
 				3648DB351E37436E0037F710 /* CarbonKit.framework */,
 				365F67671E3641B4001B6CEC /* SwiftyJSON.framework */,
-				367CA5851E34C7A9004A6D59 /* CoreActionSheetPicker.framework */,
 				36E2CAC91E31D54D00CBC4A3 /* MD5 */,
 				36E2CAC71E31D4FB00CBC4A3 /* Alamofire.framework */,
 				364E0F731E311AD30012BD45 /* SlideMenuControllerSwift.framework */,
@@ -925,7 +899,7 @@
 				TargetAttributes = {
 					364E0F571E311A2C0012BD45 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 58T94JVAD5;
+						DevelopmentTeam = CM69L5FQSQ;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -1181,7 +1155,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 58T94JVAD5;
+				DEVELOPMENT_TEAM = CM69L5FQSQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/giaohangongvong/Carthage/Build/iOS",
@@ -1191,7 +1165,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = com.linecentury.giaohangongvong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huhuStudio.giaohangongvong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "giaohangongvong-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1204,7 +1178,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 58T94JVAD5;
+				DEVELOPMENT_TEAM = CM69L5FQSQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/giaohangongvong/Carthage/Build/iOS",
@@ -1214,7 +1188,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lc++";
-				PRODUCT_BUNDLE_IDENTIFIER = com.linecentury.giaohangongvong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huhuStudio.giaohangongvong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "giaohangongvong-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

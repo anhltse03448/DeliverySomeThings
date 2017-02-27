@@ -34,6 +34,7 @@ class MenuViewController: BaseViewController {
     let identifier = "MenuTableViewCell"
     var listItem = [ItemObj]()
     var indexPick : Int = -1
+    static let sharedInstace = MenuViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
@@ -46,6 +47,7 @@ class MenuViewController: BaseViewController {
         listItem.append(ItemObj(name: "Thanh toán", img: "thanhtoan"))
         listItem.append(ItemObj(name: "Đăng xuât", img: "logout"))
         tbl.showsVerticalScrollIndicator = false
+        //tbl.selectRow(at: IndexPath.init(row: 1, section: 1), animated: true, scrollPosition: .top)        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,27 +89,31 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let index = indexPath.section * 2 + indexPath.row
+        if index < 6 {
+            UserDefaults.standard.set(index, forKey: "Identify")
+        }
+        
         if index != 7 {
             MainViewController.sharedInstance.slideMenu?.slideMenuController()?.closeLeft()
         }
         let item = listItem[indexPath.section * 2 + indexPath.row]
         MainViewController.sharedInstance.lblTitle.text = item.name
-        if self.indexPick != 0 {
+        if MenuViewController.sharedInstace.indexPick != 0 {
             ReceiveViewController.shouldLoad = false
-        } else if self.indexPick != 1{
+        } else if MenuViewController.sharedInstace.indexPick != 1{
             DeliveryViewController.shouldLoad = false
         }
         switch index {
         case 0:
             ReceiveViewController.shouldLoad = true
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveViewController.sharedInstance
-            if self.indexPick == index {
+            if MenuViewController.sharedInstace.indexPick == index {
                 NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
             }
         case 1:
             DeliveryViewController.shouldLoad = true
             MainViewController.sharedInstance.slideMenu?.mainViewController = DeliveryViewController.sharedInstance
-            if self.indexPick == index {
+            if MenuViewController.sharedInstace.indexPick == index {
                 NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
             }            
         case 2:
@@ -132,7 +138,7 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
                 }
             })
         }
-        self.indexPick = index
+        MenuViewController.sharedInstace.indexPick = index
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

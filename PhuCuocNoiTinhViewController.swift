@@ -113,18 +113,18 @@ class PhuCuocNoiTinhViewController: BaseViewController {
         var cao = ""
         
         if btnKT1.isSelected == true {
-            dai = "10"
-            rong = "10"
-            cao = "10"
+            dai = "5"
+            rong = "5"
+            cao = "5"
             
         } else if btnKT2.isSelected == true {
-            dai = "20"
-            rong = "20"
-            cao = "20"
+            dai = "15"
+            rong = "15"
+            cao = "15"
         } else {
-            dai = "30"
-            rong = "30"
-            cao = "30"
+            dai = "25"
+            rong = "25"
+            cao = "25"
         }
         
         let param : [String : String] = ["session" : self.getSession(),

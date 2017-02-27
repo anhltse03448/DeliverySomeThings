@@ -186,7 +186,7 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
             if height <= 32 {
                 return CGSize.init(width: collectionView.frame.width, height: CGFloat(40 + 300 + height2))
             } else {
-                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 8 + 300 + height2))
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 300 + height2))
             }
         } else {
             let item = listShowOnly[indexPath.row]
@@ -229,11 +229,23 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
                 tmp.append(item2)
             }
         }
-        for i in 0 ..< tmp.count {
+//        for i in 0 ..< tmp.count {
+//            if i < tmp.count {
+//                if tmp[i] == nil {
+//                    tmp.remove(at: i)
+//                }
+//            }
+//        }
+        var i = 0
+        while i < tmp.count {
             if i < tmp.count {
                 if tmp[i] == nil {
                     tmp.remove(at: i)
+                } else {
+                    i = i + 1
                 }
+            } else {
+                break
             }
         }
         return tmp as! [DeliveryObject]
@@ -332,6 +344,7 @@ extension DeliveryViewController : DeliveryDelegate {
     }
     func expandse(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
+        self.tbl.scrollToItem(at: index!, at: UICollectionViewScrollPosition.top, animated: true)
         if selectedIndexPath.contains(index!) {
             let indexArr = selectedIndexPath.index(of: index!)!
             selectedIndexPath.remove(at: indexArr)

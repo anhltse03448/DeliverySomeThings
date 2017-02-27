@@ -83,7 +83,7 @@ class HoanDonViewController: BaseViewController {
             heightMoney.constant = 0
             id_huy_don = "10"
         default:
-            str = "Khác"
+            //khac
             self.contentSizeInPopup  = CGSize(width: 300, height: 500 + 30)
             heightMoney.constant = 30
             id_huy_don = "1"
