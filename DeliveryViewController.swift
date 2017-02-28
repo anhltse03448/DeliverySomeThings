@@ -186,7 +186,7 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
             if height <= 32 {
                 return CGSize.init(width: collectionView.frame.width, height: CGFloat(40 + 300 + height2))
             } else {
-                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 300 + height2))
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 8 + 300 + height2))
             }
         } else {
             let item = listShowOnly[indexPath.row]
