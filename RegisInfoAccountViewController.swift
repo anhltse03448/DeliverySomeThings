@@ -9,7 +9,10 @@
 import UIKit
 
 class RegisInfoAccountViewController: UIViewController {
-
+    @IBOutlet weak var txtGmail : UITextField!
+    @IBOutlet weak var txtPass : UITextField!
+    @IBOutlet weak var txtRepeatPass : UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +22,10 @@ class RegisInfoAccountViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func btnRegis(_ sender : UIButton){
+        
     }
     
 }

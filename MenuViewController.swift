@@ -33,19 +33,21 @@ class MenuViewController: BaseViewController {
     @IBOutlet weak var tbl : UITableView!
     let identifier = "MenuTableViewCell"
     var listItem = [ItemObj]()
+    var indexPick : Int = -1
+    static let sharedInstace = MenuViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
-        tbl.separatorStyle = .none
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)
         listItem.append(ItemObj(name: "Đơn nhận", img: "nhanhang"))
         listItem.append(ItemObj(name: "Đơn giao", img: "delivery"))
         listItem.append(ItemObj(name: "Chụp đơn nhận", img: "camera"))
         listItem.append(ItemObj(name: "Nhận đơn giao", img: "nhandon"))
         listItem.append(ItemObj(name: "Hàng về kho", img: "hangton"))
         listItem.append(ItemObj(name: "Thanh toán", img: "thanhtoan"))
-        listItem.append(ItemObj(name: "Update ứng dụng", img: "update"))
         listItem.append(ItemObj(name: "Đăng xuât", img: "logout"))
         tbl.showsVerticalScrollIndicator = false
+        //tbl.selectRow(at: IndexPath.init(row: 1, section: 1), animated: true, scrollPosition: .top)        
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +60,9 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
         return 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 3 {
+            return 1
+        }
         return 2
     }    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -83,20 +88,34 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         let index = indexPath.section * 2 + indexPath.row
+        if index < 6 {
+            UserDefaults.standard.set(index, forKey: "Identify")
+        }
+        
         if index != 7 {
             MainViewController.sharedInstance.slideMenu?.slideMenuController()?.closeLeft()
         }
         let item = listItem[indexPath.section * 2 + indexPath.row]
         MainViewController.sharedInstance.lblTitle.text = item.name
+        if MenuViewController.sharedInstace.indexPick != 0 {
+            ReceiveViewController.shouldLoad = false
+        } else if MenuViewController.sharedInstace.indexPick != 1{
+            DeliveryViewController.shouldLoad = false
+        }
         switch index {
         case 0:
+            ReceiveViewController.shouldLoad = true
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveViewController.sharedInstance
-            NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
+            if MenuViewController.sharedInstace.indexPick == index {
+                NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
+            }
         case 1:
+            DeliveryViewController.shouldLoad = true
             MainViewController.sharedInstance.slideMenu?.mainViewController = DeliveryViewController.sharedInstance
-            NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
+            if MenuViewController.sharedInstace.indexPick == index {
+                NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
+            }            
         case 2:
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveTakePicViewController.sharedInstance
         case 3:
@@ -105,13 +124,10 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
             MainViewController.sharedInstance.slideMenu?.mainViewController = HangVeKhoViewController.sharedInstance
         case 5:
             MainViewController.sharedInstance.slideMenu?.mainViewController = PurchaseViewController.sharedInstance
-        case 6:
-            NSLog("Update")
         default:
             self.showLoadingHUD()
-            let session = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session))
             
-            let param : [String : String] = [session as! String : "session" ]
+            let param : [String : String] = ["session" : self.getSession()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/logout", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
                 UserDefaults.standard.removeObject(forKey: "session")
                 self.hideLoadingHUD()
@@ -122,6 +138,7 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
                 }
             })
         }
+        MenuViewController.sharedInstace.indexPick = index
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

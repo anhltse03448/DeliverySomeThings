@@ -21,7 +21,7 @@ class DonHoanViewController: BaseViewController {
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
         tbl.rowHeight = UITableViewAutomaticDimension
         tbl.estimatedRowHeight = 100
-        // Do any additional setup after loading the view.
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +34,7 @@ class DonHoanViewController: BaseViewController {
     
     func loadDonHoan() {
         let param : [String : String] = ["session" : self.getSession()]
+        NSLog("\(self.getSession())")
         var tmp = [DeliveryObject]()
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/list-donhang-hoan", method: .post, parameters: param).responseJSON { (response) in
             let data = JSON.init(data: response.data!)

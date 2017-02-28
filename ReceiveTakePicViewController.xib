@@ -51,8 +51,16 @@
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLk-NG-ZQf">
-                    <rect key="frame" x="149" y="214" width="77" height="30"/>
-                    <state key="normal" title="XÁC NHẬN"/>
+                    <rect key="frame" x="127.5" y="214" width="120" height="60"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="OLh-Wl-C4b"/>
+                        <constraint firstAttribute="width" constant="120" id="qKe-Cc-rbo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <state key="normal" title="XÁC NHẬN">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
                     <connections>
                         <action selector="confirmTouchUp:" destination="-1" eventType="touchUpInside" id="oUC-eG-BOl"/>
                     </connections>
@@ -63,7 +71,6 @@
                 <constraint firstAttribute="trailing" secondItem="TZV-d8-5NI" secondAttribute="trailing" constant="4" id="1ia-fr-I5A"/>
                 <constraint firstItem="TZV-d8-5NI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="88u-6s-Bd8"/>
                 <constraint firstItem="z5R-jM-rDG" firstAttribute="leading" secondItem="npa-za-5QF" secondAttribute="leading" id="9LU-NJ-a22"/>
-                <constraint firstItem="z5R-jM-rDG" firstAttribute="top" secondItem="npa-za-5QF" secondAttribute="bottom" constant="8" id="CfR-Y7-T32"/>
                 <constraint firstItem="z5R-jM-rDG" firstAttribute="trailing" secondItem="npa-za-5QF" secondAttribute="trailing" id="FbL-YN-0z1"/>
                 <constraint firstItem="hLk-NG-ZQf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hgs-nm-3QC"/>
                 <constraint firstItem="npa-za-5QF" firstAttribute="trailing" secondItem="TZV-d8-5NI" secondAttribute="trailing" id="J3c-xf-ppf"/>
@@ -74,6 +81,7 @@
                 <constraint firstAttribute="trailing" secondItem="EpV-UW-h6z" secondAttribute="trailing" constant="8" id="pId-eH-F7n"/>
                 <constraint firstItem="EpV-UW-h6z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="pcU-EE-jam"/>
                 <constraint firstItem="hLk-NG-ZQf" firstAttribute="top" secondItem="z5R-jM-rDG" secondAttribute="bottom" constant="8" id="rJK-cP-zPa"/>
+                <constraint firstItem="z5R-jM-rDG" firstAttribute="top" secondItem="npa-za-5QF" secondAttribute="bottom" constant="8" id="ulB-G7-EpX"/>
                 <constraint firstItem="npa-za-5QF" firstAttribute="height" secondItem="TZV-d8-5NI" secondAttribute="height" id="vzN-Dr-4kP"/>
                 <constraint firstItem="z5R-jM-rDG" firstAttribute="height" secondItem="npa-za-5QF" secondAttribute="height" id="z9J-UD-4od"/>
             </constraints>

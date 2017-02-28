@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="167" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1O-nV-LBv">
-                                    <rect key="frame" x="4" y="4" width="159" height="52"/>
+                                    <rect key="frame" x="2" y="4" width="163" height="52"/>
                                     <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                     <state key="normal" title="Chuyển đơn">
@@ -50,8 +50,8 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="v1O-nV-LBv" secondAttribute="bottom" constant="4" id="PEb-Cn-88v"/>
-                                <constraint firstAttribute="trailing" secondItem="v1O-nV-LBv" secondAttribute="trailing" constant="4" id="W9r-Lu-O4V"/>
-                                <constraint firstItem="v1O-nV-LBv" firstAttribute="leading" secondItem="6Te-ZU-rsL" secondAttribute="leading" constant="4" id="f7d-QU-y6L"/>
+                                <constraint firstAttribute="trailing" secondItem="v1O-nV-LBv" secondAttribute="trailing" constant="2" id="W9r-Lu-O4V"/>
+                                <constraint firstItem="v1O-nV-LBv" firstAttribute="leading" secondItem="6Te-ZU-rsL" secondAttribute="leading" constant="2" id="f7d-QU-y6L"/>
                                 <constraint firstItem="v1O-nV-LBv" firstAttribute="top" secondItem="6Te-ZU-rsL" secondAttribute="top" constant="4" id="tAP-Tm-F1c"/>
                             </constraints>
                         </view>
@@ -59,7 +59,7 @@
                             <rect key="frame" x="167" y="0.0" width="167" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tb5-ll-xLl">
-                                    <rect key="frame" x="4" y="4" width="159" height="52"/>
+                                    <rect key="frame" x="2" y="4" width="163" height="52"/>
                                     <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                     <state key="normal" title="Nhận đơn">
@@ -73,8 +73,8 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="tb5-ll-xLl" secondAttribute="bottom" constant="4" id="5VN-5D-bhP"/>
-                                <constraint firstAttribute="trailing" secondItem="tb5-ll-xLl" secondAttribute="trailing" constant="4" id="8Pp-Ig-fyH"/>
-                                <constraint firstItem="tb5-ll-xLl" firstAttribute="leading" secondItem="o55-pq-thn" secondAttribute="leading" constant="4" id="JUe-Ta-p2j"/>
+                                <constraint firstAttribute="trailing" secondItem="tb5-ll-xLl" secondAttribute="trailing" constant="2" id="8Pp-Ig-fyH"/>
+                                <constraint firstItem="tb5-ll-xLl" firstAttribute="leading" secondItem="o55-pq-thn" secondAttribute="leading" constant="2" id="JUe-Ta-p2j"/>
                                 <constraint firstItem="tb5-ll-xLl" firstAttribute="top" secondItem="o55-pq-thn" secondAttribute="top" constant="4" id="WAC-Zb-hni"/>
                             </constraints>
                         </view>
@@ -82,7 +82,7 @@
                             <rect key="frame" x="334" y="0.0" width="167" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-Zm-DWK">
-                                    <rect key="frame" x="4" y="4" width="159" height="52"/>
+                                    <rect key="frame" x="2" y="4" width="163" height="52"/>
                                     <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                     <state key="normal" title="Hủy đơn">
@@ -96,9 +96,9 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="B3C-Zm-DWK" secondAttribute="bottom" constant="4" id="E2q-gO-2OT"/>
-                                <constraint firstAttribute="trailing" secondItem="B3C-Zm-DWK" secondAttribute="trailing" constant="4" id="axY-1U-mli"/>
+                                <constraint firstAttribute="trailing" secondItem="B3C-Zm-DWK" secondAttribute="trailing" constant="2" id="axY-1U-mli"/>
                                 <constraint firstItem="B3C-Zm-DWK" firstAttribute="top" secondItem="U1L-Qu-y0w" secondAttribute="top" constant="4" id="jmR-dc-jjS"/>
-                                <constraint firstItem="B3C-Zm-DWK" firstAttribute="leading" secondItem="U1L-Qu-y0w" secondAttribute="leading" constant="4" id="p9m-71-JbC"/>
+                                <constraint firstItem="B3C-Zm-DWK" firstAttribute="leading" secondItem="U1L-Qu-y0w" secondAttribute="leading" constant="2" id="p9m-71-JbC"/>
                             </constraints>
                         </view>
                     </subviews>

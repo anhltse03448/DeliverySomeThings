@@ -3,10 +3,97 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "PhoneSearchViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:PhoneSearchViewController.swift">
+         contextName = "PhoneSearchViewController.(searchPhone(UIButton) -&gt; ()).(closure #1):PhoneSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tmp.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhoneSearchViewController.(searchPhone(UIButton) -&gt; ()).(closure #2):PhoneSearchViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.listDvo.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DonHenGiaoViewController.(loadDonHenGiao() -&gt; ()).(closure #1):DonHenGiaoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listDelivery.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DeliveryViewController.loadDonGiao() -&gt; ():DeliveryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.getSession()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReceiveViewController.reloadData() -&gt; ():ReceiveViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.getSession()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PurchaseTableViewCell.setData(purchase : Purchase) -&gt; ():PurchaseTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "purchase.nguoi_nhan_thanh_toan">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TakePictureViewController.btnEnd(UIButton) -&gt; ():TakePictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dataPath.absoluteString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TakePictureViewController.(takePicture() -&gt; ()).(closure #1):TakePictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.numberPic!">
+            </PersistentString>
+            <PersistentString
+               value = "self.dateTxt">
+            </PersistentString>
+            <PersistentString
+               value = "self.shopName">
+            </PersistentString>
+            <PersistentString
+               value = "self.nvID">
+            </PersistentString>
+            <PersistentString
+               value = "nvID">
+            </PersistentString>
+            <PersistentString
+               value = "self.getSession()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TakePictureViewController.(takePicture() -&gt; ()).(closure #1).(closure #2).(closure #1):TakePictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filename">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReceiveTakePicViewController.pickerView(UIPickerView, didSelectRow : Int, inComponent : Int) -&gt; ():ReceiveTakePicViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "listNV[row].id_nhan_vien">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -19,10 +106,69 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DeliveryViewController.collectionView(UICollectionView, numberOfItemsInSection : Int) -&gt; Int:DeliveryViewController.swift">
+         contextName = "ReceiveViewController.addValue(start : Int) -&gt; ():ReceiveViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "listDeliverys?.count">
+               value = "self.listDisplay">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReceiveViewController.viewWillAppear(Bool) -&gt; ():ReceiveViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ReceiveViewController.sharedInstance.shouldLoad">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PhoneSearchViewController.tableView(UITableView, numberOfRowsInSection : Int) -&gt; Int:PhoneSearchViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listDvo.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TakePictureViewController.(takePicture() -&gt; ()).(closure #1).(closure #1):TakePictureViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TakePictureViewController.(takePicture() -&gt; ()).(closure #1).(closure #2):TakePictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "multipartFormData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationDidBecomeActive(UIApplication) -&gt; ():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.value(forKey: &quot;Username&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ChuyenDonViewController.closeTouchUp(UIButton) -&gt; ():ChuyenDonViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ReceiveViewController.sharedInstance.shouldLoad">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RegisterViewController.viewDidLoad() -&gt; ():RegisterViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dstinh">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReceiveViewController.solveValue() -&gt; ():ReceiveViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -44,42 +190,51 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ReceiveViewController.viewWillAppear(Bool) -&gt; ():ReceiveViewController.swift">
+         contextName = "DeliveryViewController.collectionView(UICollectionView, numberOfItemsInSection : Int) -&gt; Int:DeliveryViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "ReceiveViewController.sharedInstance.shouldLoad">
+               value = "listDeliverys?.count">
+            </PersistentString>
+            <PersistentString
+               value = "listShowOnly.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RegisterViewController.viewDidLoad() -&gt; ():RegisterViewController.swift">
+         contextName = "ReceiveViewController.nhandon(UIButton) -&gt; ():ReceiveViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dstinh">
+               value = "indexHeader+1">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PhoneSearchViewController.(searchPhone(UIButton) -&gt; ()).(closure #2):PhoneSearchViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.listDvo.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ChuyenDonViewController.closeTouchUp(UIButton) -&gt; ():ChuyenDonViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ReceiveViewController.sharedInstance.shouldLoad">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DeliveryViewController.loadDonGiao() -&gt; ():DeliveryViewController.swift">
+         contextName = "DonHenGiaoViewController.loadDonHenGiao() -&gt; ():DonHenGiaoViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.getSession()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HuyDonViewController.huydon(UIButton) -&gt; ():HuyDonViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "list">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReceiveViewController.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:ReceiveViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.listChecked">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "self.listData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

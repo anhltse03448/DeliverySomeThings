@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class HenGioViewController: UIViewController {
+class HenGioViewController: BaseViewController {
     @IBOutlet weak var txtNgay : UITextField!
     @IBOutlet weak var txtGio : UITextField!
     var dov : DeliveryObject?
@@ -30,18 +30,20 @@ class HenGioViewController: UIViewController {
         self.popupController?.dismiss()
     }
     @IBAction func datHenTouchUp(_ sender : UIButton) {
-        let session = UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)
+        DeliveryViewController.shouldLoad = true
         let id_don_hang = dov?.id_don_hang ?? ""
         let ngay_hen = txtNgay.text ?? ""
         let gio_hen = txtGio.text ?? ""
         if (ngay_hen != "") {
-            let param : [String : String] = ["session" : session.toBase64(),
-                                             "id_don_hang" : id_don_hang,
+            let param : [String : String] = ["session" : self.getSession(),
+                                             "id_don_hang" : id_don_hang.toBase64(),
                                              "ngay_hen" : ngay_hen.toBase64(),
                                              "gio_hen":gio_hen.toBase64()]
             Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/hengio", method: .post, parameters: param).response(completionHandler: { (response) in
+                DeliveryViewController.shouldLoad = true
                 if response.data != nil {
                     let data = JSON.init(data: response.data!)
+                    NSLog("\(data)")
                     let warning = data["warning"].stringValue
                     DeliveryViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
                     self.popupController?.dismiss()

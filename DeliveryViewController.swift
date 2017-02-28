@@ -25,6 +25,8 @@ class DeliveryViewController: BaseViewController {
     var selectedIndexPath = [IndexPath]()
     static var shouldLoad : Bool = true
     
+    var arrOrder = [String]()
+    var listShowOnly = [DeliveryObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listDeliverys = [DeliveryObject]()
@@ -37,17 +39,6 @@ class DeliveryViewController: BaseViewController {
         
         
         self.tbl.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(DeliveryViewController.handleLongGesture(gesture:))))
-        
-        //        tbl.register(UINib.init(nibName: identifierNormal, bundle: nil), forCellReuseIdentifier: identifierNormal)
-        //        tbl.register(UINib.init(nibName: identifierTapped, bundle: nil), forCellReuseIdentifier: identifierTapped)
-        //        self.tbl.tableFooterView = UIView.init(frame: CGRect.zero)
-        //        tbl.isEditing = true
-        //        tbl.allowsSelectionDuringEditing = true
-        //
-        
-        
-        ////        tbl.rowHeight = UITableViewAutomaticDimension
-        ////        tbl.estimatedRowHeight = 100
     }
     
     func handleLongGesture(gesture: UILongPressGestureRecognizer) {
@@ -72,6 +63,7 @@ class DeliveryViewController: BaseViewController {
         case UIGestureRecognizerState.ended:
             if #available(iOS 9.0, *) {
                 tbl.endInteractiveMovement()
+                tbl.reloadData()
             } else {
                 // Fallback on earlier versions
             }
@@ -90,8 +82,12 @@ class DeliveryViewController: BaseViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         if DeliveryViewController.shouldLoad == true {
+            self.selectedIndexPath.removeAll()
+            
             self.loadDonGiao()
+            
         } else {
+            //
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -106,42 +102,55 @@ class DeliveryViewController: BaseViewController {
     }
     
     func loadDonGiao() {
-        DeliveryViewController.shouldLoad = true
+        DeliveryViewController.shouldLoad = false
         self.showLoadingHUD()
         let link = "http://www.giaohangongvang.com/api/nhanvien/list-donhang-giao"
         let param : [String : String] = ["session" : self.getSession()]
         var tmp = [DeliveryObject]()
-        Alamofire.request(link, method: .post, parameters: param).responseJSON { (response) in
-            if response.data == nil {
-                self.hideLoadingHUD()
-                return
-            }
-            let data = JSON.init(data: response.data!)
-            NSLog("\(data)")
-            let detail = data["detail"]
-            
-            if detail.array != nil {
-                for item in detail.array! {
-                    let deo = DeliveryObject(json: item)
-                    tmp.append(deo)
-                    //self.listDeliverys?.append(deo)
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
+            Alamofire.request(link, method: .post, parameters: param).responseJSON { (response) in
+                if response.data == nil {
+                    self.hideLoadingHUD()
+                    return
                 }
-                self.listDeliverys = tmp
-                DispatchQueue.main.async {
-                    self.tbl.reloadData()
-                }
+                let data = JSON.init(data: response.data!)
                 self.hideLoadingHUD()
+                let detail = data["detail"]
                 
-            } else {
-                self.hideLoadingHUD()
-                let status = data["status"].stringValue
-                if status != "success" {
-                    let warning = data["warning"].stringValue
-                    self.view.makeToast(warning, duration: 2.0, position: .center)
+                if detail.array != nil {
+                    for item in detail.array! {
+                        let deo = DeliveryObject(json: item)
+                        tmp.append(deo)
+                        //self.listDeliverys?.append(deo)
+                    }
+                    self.listDeliverys = tmp
+                    
+                    self.listShowOnly = self.processDataOrder() //showonly
+                    self.saveOrderData()
+                    
+                    DispatchQueue.main.async {
+                        self.tbl.reloadData()
+                    }
+                    
+                    self.hideLoadingHUD()
+                    
+                } else {
+                    self.hideLoadingHUD()
+                    let status = data["status"].stringValue
+                    if status != "success" {
+                        let warning = data["warning"].stringValue
+                        self.view.makeToast(warning, duration: 2.0, position: .center)
+                    }
+                    DispatchQueue.main.async {
+                        self.tbl.reloadData()
+                    }
+                    self.listDeliverys = tmp
+                    
+                    
+                    self.listShowOnly = self.processDataOrder()  //show only
+                    self.saveOrderData()
                 }
-                self.listDeliverys = tmp
             }
-            
         }
     }
 }
@@ -150,11 +159,14 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listDeliverys?.count ?? 0
+        return min(70,listShowOnly.count)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierNormal, for: indexPath) as! DeliveryCollectionViewCell
-        cell.setData(item: (listDeliverys?[indexPath.row])!)
+        
+        //cell.imgChuyen.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(DeliveryViewController.handleLongGesture(gesture:))))
+        
+        cell.setData(item: (listShowOnly[indexPath.row]))
         cell.delegate = self
         if selectedIndexPath.contains(indexPath) {
             cell.viewTop.backgroundColor = UIColor.init(rgba: "#EBB003")
@@ -165,18 +177,25 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if selectedIndexPath.contains(indexPath) {
-            let item = listDeliverys?[indexPath.row]
+            let item = listShowOnly[indexPath.row]
             let width = collectionView.frame.width - 42
-            let height = item?.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))
-            return CGSize.init(width: collectionView.frame.width, height: CGFloat(height! + 40 * 6 + 60 + 8 + 8))
+            let height = item.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))//50
+            
+            let width2 = collectionView.frame.width - 50
+            let height2 = item.ghi_chu.heightWithConstrainedWidth(width: width2, font: UIFont.systemFont(ofSize: 15))
+            if height <= 32 {
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(40 + 300 + height2))
+            } else {
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 8 + 300 + height2))
+            }
         } else {
-            let item = listDeliverys?[indexPath.row]
+            let item = listShowOnly[indexPath.row]
             let width = collectionView.frame.width - 42
-            let height = item?.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))
-            if height! <= 32 {
+            let height = item.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))
+            if height <= 32 {
                 return CGSize.init(width: collectionView.frame.width, height: 40)
             } else {
-                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height! + 8 ))
+                return CGSize.init(width: collectionView.frame.width, height: CGFloat(height + 8 ))
             }
             
         }
@@ -186,10 +205,73 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
         return true
     }
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let source = listDeliverys?[sourceIndexPath.row]
-        let obj = listDeliverys?.remove(at: sourceIndexPath.row)
-        let dest = listDeliverys?[destinationIndexPath.row]
-        listDeliverys?.insert(obj!, at: sourceIndexPath.row)
+        let obj = listShowOnly.remove(at: sourceIndexPath.row)
+        listShowOnly.insert(obj, at: destinationIndexPath.row)
+        saveOrderData()
+    }
+    
+    func processDataOrder() -> [DeliveryObject]{
+        var tmp : [DeliveryObject?] = []
+        let orderData = getOrderData()
+        for _ in orderData {
+            tmp.append(nil)
+        }
+        //var tmp : [DeliveryObject] = Array<DeliveryObject>.init(repeating: nil, count: orderData.count)
+        if orderData.count == 0 {
+            return self.listDeliverys!
+        }
+        for item2 in self.listDeliverys! {
+            let idDonHang = item2.id_don_hang
+            if orderData.contains(idDonHang) {
+                let pos = orderData.index(of: idDonHang)
+                tmp[pos!] = item2
+            } else {
+                tmp.append(item2)
+            }
+        }
+//        for i in 0 ..< tmp.count {
+//            if i < tmp.count {
+//                if tmp[i] == nil {
+//                    tmp.remove(at: i)
+//                }
+//            }
+//        }
+        var i = 0
+        while i < tmp.count {
+            if i < tmp.count {
+                if tmp[i] == nil {
+                    tmp.remove(at: i)
+                } else {
+                    i = i + 1
+                }
+            } else {
+                break
+            }
+        }
+        return tmp as! [DeliveryObject]
+    }
+    
+    func getOrderData() -> [String] {
+        let tmp = UserDefaults.standard.value(forKey: "OrderDonGiao")
+        if tmp != nil {
+            let arr = tmp as? [String]
+            if arr != nil {
+                return arr!
+            } else {
+                return []
+            }
+        } else {
+            return []
+        }
+    }
+    
+    func saveOrderData(){
+        var tmp = [String]()
+        for item in self.listShowOnly {
+            let id = item.id_don_hang
+            tmp.append(id)
+        }
+        UserDefaults.standard.set(tmp, forKey: "OrderDonGiao")
     }
 }
 
@@ -205,9 +287,9 @@ extension DeliveryViewController : DeliveryDelegate {
     func hoandon(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
         let item = self.listDeliverys?[(index?.row)!]
-        if hoandonVC == nil {
-            hoandonVC = HoanDonViewController(nibName: "HoanDonViewController", bundle: nil)
-        }
+        
+        hoandonVC = HoanDonViewController(nibName: "HoanDonViewController", bundle: nil)
+        
         hoandonVC?.dov = item
         let stpopup = STPopupController(rootViewController: self.hoandonVC!)
         stpopup.present(in: self)
@@ -215,9 +297,9 @@ extension DeliveryViewController : DeliveryDelegate {
     func hoanthanh(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
         let item = self.listDeliverys?[(index?.row)!]
-        if hoanthanhVC == nil {
+        
             hoanthanhVC = HoanThanhViewController(nibName: "HoanThanhViewController", bundle: nil)
-        }
+        
         
         hoanthanhVC?.item = item
         let stpopup = STPopupController(rootViewController: hoanthanhVC!)
@@ -226,9 +308,9 @@ extension DeliveryViewController : DeliveryDelegate {
     func ghichu(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
         let item = self.listDeliverys?[(index?.row)!]
-        if ghiChuVC == nil {
+        
             ghiChuVC = GhiChuViewController(nibName: "GhiChuViewController", bundle: nil)
-        }
+        
         ghiChuVC?.dov = item
         let stpopup = STPopupController(rootViewController: ghiChuVC!)
         stpopup.present(in: self)
@@ -262,6 +344,7 @@ extension DeliveryViewController : DeliveryDelegate {
     }
     func expandse(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
+        self.tbl.scrollToItem(at: index!, at: UICollectionViewScrollPosition.top, animated: true)
         if selectedIndexPath.contains(index!) {
             let indexArr = selectedIndexPath.index(of: index!)!
             selectedIndexPath.remove(at: indexArr)

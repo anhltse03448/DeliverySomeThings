@@ -34,4 +34,39 @@ class UtilsConvert: NSObject {
             return ""
         }
     }
+    static func convertMoney(str : Int) ->String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        var price = currencyFormatter.string(from: 123456)
+        NSLog("\(price)")
+        return price!
+    }
+}
+struct Number {
+    static let formatterWithSeparator: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = ","
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+}
+
+extension Integer {
+    var stringFormattedWithSeparator: String {
+        return Number.formatterWithSeparator.string(from: self as! NSNumber) ?? ""
+    }
+}
+extension String {
+    var stringFormattedWithSeprator : String {
+        let formatter = NumberFormatter()
+        formatter.groupingSeparator = ","
+        formatter.numberStyle = .decimal
+        var aaa = self
+        if self == "" {
+            aaa = "0"
+        }
+        
+        let str = formatter.number(from: aaa)
+        return Number.formatterWithSeparator.string(from: str!)!
+    }
 }

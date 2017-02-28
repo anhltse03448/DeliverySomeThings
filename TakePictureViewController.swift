@@ -8,17 +8,21 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
+import SwiftyJSON
 
 class TakePictureViewController: BaseViewController {
     @IBOutlet weak var previewView : UIView!
     @IBOutlet weak var lblNumber : UILabel!
     @IBOutlet weak var imgRemove : UIButton!
-    
+    var dateTxt : String = ""
+    var shopName : String = ""
     var numberPic : Int?
     var captureSession = AVCaptureSession();
     var sessionOutput = AVCaptureStillImageOutput();
     var previewLayer = AVCaptureVideoPreviewLayer();
     var count : Int = 0
+    var nvName : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         lblNumber.text = "0 / \(numberPic ?? 0)"
@@ -30,7 +34,11 @@ class TakePictureViewController: BaseViewController {
         for device in devices {
             if(device.position == AVCaptureDevicePosition.back){
                 do{
-                    
+                    if(device.isFocusModeSupported(.continuousAutoFocus)) {
+                        try! device.lockForConfiguration()
+                        device.focusMode = .continuousAutoFocus
+                        device.unlockForConfiguration()
+                    }
                     let input = try AVCaptureDeviceInput(device: device)
                     if(captureSession.canAddInput(input)){
                         captureSession.addInput(input);
@@ -57,6 +65,12 @@ class TakePictureViewController: BaseViewController {
         takePicture()
     }
     @IBAction func btnEnd(_ sender : UIButton) {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let dataPath = documentsDirectory.appendingPathComponent("GHOV/\(self.dateTxt)")
+        let count1 = try? FileManager.default.contentsOfDirectory(atPath: "\(dataPath.path)").count
+        if count1 == 0 || count1 == nil {
+            try? FileManager.default.removeItem(at: dataPath)
+        }        
         self.dismiss(animated: true) { 
             
         }
@@ -71,9 +85,78 @@ class TakePictureViewController: BaseViewController {
                 if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(CMSampleBuffer) {
                     
                     if let cameraImage = UIImage(data: imageData) {
-                        if let data = UIImagePNGRepresentation(cameraImage) {
-                            let filename = self.getDocumentsDirectory().appendingPathComponent("GHOV").appendingPathComponent("1.png")
-                            try? data.write(to: filename)
+                        if let data = UIImageJPEGRepresentation(cameraImage, 1) {
+                            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                            let dataPath = documentsDirectory.appendingPathComponent("GHOV/\(self.dateTxt)@\(self.shopName)@\(self.nvName)")
+                            do {
+                                try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+                                let filename = dataPath.appendingPathComponent("\(self.count).png")
+                                try? data.write(to: filename)
+                                
+                                let email = (UserDefaults.standard.value(forKey: "Username") as! String)
+                                let dateFormat = DateFormatter()
+                                dateFormat.dateFormat = "yyMMdd"
+                                let name_folder = "\(self.dateTxt)_\(self.nvName)_\(self.shopName)_\(self.numberPic!)".toBase64()
+                                let date = dateFormat.string(from: Date()).toBase64()
+                                let soluongdon = "\(self.numberPic!)".toBase64()
+                                let shop = self.shopName.toBase64()
+                                let nhanvien = self.nvName.toBase64()
+                                let name_file = "\(self.count).jpeg".toBase64()
+                                
+                                let param : [String : String] = ["session_id" : self.getSession(),
+                                                                 "email": email.toBase64(),
+                                                                 "date" : date,
+                                                                 "soluongdon" : soluongdon,
+                                                                 "shop" : shop,
+                                                                 "nhanvien" : nhanvien,
+                                                                 "name_file" : name_file,
+                                                                 "name_folder" : name_folder,
+                                                                 ]
+                                //let url = Bundle.main.url(forResource: "2", withExtension: "jpg")
+                                Alamofire.upload(multipartFormData: { multipartFormData in
+                                    for (key, value) in param {
+                                        multipartFormData.append((value.data(using: .utf8))!, withName: key)
+                                    }
+                                    multipartFormData.append(filename, withName: "uploaded_file")
+                                }, to: "http://www.giaohangongvang.com/files/upload",
+                                        encodingCompletion: { encodingResult in
+                                            switch encodingResult {
+                                            case .success(let upload, _, _):
+                                                upload.responseString(completionHandler: { (response) in
+                                                    let res = response.value ?? ""
+                                                    switch res {
+                                                        case "login_fail":
+                                                            Alamofire.request("http://www.giaohangongvang.com/files/upload", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
+                                                                let data = JSON.init(data: response.data!)
+                                                                NSLog("Anh ne: \(data)")
+                                                                let status = data["status"].stringValue
+                                                                if status == "fail" {
+                                                                    let param : [String : String] = ["session" : self.getSession()]
+                                                                    Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/logout", method: .post, parameters: param).responseJSON(completionHandler: { (response) in
+                                                                        UserDefaults.standard.removeObject(forKey: "session")
+                                                                        self.hideLoadingHUD()
+                                                                        if response.response?.statusCode == 200 {
+                                                                            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                                                                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                                                            appDelegate.window?.rootViewController = loginVC
+                                                                        }
+                                                                    })
+                                                                }
+                                                            })
+                                                        case "success":
+                                                            try? FileManager.default.removeItem(at: filename)
+                                                            break
+                                                    default:
+                                                            break
+                                                    }
+                                                })
+                                                
+                                            case .failure(let encodingError):
+                                                print("error:\(encodingError)")
+                                            }
+                                })                                                          } catch let error as NSError {
+                                print("Error creating directory: \(error.localizedDescription)")
+                            }
                         }
                     }
                 }
@@ -106,15 +189,7 @@ class TakePictureViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }
 extension TakePictureViewController : AVCapturePhotoCaptureDelegate {
-//    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-//        if let error = error {
-//            print(error.localizedDescription)
-//        }
-//        if let sampleBuffer = photoSampleBuffer, let previewBuffer = previewPhotoSampleBuffer, let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
-//            //    print(image: UIImage(data: dataImage)?.size)
-//            
-//        }
-//    }
 }

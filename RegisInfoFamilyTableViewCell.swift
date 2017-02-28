@@ -9,7 +9,10 @@
 import UIKit
 
 class RegisInfoFamilyTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var lbl_ho_ten : UILabel!
+    @IBOutlet weak var lblNgaySinh : UILabel!
+    @IBOutlet weak var lblHoTenCon : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -8,3 +8,4 @@ github "ermalkaleci/CarbonKit"
 github "kevin0571/STPopup"
 github "DavydLiu/DLRadioButton" ~> 1.4
 github "hackiftekhar/IQKeyboardManager"
+github "realm/realm-cocoa"

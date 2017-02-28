@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -121,9 +121,12 @@
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="vnd" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g80-7P-Oip">
                             <rect key="frame" x="158" y="0.0" width="197" height="30"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.89411764709999997" green="0.2901960784" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <connections>
+                                <action selector="txtTTChange:" destination="-1" eventType="editingChanged" id="drg-d2-rtH"/>
+                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,11 +304,22 @@
                                     <rect key="frame" x="180.5" y="4" width="174.5" height="63"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                    <state key="normal" title="Hẹn nhiều lần">
+                                    <state key="normal" title="Shop báo hủy">
                                         <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="yo8-g7-x0I"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYQ-z2-dMt">
+                                    <rect key="frame" x="4" y="4" width="174.5" height="63"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="Khác">
+                                        <color key="titleColor" red="0.054901960780000002" green="0.050980392159999999" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnLyDoTouchUp:" destination="-1" eventType="touchUpInside" id="Ihx-ve-Jcc"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -313,8 +327,12 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="o1x-2f-mpA" secondAttribute="trailing" constant="4" id="8Ka-lB-AdI"/>
                                 <constraint firstItem="o1x-2f-mpA" firstAttribute="width" secondItem="5hJ-j6-UpZ" secondAttribute="width" multiplier="1:2" constant="-5" id="CEa-T9-xEY"/>
+                                <constraint firstItem="BYQ-z2-dMt" firstAttribute="top" secondItem="o1x-2f-mpA" secondAttribute="top" id="Cwq-Pk-v35"/>
+                                <constraint firstItem="BYQ-z2-dMt" firstAttribute="width" secondItem="o1x-2f-mpA" secondAttribute="width" id="FgD-to-G6h"/>
                                 <constraint firstItem="o1x-2f-mpA" firstAttribute="top" secondItem="5hJ-j6-UpZ" secondAttribute="top" constant="4" id="YoL-1e-zcm"/>
                                 <constraint firstAttribute="bottom" secondItem="o1x-2f-mpA" secondAttribute="bottom" constant="4" id="d4H-74-cMW"/>
+                                <constraint firstItem="BYQ-z2-dMt" firstAttribute="bottom" secondItem="o1x-2f-mpA" secondAttribute="bottom" id="hgr-nb-vyE"/>
+                                <constraint firstItem="BYQ-z2-dMt" firstAttribute="height" secondItem="o1x-2f-mpA" secondAttribute="height" id="q5H-rU-FK8"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -338,7 +356,9 @@
                         <constraint firstItem="CB4-Tp-d7K" firstAttribute="trailing" secondItem="1yj-2g-6Zh" secondAttribute="trailing" id="Qst-R8-buu"/>
                         <constraint firstItem="C9u-gI-zdM" firstAttribute="height" secondItem="UxU-cy-eF3" secondAttribute="height" multiplier="1:5" id="Spz-8U-izO"/>
                         <constraint firstItem="C9u-gI-zdM" firstAttribute="leading" secondItem="UxU-cy-eF3" secondAttribute="leading" id="VYE-QR-3Ia"/>
+                        <constraint firstItem="BYQ-z2-dMt" firstAttribute="leading" secondItem="l3v-e3-vBF" secondAttribute="leading" id="YFA-5O-jfe"/>
                         <constraint firstAttribute="trailing" secondItem="C9u-gI-zdM" secondAttribute="trailing" id="aoe-8s-gYn"/>
+                        <constraint firstItem="BYQ-z2-dMt" firstAttribute="trailing" secondItem="l3v-e3-vBF" secondAttribute="trailing" id="d6b-Pc-0LR"/>
                         <constraint firstItem="1yj-2g-6Zh" firstAttribute="trailing" secondItem="C9u-gI-zdM" secondAttribute="trailing" id="ja4-IS-7Mh"/>
                         <constraint firstItem="5hJ-j6-UpZ" firstAttribute="top" secondItem="V6z-aq-X0G" secondAttribute="bottom" id="lvc-an-m3V"/>
                         <constraint firstItem="5hJ-j6-UpZ" firstAttribute="width" secondItem="V6z-aq-X0G" secondAttribute="width" id="nW1-9s-wpA"/>

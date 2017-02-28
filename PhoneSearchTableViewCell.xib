@@ -19,13 +19,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="368" height="166.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ret-bN-xEn">
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ret-bN-xEn">
                         <rect key="frame" x="296" y="53.5" width="60" height="60"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Q7I-mm-bhg"/>
                             <constraint firstAttribute="height" constant="60" id="Yiy-hK-gtE"/>
                         </constraints>
-                        <state key="normal" backgroundImage="delivery"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="Nhận đơn">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
                         <connections>
                             <action selector="btnNhanTouchUp:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oWc-6I-Nmt"/>
                         </connections>
@@ -138,7 +142,4 @@
             <point key="canvasLocation" x="49" y="113.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="delivery" width="16" height="16"/>
-    </resources>
 </document>

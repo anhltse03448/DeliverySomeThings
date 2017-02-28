@@ -12,15 +12,22 @@ import SwiftyJSON
 
 class PurchaseViewController: BaseViewController {
     @IBOutlet weak var tbl : UITableView!
+    
+    @IBOutlet weak var lblCanThanhToan : UILabel!
+    @IBOutlet weak var lblTTTrongNgay : UILabel!
+    @IBOutlet weak var lblNo : UILabel!
+    
     static let sharedInstance = PurchaseViewController()
-    var sotien : Int = 0
-    var listDelivery = [DeliveryObject]()
-    let identifier = "DonHoanTableViewCell"
+    var sotien : Double = 0
+    var listDelivery = [Purchase]()
+    let identifier = "PurchaseTableViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tbl.rowHeight = UITableViewAutomaticDimension
         tbl.estimatedRowHeight = 100
-        tbl.separatorStyle = .none
+        tbl.tableFooterView = UIView.init(frame: CGRect.zero)
+        
         tbl.register(UINib.init(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
         // Do any additional setup after loading the view.
     }
@@ -32,18 +39,26 @@ class PurchaseViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.loadSoTienCanThanhToan()
-        self.loadDSdon()
+        //self.loadDSdon()
     }
     
     func loadSoTienCanThanhToan() {
         let param : [String : String] = ["session" : self.getSession()]
         Alamofire.request("http://www.giaohangongvang.com/api/thanhtoan/thanhtoan", method: .post, parameters: param).responseJSON { (response) in
+            
             let data = JSON.init(data: response.data!)
             NSLog("\(data)")
             let status = data["status"].stringValue
             if status != "fail" {
-                let tt = data["detail"]["can_thanh_toan"].stringValue
-                self.sotien = Int(tt) ?? 0
+                NSLog("\(data["detail"])")
+                let a = data["detail"]
+                NSLog("\(a.stringValue)")
+                let k = JSON.init(parseJSON: a.stringValue)
+                let h = k["can_thanh_toan"].doubleValue
+                self.sotien = h
+                
+                self.lblCanThanhToan.text = Int(self.sotien).stringFormattedWithSeparator
+                self.loadDSdon()
             } else {
                 let warning = data["warning"].stringValue
                 PurchaseViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
@@ -52,20 +67,27 @@ class PurchaseViewController: BaseViewController {
     }
     
     func loadDSdon() {
+        var sum : Double = 0
         let param : [String : String] = ["session" : self.getSession()]
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/list-donhang-thanhtoan", method: .post, parameters: param).responseJSON { (response) in
             let data = JSON.init(data: response.data!)
             NSLog("\(data)")
             let status = data["status"].stringValue
-            var tmp = [DeliveryObject]()
+            var tmp = [Purchase]()
             if status != "fail" {
                 let details = data["detail"].arrayValue
                 for item in details {
-                    let dov = DeliveryObject(json: item)
+                    let dov = Purchase(json: item)
+                    let mo = Double(dov.nguoi_nhan_thanh_toan.replacingOccurrences(of: ",", with: "")) ?? 0
+                    sum = sum + mo
                     tmp.append(dov)
-                    self.tbl.reloadData()
                 }
+                
+                self.lblTTTrongNgay.text = Int(sum).stringFormattedWithSeparator
+                self.lblNo.text = Int(self.sotien - sum).stringFormattedWithSeparator
+                
                 self.listDelivery = tmp
+                self.tbl.reloadData()
                 
             } else {
                 let warning = data["warning"].stringValue
@@ -85,9 +107,12 @@ extension PurchaseViewController : UITableViewDataSource, UITableViewDelegate {
         return self.listDelivery.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbl.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DonHoanTableViewCell
-        cell.setData(dov: self.listDelivery[indexPath.row])
+        let cell = tbl.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! PurchaseTableViewCell
+        cell.setData(purchase: self.listDelivery[indexPath.row])
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tbl.deselectRow(at: indexPath, animated: true)
     }
 }

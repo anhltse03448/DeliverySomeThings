@@ -113,19 +113,48 @@ class DonGIaoMoiViewController: BaseViewController {
     @IBAction func btnXacNhan(_ sender : UIButton){
         let param : [String : String] = ["session" : self.getSession(),
                                          "sdt_nguoi_nhan" : sdt!.toBase64()]
+        
         let tp = txtTP.text ?? ""
         let quan = txtQuan.text ?? ""
         if tp == "" {
             self.view.makeToast("Mời chọn Thành Phố", duration: 2.0, position: .center)
+            return
         } else if quan == "" {
             self.view.makeToast("Mời chọn quận", duration: 2.0, position: .center)
+            return
         }
+        let dia_chi_doi = txtDiaChi.text ?? ""
+        if dia_chi_doi == "" {
+            self.view.makeToast("Nhập địa chỉ", duration: 2.0, position: .center)
+            return
+        }
+        self.showLoadingHUD()
         Alamofire.request("http://www.giaohangongvang.com/api/donhang/create-donhang-sdt", method: .post, parameters: param).responseJSON { (response) in
             let data = JSON.init(data: response.data!)
+            self.hideLoadingHUD()
             NSLog("\(data)")
-            let warning = data["warning"].stringValue
-            NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
-            self.popupController?.dismiss()
+            let status = data["status"].stringValue
+            if status == "success" {
+                let a = data["detail"]
+                let id = a[0]["id_don_hang"].stringValue
+                
+                let param2 : [String : String] = ["session" : self.getSession(),
+                                                  "id_don_hang" : id.toBase64(),
+                                                  "dia_chi_doi" : dia_chi_doi.toBase64(),
+                                                  "id_thanh_pho" : self.listTP[self.chooseTP!].id_thanh_pho.toBase64(),
+                                                  "id_quan" : (self.listTP[self.chooseTP!].quans?[self.chooseQuan!].id_quan.toBase64())!]
+                Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/doi-diachi", method: .post, parameters: param2).responseJSON(completionHandler: { (response) in
+                    let data = JSON.init(data: response.data!)
+                    NSLog("\(data)")
+                    let warning = data["warning"].stringValue
+                    NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                    self.popupController?.dismiss()
+                })
+            } else {
+                let warning = data["warning"].stringValue
+                NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
+                self.popupController?.dismiss()
+            }
         }
     }
     @IBAction func closePopUp() {
