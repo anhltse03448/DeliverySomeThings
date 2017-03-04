@@ -11,18 +11,24 @@ import SlideMenuControllerSwift
 import IQKeyboardManagerSwift
 import Alamofire
 import SwiftyJSON
+import CoreLocation
+
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
-
+    var locationManager: CLLocationManager!
+    var seenError : Bool = false
+    var locationFixAchieved : Bool = false
+    var locationStatus : NSString = "Not Started"
     static var slideMenu : SlideMenuController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        
+        initLocationManager()
         IQKeyboardManager.sharedManager().enable = true
         if UserDefaults.standard.value(forKey: "session") == nil {
             let mainVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
@@ -34,6 +40,83 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.makeKeyAndVisible()
         }
         return true
+    }
+    
+    func initLocationManager() {
+        seenError = false
+        locationFixAchieved = false
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        CLLocationManager.locationServicesEnabled()
+        //locationManager.locationServicesEnabled
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        //Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.update), userInfo: nil, repeats: true).fire()
+    }
+    
+    func update() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        locationManager.stopUpdatingLocation()
+        if ((error) != nil) {
+            if (seenError == false) {
+                seenError = true
+                print(error)
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if (locationFixAchieved == false) {
+                locationFixAchieved = true
+                let locationArray = locations as NSArray
+                let locationObj = locationArray.lastObject as? CLLocation
+                if locationObj != nil {
+                    let coord = locationObj?.coordinate
+                    NSLog("\(coord?.latitude)")
+                    NSLog("\(coord?.longitude)")
+                    let session = getSession()
+                    let time = ""
+                    let lat_emp = ""
+                    let long_emp = ""
+                    let param : [String : String] = ["session": session.toBase64(),
+                                                     "time" : time,
+                                                     "lat_emp" : lat_emp.toBase64(),
+                                                     "long_emp" : long_emp.toBase64()]
+                    Alamofire.request("http://www.giaohangongvang.com/api/location/push-location", method: .post, parameters: param).responseJSON(completionHandler: { (respose) in
+                        let data = JSON.init(data: respose.data!)
+                        NSLog("\(data)")
+                    })
+                }
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!,
+                         didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        var shouldIAllow = false
+        
+        switch status {
+        case CLAuthorizationStatus.restricted:
+            locationStatus = "Restricted Access to location"
+        case CLAuthorizationStatus.denied:
+            locationStatus = "User denied access to location"
+        case CLAuthorizationStatus.notDetermined:
+            locationStatus = "Status not determined"
+        default:
+            locationStatus = "Allowed to location Access"
+            shouldIAllow = true
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LabelHasbeenUpdated"), object: nil)
+        if (shouldIAllow == true) {
+            NSLog("Location to Allowed")
+            // Start location services
+            locationManager.startUpdatingLocation()
+        } else {
+            NSLog("Denied access: \(locationStatus)")
+        }
     }
    
 
@@ -52,6 +135,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        let first = UserDefaults.standard.value(forKey: "First")
+        if first != nil {
+            
+            if CLLocationManager.locationServicesEnabled() {
+                let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+                if settingsUrl != nil {
+                    switch(CLLocationManager.authorizationStatus()) {
+                    case .notDetermined, .restricted, .denied:
+                        if UIApplication.shared.canOpenURL(settingsUrl!) {
+                            UIApplication.shared.openURL(settingsUrl!)
+                        }
+                    case .authorizedAlways, .authorizedWhenInUse:
+                        break
+                    }
+                }
+                
+            } else {
+                let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+                if settingsUrl != nil {
+                    switch(CLLocationManager.authorizationStatus()) {
+                    case .notDetermined, .restricted, .denied:
+                        if UIApplication.shared.canOpenURL(settingsUrl!) {
+                            UIApplication.shared.openURL(settingsUrl!)
+                        }
+                    case .authorizedAlways, .authorizedWhenInUse:
+                        break
+                    }
+                }
+            }
+        } else {
+            
+        }
+        
         if UserDefaults.standard.value(forKey: "Username") == nil {
             return
         }
@@ -60,6 +176,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let folders = try? FileManager.default.contentsOfDirectory(atPath: dataPath.path)
         if folders != nil {
             for folder in folders! {
+                if folder == "REGIS" {
+                    continue
+                }
                 let tmp = dataPath.appendingPathComponent("\(folder)")
                 let count1 = try? FileManager.default.contentsOfDirectory(atPath: tmp.path)
                 if count1 != nil {

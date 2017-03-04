@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol DeleteRegis {
+    func delete(cell : RegisInfoFamilyTableViewCell)
+}
+
 class RegisInfoFamilyTableViewCell: UITableViewCell {
-    @IBOutlet weak var lbl_ho_ten : UILabel!
+    @IBOutlet weak var lblGioiTinh: UILabel!
     @IBOutlet weak var lblNgaySinh : UILabel!
     @IBOutlet weak var lblHoTenCon : UILabel!
+    var delegate : DeleteRegis?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +29,14 @@ class RegisInfoFamilyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setData(obj : Children) {
+        self.lblGioiTinh.text = obj.gioiTinh
+        self.lblNgaySinh.text = obj.ngaySinh
+        self.lblHoTenCon.text = obj.name
+    }
+    @IBAction func btnAddTouchUp(_ sender : UIButton) {
+        if delegate != nil {
+            delegate?.delete(cell: self)
+        }
+    }
 }

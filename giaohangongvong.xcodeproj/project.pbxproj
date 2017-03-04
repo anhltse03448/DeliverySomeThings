@@ -167,6 +167,7 @@
 		362B77581E49BC1700768F32 /* PhoneSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneSearchTableViewCell.swift; sourceTree = "<group>"; };
 		362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneSearchTableViewCell.xib; sourceTree = "<group>"; };
 		362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = giaohangongvong/Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
+		362B954B1E6A71D6008CE150 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonHoanTableViewCell.swift; sourceTree = "<group>"; };
 		363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonHoanTableViewCell.xib; sourceTree = "<group>"; };
 		3648DB351E37436E0037F710 /* CarbonKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarbonKit.framework; path = giaohangongvong/Carthage/Build/iOS/CarbonKit.framework; sourceTree = "<group>"; };
@@ -336,6 +337,7 @@
 		361AC0371E4DF82A00783D00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				362B954B1E6A71D6008CE150 /* CoreLocation.framework */,
 				361AC03E1E4DF84500783D00 /* Security.framework */,
 				361AC03C1E4DF83C00783D00 /* SystemConfiguration.framework */,
 				361AC03A1E4DF83300783D00 /* libz.tbd */,

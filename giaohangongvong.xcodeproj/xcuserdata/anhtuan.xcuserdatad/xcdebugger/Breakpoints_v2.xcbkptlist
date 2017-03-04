@@ -17,6 +17,38 @@
             endingLineNumber = "58"
             landmarkName = "requestChuyenDon()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "giaohangongvong.ChuyenDonViewController.requestChuyenDon () -&gt; ()"
+                  moduleName = "giaohangongvong"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/ChuyenDonViewController.swift"
+                  timestampString = "510303801.623307"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1808">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "giaohangongvong.ChuyenDonViewController.(requestChuyenDon () -&gt; ()).(closure #1)"
+                  moduleName = "giaohangongvong"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/ChuyenDonViewController.swift"
+                  timestampString = "510303801.625171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -33,6 +65,38 @@
             endingLineNumber = "73"
             landmarkName = "requestNhanVien()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "giaohangongvong.ChuyenDonViewController.requestNhanVien () -&gt; ()"
+                  moduleName = "giaohangongvong"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/ChuyenDonViewController.swift"
+                  timestampString = "510303801.629135"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "284">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "giaohangongvong.ChuyenDonViewController.(requestNhanVien () -&gt; ()).(closure #1)"
+                  moduleName = "giaohangongvong"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/ChuyenDonViewController.swift"
+                  timestampString = "510303801.630727"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,12 +122,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/DoiDiaChiViewController.swift"
-                  timestampString = "509987083.924079"
+                  timestampString = "510303801.633911"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "2942">
+                  offsetFromSymbolStart = "2332">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +137,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/DoiDiaChiViewController.swift"
-                  timestampString = "509987083.925498"
+                  timestampString = "510303801.635243"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
                   endingLineNumber = "65"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -106,12 +170,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/DonGIaoMoiViewController.swift"
-                  timestampString = "509987083.928383"
+                  timestampString = "510303801.638042"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
                   endingLineNumber = "96"
-                  offsetFromSymbolStart = "250">
+                  offsetFromSymbolStart = "252">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -121,60 +185,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/DonGIaoMoiViewController.swift"
-                  timestampString = "509987083.930261"
+                  timestampString = "510303801.639354"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "97"
                   endingLineNumber = "97"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhuCuocViewController.swift"
-            timestampString = "509685178.394889"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "btnDoneTouchUp(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "giaohangongvong.PhuCuocViewController.btnDoneTouchUp (__ObjC.UIButton) -&gt; ()"
-                  moduleName = "giaohangongvong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/PhuCuocViewController.swift"
-                  timestampString = "509987083.934015"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "5778">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "giaohangongvong.PhuCuocViewController.(btnDoneTouchUp (__ObjC.UIButton) -&gt; ()).(closure #1)"
-                  moduleName = "giaohangongvong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/PhuCuocViewController.swift"
-                  timestampString = "509987083.935378"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -202,12 +218,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/PhoneSearchViewController.swift"
-                  timestampString = "509987083.938189"
+                  timestampString = "510303801.642232"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
                   endingLineNumber = "120"
-                  offsetFromSymbolStart = "1778">
+                  offsetFromSymbolStart = "1484">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -217,12 +233,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/PhoneSearchViewController.swift"
-                  timestampString = "509987083.940091"
+                  timestampString = "510303801.643521"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "121"
                   endingLineNumber = "121"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -250,12 +266,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/PhoneSearchViewController.swift"
-                  timestampString = "509987083.943432"
+                  timestampString = "510303801.646315"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
                   endingLineNumber = "51"
-                  offsetFromSymbolStart = "1722">
+                  offsetFromSymbolStart = "1456">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -265,12 +281,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/PhoneSearchViewController.swift"
-                  timestampString = "509987083.944802"
+                  timestampString = "510303801.647625"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "50"
                   endingLineNumber = "50"
-                  offsetFromSymbolStart = "28">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -298,12 +314,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/HuyDonViewController.swift"
-                  timestampString = "509987083.948115"
+                  timestampString = "510303801.650565"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "2396">
+                  offsetFromSymbolStart = "1908">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -313,12 +329,12 @@
                   moduleName = "giaohangongvong"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/HuyDonViewController.swift"
-                  timestampString = "509987083.949854"
+                  timestampString = "510303801.651849"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
                   endingLineNumber = "54"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>

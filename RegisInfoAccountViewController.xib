@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisInfoAccountViewController" customModule="giaohangongvong" customModuleProvider="target">
             <connections>
+                <outlet property="btnRegis" destination="ouR-1E-BVR" id="7eq-Mb-Dbh"/>
+                <outlet property="imgBack" destination="gut-oi-Hxd" id="yKa-au-OaE"/>
                 <outlet property="txtGmail" destination="EHc-wx-h1P" id="m6G-Bz-zgz"/>
                 <outlet property="txtPass" destination="VYX-4I-Zm8" id="7Jd-4r-6Xk"/>
                 <outlet property="txtRepeatPass" destination="XBg-W0-Nzm" id="2s4-yM-0Oj"/>
@@ -24,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-wM-sYl">
-                    <rect key="frame" x="0.0" y="40" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="gut-oi-Hxd">
                             <rect key="frame" x="4" y="4" width="36" height="36"/>
@@ -32,8 +34,8 @@
                                 <constraint firstAttribute="width" secondItem="gut-oi-Hxd" secondAttribute="height" multiplier="1:1" id="UT4-A4-y5k"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thông tin tài khoản" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mu3-CF-jCl">
-                            <rect key="frame" x="114" y="12" width="147" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="III. Thông tin tài khoản" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mu3-CF-jCl">
+                            <rect key="frame" x="103" y="12" width="169" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -49,39 +51,33 @@
                         <constraint firstItem="mu3-CF-jCl" firstAttribute="centerX" secondItem="fNW-wM-sYl" secondAttribute="centerX" id="X0g-3R-qvl"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AC-4S-fkP">
-                    <rect key="frame" x="0.0" y="20" width="375" height="20"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="7W7-en-OFK"/>
-                    </constraints>
-                </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gmail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EHc-wx-h1P">
-                    <rect key="frame" x="4" y="92" width="367" height="30"/>
+                    <rect key="frame" x="4" y="72" width="367" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VYX-4I-Zm8">
-                    <rect key="frame" x="4" y="130" width="367" height="30"/>
+                    <rect key="frame" x="4" y="110" width="367" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập lại mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBg-W0-Nzm">
-                    <rect key="frame" x="4" y="168" width="367" height="30"/>
+                    <rect key="frame" x="4" y="148" width="367" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouR-1E-BVR">
-                    <rect key="frame" x="8" y="633" width="359" height="30"/>
+                    <rect key="frame" x="8" y="613" width="359" height="50"/>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.69019607839999997" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="BZF-r9-Frf"/>
+                        <constraint firstAttribute="height" constant="50" id="BZF-r9-Frf"/>
                     </constraints>
                     <state key="normal" title="Đăng kí"/>
                     <connections>
-                        <action selector="btnRegis:" destination="-1" eventType="touchUpInside" id="lpU-8u-3ga"/>
+                        <action selector="btnRegis:" destination="-1" eventType="touchUpInside" id="D2p-QP-yip"/>
                     </connections>
                 </button>
             </subviews>
@@ -90,19 +86,15 @@
                 <constraint firstItem="EHc-wx-h1P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="0uc-1c-MnV"/>
                 <constraint firstItem="fNW-wM-sYl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="33x-5e-kKA"/>
                 <constraint firstItem="ouR-1E-BVR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="5BL-Kd-y9N"/>
-                <constraint firstItem="4AC-4S-fkP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6gj-qL-Obn"/>
                 <constraint firstItem="EHc-wx-h1P" firstAttribute="top" secondItem="fNW-wM-sYl" secondAttribute="bottom" constant="8" id="8ax-UC-4VG"/>
-                <constraint firstItem="4AC-4S-fkP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="8na-Sk-dia"/>
-                <constraint firstAttribute="trailing" secondItem="4AC-4S-fkP" secondAttribute="trailing" id="AHc-iB-Jlc"/>
                 <constraint firstAttribute="trailing" secondItem="ouR-1E-BVR" secondAttribute="trailing" constant="8" id="AZd-SF-Hr5"/>
-                <constraint firstItem="fNW-wM-sYl" firstAttribute="top" secondItem="4AC-4S-fkP" secondAttribute="bottom" id="Dqk-YR-aK5"/>
                 <constraint firstAttribute="trailing" secondItem="EHc-wx-h1P" secondAttribute="trailing" constant="4" id="GOB-VI-fT8"/>
                 <constraint firstItem="XBg-W0-Nzm" firstAttribute="trailing" secondItem="VYX-4I-Zm8" secondAttribute="trailing" id="IEZ-Xd-U7u"/>
                 <constraint firstItem="XBg-W0-Nzm" firstAttribute="leading" secondItem="VYX-4I-Zm8" secondAttribute="leading" id="IWw-QU-Rg5"/>
                 <constraint firstItem="VYX-4I-Zm8" firstAttribute="trailing" secondItem="EHc-wx-h1P" secondAttribute="trailing" id="Joc-SI-5YD"/>
                 <constraint firstAttribute="bottom" secondItem="ouR-1E-BVR" secondAttribute="bottom" constant="4" id="MPM-td-UL4"/>
                 <constraint firstItem="VYX-4I-Zm8" firstAttribute="top" secondItem="EHc-wx-h1P" secondAttribute="bottom" constant="8" id="OGw-4g-D99"/>
-                <constraint firstItem="fNW-wM-sYl" firstAttribute="top" secondItem="4AC-4S-fkP" secondAttribute="bottom" id="WRe-t5-hgk"/>
+                <constraint firstItem="fNW-wM-sYl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Oho-wF-fmV"/>
                 <constraint firstItem="XBg-W0-Nzm" firstAttribute="top" secondItem="VYX-4I-Zm8" secondAttribute="bottom" constant="8" id="v9g-Sh-3g2"/>
                 <constraint firstItem="VYX-4I-Zm8" firstAttribute="leading" secondItem="EHc-wx-h1P" secondAttribute="leading" id="yXz-BX-R6I"/>
                 <constraint firstAttribute="trailing" secondItem="fNW-wM-sYl" secondAttribute="trailing" id="zjE-Xq-XHH"/>

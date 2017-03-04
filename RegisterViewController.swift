@@ -27,9 +27,10 @@ class RegisterViewController: BaseViewController {
     
     let imagePicker = UIImagePickerController()
     var dstinh = [String]()
-    
+    var file_path : URL?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.dstinh = self.readDsTinh()
         imagePicker.delegate = self
         img_back.isUserInteractionEnabled = true
@@ -43,26 +44,27 @@ class RegisterViewController: BaseViewController {
         
         btnNam.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
         btnNu.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
-        
+        btnNam.isSelected = true
         setPickerView()
     }
     
     func pickImage(_ gesture : UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "From Camera", style: .default , handler:{ (UIAlertAction)in
-            self.imagePicker.sourceType = .camera
-            self.present(self.imagePicker, animated: true, completion: nil)
-        }))
-        alert.addAction(UIAlertAction(title: "From Gallery", style: .default , handler:{ (UIAlertAction)in
-            self.imagePicker.sourceType = .photoLibrary
-            self.present(self.imagePicker, animated: true, completion: nil)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
-            
-        }))
-        self.present(alert, animated: true, completion: nil)
+        self.imagePicker.sourceType = .photoLibrary
+        self.present(self.imagePicker, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle: .actionSheet)
+//        
+//        alert.addAction(UIAlertAction(title: "From Camera", style: .default , handler:{ (UIAlertAction)in
+//            self.imagePicker.sourceType = .camera
+//            self.present(self.imagePicker, animated: true, completion: nil)
+//        }))
+//        alert.addAction(UIAlertAction(title: "From Gallery", style: .default , handler:{ (UIAlertAction)in
+//            
+//        }))
+//        
+//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:{ (UIAlertAction)in
+//            
+//        }))
+//        self.present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +77,11 @@ class RegisterViewController: BaseViewController {
         sender.inputView = datePickerView
         
         datePickerView.addTarget(self, action: #selector(RegisterViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
+        if txtNgayCap.text == "" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            txtNgayCap.text = dateFormatter.string(from: Date())
+        }
     }
     
     func dismisKeyboard(_ gesture : UITapGestureRecognizer) {
@@ -88,13 +95,8 @@ class RegisterViewController: BaseViewController {
     func datePickerValueChanged(sender:UIDatePicker) {
         
         let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateStyle = .medium
-        
-        dateFormatter.timeStyle = .none
-        
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         txtNgayCap.text = dateFormatter.string(from: sender.date)
-        
     }
     
     func back_touchUp(_ gesture : UITapGestureRecognizer) {
@@ -104,7 +106,59 @@ class RegisterViewController: BaseViewController {
     }
     
     @IBAction func btnNextTouchUpInsde( _ sender : Any) {
+        var gioitinh = ""
+        if btnNam.isSelected {
+            gioitinh = "nam"
+        } else {
+            gioitinh = "nu"
+        }
+        let name = txtName.text ?? ""
+        let sdt = txtNumberPhone.text ?? ""
+        let dia_chi = txtAddress.text ?? ""
+        let ngay_sinh = txtNgaySinh.text ?? ""
+        let cmnd = txtCMND.text ?? ""
+        let ngay_cap = txtNgayCap.text ?? ""
+        let noi_cap = txtNoiCap.text ?? ""
+        
+        if file_path == nil {
+            self.view.makeToast("chọn ảnh cá nhân", duration: 2.0, position: .center)
+            return
+        }
+        if name == "" {
+            self.view.makeToast("Mời nhập tên", duration: 2.0, position: .center)
+            return
+        } else if sdt == "" {
+            self.view.makeToast("Mời nhập số điện thoại", duration: 2.0, position: .center)
+            return
+        } else if dia_chi == "" {
+            self.view.makeToast("Mời nhập địa chỉ", duration: 2.0, position: .center)
+            return
+        } else if ngay_sinh == "" {
+            self.view.makeToast("Mời nhập ngày sinh", duration: 2.0, position: .center)
+            return
+        } else if cmnd == "" {
+            self.view.makeToast("Mời nhập CMND", duration: 2.0, position: .center)
+            return
+        } else if ngay_cap == "" {
+            self.view.makeToast("Mời nhập ngày cấp", duration: 2.0, position: .center)
+            return
+        } else if noi_cap == "" {
+            self.view.makeToast("Mời nhập nơi cấp", duration: 2.0, position: .center)
+            return
+        }
+        
+        let param : [String : String] = ["name" : name,
+                                         "gioitinh" : gioitinh,
+                                         "sdt" : sdt,
+                                         "dia_chi" : dia_chi,
+                                         "ngay_sinh" : ngay_sinh,
+                                         "cmnd" : cmnd,
+                                         "ngay_cap" : ngay_cap,
+                                         "noi_cap" : noi_cap,
+                                         "file_path" : ""]
         let regis2VC = RegisInforFamilyViewController(nibName: "RegisInforFamilyViewController", bundle: nil)
+        regis2VC.fileName = self.file_path
+        regis2VC.param = param
         self.navigationController?.pushViewController(regis2VC, animated: true)
     }
     
@@ -116,7 +170,7 @@ class RegisterViewController: BaseViewController {
         datePickerView.addTarget(self, action: #selector(RegisterViewController.handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
         if txtNgaySinh.text == "" {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.dateFormat = "yyyy-MM-dd"
             txtNgaySinh.text = dateFormatter.string(from: Date())
         }
     }
@@ -131,7 +185,7 @@ class RegisterViewController: BaseViewController {
     
     func handleDatePicker(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         txtNgaySinh.text = dateFormatter.string(from: sender.date)
     }
     
@@ -155,12 +209,22 @@ extension RegisterViewController : UITextFieldDelegate {
 }
 extension RegisterViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        NSLog("\(info)")
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imgPick.image = pickedImage
-            
+            let data = UIImageJPEGRepresentation(pickedImage, 1)
+            let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            let dataPath = documentsDirectory.appendingPathComponent("GHOV/REGIS")
+            do {
+                try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
+                let filename = dataPath.appendingPathComponent("self.png")
+                self.file_path = filename
+                try? data?.write(to: filename)
+            } catch let error as NSError {
+                
+            }
         }
         dismiss(animated: true, completion: nil)
-        
     }
 }
 extension RegisterViewController : UIPickerViewDataSource , UIPickerViewDelegate {

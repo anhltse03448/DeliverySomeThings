@@ -30,6 +30,7 @@ class ItemObj : NSObject {
 }
 
 class MenuViewController: BaseViewController {
+    @IBOutlet weak var lblNV : UILabel!
     @IBOutlet weak var tbl : UITableView!
     let identifier = "MenuTableViewCell"
     var listItem = [ItemObj]()
@@ -47,7 +48,12 @@ class MenuViewController: BaseViewController {
         listItem.append(ItemObj(name: "Thanh toán", img: "thanhtoan"))
         listItem.append(ItemObj(name: "Đăng xuât", img: "logout"))
         tbl.showsVerticalScrollIndicator = false
+        tbl.separatorStyle = .none
         //tbl.selectRow(at: IndexPath.init(row: 1, section: 1), animated: true, scrollPosition: .top)        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let tenNV = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.ho_ten)) as! String
+        lblNV.text = "NVGH: " +  tenNV
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,8 +73,8 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
     }    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section != 0 {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 1))
-            view.backgroundColor = UIColor.init(rgba: "#fafafa")
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 0.5))
+            view.backgroundColor = UIColor.init(rgba: "#AAAAAA")
             return view
         } else {
             return UIView.init(frame: CGRect.zero)
@@ -77,7 +83,7 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 2
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MenuTableViewCell
@@ -144,5 +150,4 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
 }

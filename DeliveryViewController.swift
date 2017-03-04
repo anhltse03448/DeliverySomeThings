@@ -182,7 +182,8 @@ extension DeliveryViewController : UICollectionViewDataSource, UICollectionViewD
             let height = item.dia_chi_nguoi_nhan.heightWithConstrainedWidth(width: width, font: UIFont.systemFont(ofSize: 15))//50
             
             let width2 = collectionView.frame.width - 50
-            let height2 = item.ghi_chu.heightWithConstrainedWidth(width: width2, font: UIFont.systemFont(ofSize: 15))
+            let ghi_chu = item.ghi_chu.replacingOccurrences(of: "\\n", with: "\n")
+            let height2 = ghi_chu.heightWithConstrainedWidth(width: width2, font: UIFont.systemFont(ofSize: 15))
             if height <= 32 {
                 return CGSize.init(width: collectionView.frame.width, height: CGFloat(40 + 300 + height2))
             } else {
@@ -286,7 +287,7 @@ extension String {
 extension DeliveryViewController : DeliveryDelegate {
     func hoandon(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
-        let item = self.listDeliverys?[(index?.row)!]
+        let item = self.listShowOnly[(index?.row)!]
         
         hoandonVC = HoanDonViewController(nibName: "HoanDonViewController", bundle: nil)
         
@@ -296,7 +297,7 @@ extension DeliveryViewController : DeliveryDelegate {
     }
     func hoanthanh(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
-        let item = self.listDeliverys?[(index?.row)!]
+        let item = self.listShowOnly[(index?.row)!]
         
             hoanthanhVC = HoanThanhViewController(nibName: "HoanThanhViewController", bundle: nil)
         
@@ -307,7 +308,7 @@ extension DeliveryViewController : DeliveryDelegate {
     }
     func ghichu(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
-        let item = self.listDeliverys?[(index?.row)!]
+        let item = self.listShowOnly[(index?.row)!]
         
             ghiChuVC = GhiChuViewController(nibName: "GhiChuViewController", bundle: nil)
         
@@ -317,17 +318,17 @@ extension DeliveryViewController : DeliveryDelegate {
     }
     func call(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
-        let phone = listDeliverys?[(index?.row)!].sdt_nguoi_nhan
-        guard let number = URL(string: "telprompt://" + phone!) else { return }
+        let phone = listShowOnly[(index?.row)!].sdt_nguoi_nhan
+        guard let number = URL(string: "telprompt://" + phone) else { return }
         UIApplication.shared.openURL(number)
         //UIApplication.shared.open(number, options: [:], completionHandler: nil)
     }
     func touchMap(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
-        let item = self.listDeliverys?[(index?.row)!]
-        var address = item?.dia_chi_nguoi_nhan ?? ""
+        let item = self.listShowOnly[(index?.row)!]
+        var address = item.dia_chi_nguoi_nhan ?? ""
         address = address.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-        if item?.dia_chi_nguoi_nhan != "" {
+        if item.dia_chi_nguoi_nhan != "" {
             let testURL = URL(string: "comgooglemaps-x-callback://")!
             if UIApplication.shared.canOpenURL(testURL) {
                 let directionsRequest = "comgooglemaps-x-callback://" +
@@ -344,14 +345,17 @@ extension DeliveryViewController : DeliveryDelegate {
     }
     func expandse(cell: DeliveryCollectionViewCell) {
         let index = self.tbl.indexPath(for: cell)
-        self.tbl.scrollToItem(at: index!, at: UICollectionViewScrollPosition.top, animated: true)
         if selectedIndexPath.contains(index!) {
             let indexArr = selectedIndexPath.index(of: index!)!
             selectedIndexPath.remove(at: indexArr)
+            tbl.reloadData()
         } else {
+            selectedIndexPath.removeAll()
             selectedIndexPath.append(index!)
+            tbl.reloadData()
+            self.tbl.scrollToItem(at: index!, at: UICollectionViewScrollPosition.top, animated: true)
         }
-        tbl.reloadItems(at: [index!])
+        //tbl.reloadItems(at: [index!])
+        
     }
-    
 }

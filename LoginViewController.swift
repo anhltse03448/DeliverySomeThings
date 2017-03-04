@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SlideMenuControllerSwift
 import SwiftyJSON
-
+import CoreLocation
 
 class LoginViewController: BaseViewController {
     @IBOutlet weak var txtUserName : UITextField!
@@ -20,7 +20,6 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var showPassword : UIButton!
     @IBOutlet weak var viewShowPassWord : UIView!
     @IBOutlet weak var imgChecked : UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +62,45 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func loginTouchUp(_ sender : Any) {
+        if CLLocationManager.locationServicesEnabled() {
+            let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+            if settingsUrl != nil {
+                switch(CLLocationManager.authorizationStatus()) {
+                case .notDetermined, .restricted, .denied:
+                    self.view.makeToast("Mở GPS", duration: 1.0, position: .center)
+                    
+                    let deadlineTime = DispatchTime.now() + .seconds(1)
+                    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                        if UIApplication.shared.canOpenURL(settingsUrl!) {
+                            UIApplication.shared.openURL(settingsUrl!)
+                        }
+                    }
+                    return
+                case .authorizedAlways, .authorizedWhenInUse:
+                    break
+                }
+            }
+            
+        } else {
+            let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+            if settingsUrl != nil {
+                switch(CLLocationManager.authorizationStatus()) {
+                case .notDetermined, .restricted, .denied:
+                    self.view.makeToast("Mở GPS", duration: 1.0, position: .center)
+                    
+                    let deadlineTime = DispatchTime.now() + .seconds(1)
+                    DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                        if UIApplication.shared.canOpenURL(settingsUrl!) {
+                            UIApplication.shared.openURL(settingsUrl!)
+                        }
+                    }
+                    return
+                case .authorizedAlways, .authorizedWhenInUse:
+                    break
+                }
+            }
+        }
+
         self.showLoadingHUD()
         let username = txtUserName.text
         let password = txtPassword.text
@@ -128,7 +166,5 @@ class LoginViewController: BaseViewController {
         let name = txtUserName.text
         UserDefaults.standard.set(name, forKey: "Username")
     }
-    
 }
-
 
