@@ -78,11 +78,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
                     NSLog("\(coord?.latitude)")
                     NSLog("\(coord?.longitude)")
                     let session = getSession()
-                    let time = ""
-                    let lat_emp = ""
-                    let long_emp = ""
+                    let dateFormat = DateFormatter()
+                    dateFormat.dateFormat = "yyyy_MM_dd_hh_mm_ss"
+                    
+                    let time = dateFormat.string(from: Date())
+                    let lat_emp = "\(coord?.latitude)"
+                    let long_emp = "\(coord?.longitude)"
                     let param : [String : String] = ["session": session.toBase64(),
-                                                     "time" : time,
+                                                     "time" : time.toBase64(),
                                                      "lat_emp" : lat_emp.toBase64(),
                                                      "long_emp" : long_emp.toBase64()]
                     Alamofire.request("http://www.giaohangongvang.com/api/location/push-location", method: .post, parameters: param).responseJSON(completionHandler: { (respose) in

@@ -40,6 +40,21 @@ class MainViewController: BaseViewController {
         hotlineIcon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MainViewController.callDieuVan(_:))))
         
         self.initWhenLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.receiveNotify2(_:)), name: NSNotification.Name.init("DonGiaoMoiTake"), object: nil)
+    }
+    
+    func receiveNotify2(_ notification : Notification) {
+        let dict = notification.object as! [String : String]
+        let title = dict["title"] ?? ""
+        let id = dict["id"] ?? ""
+        
+        let vc = TakePictureDonGiaoViewController(nibName: "TakePictureDonGiaoViewController", bundle: nil)
+        vc.titleStr = title
+        vc.idDonHang = id
+        self.present(vc, animated: true) { 
+                
+        }
     }
     
     func initWhenLoad() {

@@ -26,6 +26,8 @@
 		362B775D1E49C77100768F32 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; };
 		362B775E1E49C77E00768F32 /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; };
 		362B775F1E49C77E00768F32 /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		362B95521E6AAAF3008CE150 /* TakePictureDonGiaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362B95501E6AAAF3008CE150 /* TakePictureDonGiaoViewController.swift */; };
+		362B95531E6AAAF3008CE150 /* TakePictureDonGiaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 362B95511E6AAAF3008CE150 /* TakePictureDonGiaoViewController.xib */; };
 		363DCC201E54B03E0012B0DF /* DonHoanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */; };
 		363DCC211E54B03E0012B0DF /* DonHoanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */; };
 		3648DB371E3743750037F710 /* CarbonKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3648DB351E37436E0037F710 /* CarbonKit.framework */; };
@@ -168,6 +170,8 @@
 		362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneSearchTableViewCell.xib; sourceTree = "<group>"; };
 		362B775C1E49C77100768F32 /* ToastSwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToastSwiftFramework.framework; path = giaohangongvong/Carthage/Build/iOS/ToastSwiftFramework.framework; sourceTree = "<group>"; };
 		362B954B1E6A71D6008CE150 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		362B95501E6AAAF3008CE150 /* TakePictureDonGiaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureDonGiaoViewController.swift; sourceTree = "<group>"; };
+		362B95511E6AAAF3008CE150 /* TakePictureDonGiaoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePictureDonGiaoViewController.xib; sourceTree = "<group>"; };
 		363DCC1E1E54B03D0012B0DF /* DonHoanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonHoanTableViewCell.swift; sourceTree = "<group>"; };
 		363DCC1F1E54B03D0012B0DF /* DonHoanTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonHoanTableViewCell.xib; sourceTree = "<group>"; };
 		3648DB351E37436E0037F710 /* CarbonKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarbonKit.framework; path = giaohangongvong/Carthage/Build/iOS/CarbonKit.framework; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 		361395361E33989C00AA980C /* NhanDonGiao */ = {
 			isa = PBXGroup;
 			children = (
+				362B954F1E6AAAD0008CE150 /* TakePictureDonGiaoVC */,
 				361DCB251E53137C0077755A /* DonGiaoMoiVC */,
 				36662D471E3C292200B30245 /* PhoneSearchVC */,
 				36662D461E3C291800B30245 /* QuetMaVachVC */,
@@ -362,6 +367,15 @@
 				362B77591E49BC1700768F32 /* PhoneSearchTableViewCell.xib */,
 			);
 			name = PhoneSearchCell;
+			sourceTree = "<group>";
+		};
+		362B954F1E6AAAD0008CE150 /* TakePictureDonGiaoVC */ = {
+			isa = PBXGroup;
+			children = (
+				362B95501E6AAAF3008CE150 /* TakePictureDonGiaoViewController.swift */,
+				362B95511E6AAAF3008CE150 /* TakePictureDonGiaoViewController.xib */,
+			);
+			name = TakePictureDonGiaoVC;
 			sourceTree = "<group>";
 		};
 		363DCC1D1E54B0280012B0DF /* DonHoan */ = {
@@ -961,6 +975,7 @@
 				36665D6A1E336B62006B18C0 /* ReceiveTappedTableViewCell.xib in Resources */,
 				36B140611E6041190036DDFF /* PhuCuocNoiTinhViewController.xib in Resources */,
 				367DF2251E4C6964005352EA /* ds_tinh.txt in Resources */,
+				362B95531E6AAAF3008CE150 /* TakePictureDonGiaoViewController.xib in Resources */,
 				36B140661E60AC480036DDFF /* RegisNormalTableViewCell.xib in Resources */,
 				369AA9741E312442008C7272 /* ReceiveTableViewCell.xib in Resources */,
 				364E0F611E311A2C0012BD45 /* Main.storyboard in Resources */,
@@ -1038,6 +1053,7 @@
 				36D76A061E3756CB00E6E08B /* BaseViewController.swift in Sources */,
 				36D76A031E37462A00E6E08B /* DonHoanViewController.swift in Sources */,
 				36E22D601E57DE1100E5E149 /* PurchaseTableViewCell.swift in Sources */,
+				362B95521E6AAAF3008CE150 /* TakePictureDonGiaoViewController.swift in Sources */,
 				36662D441E3C284B00B30245 /* TakePictureViewController.swift in Sources */,
 				36D76A0D1E3875C000E6E08B /* DeliveryObject.swift in Sources */,
 				36534C051E4EF2F800229DD5 /* NhanVien.swift in Sources */,

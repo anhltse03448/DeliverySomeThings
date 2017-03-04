@@ -46,14 +46,14 @@ class MenuViewController: BaseViewController {
         listItem.append(ItemObj(name: "Nhận đơn giao", img: "nhandon"))
         listItem.append(ItemObj(name: "Hàng về kho", img: "hangton"))
         listItem.append(ItemObj(name: "Thanh toán", img: "thanhtoan"))
-        listItem.append(ItemObj(name: "Đăng xuât", img: "logout"))
+        listItem.append(ItemObj(name: "Đăng xuất", img: "logout"))
         tbl.showsVerticalScrollIndicator = false
         tbl.separatorStyle = .none
         //tbl.selectRow(at: IndexPath.init(row: 1, section: 1), animated: true, scrollPosition: .top)        
     }
     override func viewDidAppear(_ animated: Bool) {
         let tenNV = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.ho_ten)) as! String
-        lblNV.text = "NVGH: " +  tenNV
+        lblNV.text =  tenNV
     }
 
     override func didReceiveMemoryWarning() {

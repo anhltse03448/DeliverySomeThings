@@ -51,6 +51,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "TakePictureDonGiaoViewController.(takePicture() -&gt; ()).(closure #1).(closure #2).(closure #1):TakePictureDonGiaoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "param">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TakePictureViewController.btnEnd(UIButton) -&gt; ():TakePictureViewController.swift">
          <PersistentStrings>
             <PersistentString

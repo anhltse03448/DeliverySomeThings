@@ -46,6 +46,15 @@ class RegisterViewController: BaseViewController {
         btnNu.setImage(UIImage.init(named: "unchecked"), for: UIControlState.normal)
         btnNam.isSelected = true
         setPickerView()
+        initNextField()
+    }
+    
+    func initNextField() {
+        self.txtName.nextField = self.txtNumberPhone
+        self.txtNumberPhone.nextField = self.txtAddress
+        self.txtAddress.nextField = self.txtNgaySinh
+        self.txtNgaySinh.nextField = self.txtCMND
+        self.txtCMND.nextField = self.txtNgayCap
     }
     
     func pickImage(_ gesture : UITapGestureRecognizer) {
@@ -85,11 +94,11 @@ class RegisterViewController: BaseViewController {
     }
     
     func dismisKeyboard(_ gesture : UITapGestureRecognizer) {
-        txtName.resignFirstResponder()
-        txtNumberPhone.resignFirstResponder()
-        txtAddress.resignFirstResponder()
-        txtCMND.resignFirstResponder()
-        txtNgayCap.resignFirstResponder()
+//        txtName.resignFirstResponder()
+//        txtNumberPhone.resignFirstResponder()
+//        txtAddress.resignFirstResponder()
+//        txtCMND.resignFirstResponder()
+//        txtNgayCap.resignFirstResponder()
     }
     
     func datePickerValueChanged(sender:UIDatePicker) {
@@ -203,7 +212,22 @@ class RegisterViewController: BaseViewController {
 }
 extension RegisterViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case txtName:
+            txtNumberPhone.becomeFirstResponder()
+        case txtNumberPhone:
+            txtAddress.becomeFirstResponder()
+        case txtAddress:
+            txtNgaySinh.becomeFirstResponder()
+        case txtNgaySinh:
+            txtCMND.becomeFirstResponder()
+        case txtCMND:
+            txtNgayCap.becomeFirstResponder()
+        case txtNgayCap:
+            txtNoiCap.becomeFirstResponder()
+        default:
+            break
+        }
         return true
     }
 }

@@ -107,6 +107,14 @@ class DonGIaoMoiViewController: BaseViewController {
                     }                    
                 }
             }
+            
+            let tp = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.id_tp)) as! String
+            for item in self.listTP {
+                if item.id_thanh_pho == tp {
+                    self.chooseTP = self.listTP.index(of: item)!
+                    self.txtTP.text = self.listTP[self.chooseTP!].ten_thanh_pho
+                }
+            }
         }
     }
     
@@ -148,12 +156,19 @@ class DonGIaoMoiViewController: BaseViewController {
                     NSLog("\(data)")
                     let warning = data["warning"].stringValue
                     NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
-                    self.popupController?.dismiss()
+                    let obj = ["title" : "Chụp đơn : \(self.sdt!)",
+                        "id" : "\(id)"]
+                    self.popupController?.dismiss(completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name.init("DonGiaoMoiTake"), object: obj)
+                    })
                 })
             } else {
                 let warning = data["warning"].stringValue
                 NhanDonGiaoViewController.sharedInstance.view.makeToast(warning, duration: 2.0, position: .center)
-                self.popupController?.dismiss()
+                let obj = ["title" : "Chụp đơn : \(self.sdt!)"]
+                self.popupController?.dismiss(completion: {
+                    NotificationCenter.default.post(name: NSNotification.Name.init("DonGiaoMoiTake"), object: obj)
+                })
             }
         }
     }

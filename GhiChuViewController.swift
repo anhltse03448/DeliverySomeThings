@@ -38,6 +38,10 @@ class GhiChuViewController: BaseViewController {
         DeliveryViewController.shouldLoad = true
         let id_don_hang = dov?.id_don_hang
         let ghichu = txtghichu.text ?? ""
+        if ghichu == "" {
+            self.view.makeToast("Không có ghi chú", duration: 1.0, position: .center)
+            return
+        }
         if ghichu != "" {
             let param : [String : String] = ["session" : self.getSession(),
                                              "id_don_hang" : (id_don_hang?.toBase64())!,
@@ -107,7 +111,9 @@ class GhiChuViewController: BaseViewController {
             case 4:
                 //str = "Gọi shop"
                 let phone = dov?.sdt_nguoi_gui
-                guard let number = URL(string: "telprompt://" + phone!) else { return }
+                guard let number = URL(string: "telprompt://" + phone!) else {
+                    self.view.makeToast("Ko có sdt", duration: 1.0, position: .center)
+                    return }
             UIApplication.shared.openURL(number)
                 //UIApplication.shared.open(number, options: [:], completionHandler: nil)
             default:

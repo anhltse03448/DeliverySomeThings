@@ -34,11 +34,11 @@ class DonHoanViewController: BaseViewController {
     
     func loadDonHoan() {
         let param : [String : String] = ["session" : self.getSession()]
-        NSLog("\(self.getSession())")
         var tmp = [DeliveryObject]()
+        self.showLoadingHUD()
         Alamofire.request("http://www.giaohangongvang.com/api/nhanvien/list-donhang-hoan", method: .post, parameters: param).responseJSON { (response) in
             let data = JSON.init(data: response.data!)
-            NSLog("\(data)")
+            self.hideLoadingHUD()
             let status = data["status"].stringValue
             if status != "fail" {
                 let details = data["detail"].arrayValue

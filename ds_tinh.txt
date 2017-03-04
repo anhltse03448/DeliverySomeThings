@@ -1,5 +1,4 @@
-﻿ --Chọn nơi cấp--
-        An Giang
+﻿        An Giang
         Bà Rịa - Vũng Tàu
         Bắc Giang
         Bắc Kạn

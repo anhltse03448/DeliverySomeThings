@@ -105,7 +105,7 @@
                                             <rect key="frame" x="4" y="4" width="367" height="42"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="4N5-Oq-nPj"/>
                                             </connections>
@@ -120,13 +120,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-ky-ueQ">
-                                    <rect key="frame" x="0.0" y="50" width="375" height="51"/>
+                                    <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HyS-kz-BNZ">
-                                            <rect key="frame" x="0.0" y="2" width="188" height="49"/>
+                                            <rect key="frame" x="0.0" y="2" width="188" height="48"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2J-D3-pse">
-                                                    <rect key="frame" x="2" y="2" width="184" height="45"/>
+                                                    <rect key="frame" x="2" y="2" width="184" height="44"/>
                                                     <state key="normal" title="Nam" image="checked">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
@@ -144,10 +144,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKO-zl-zUY">
-                                            <rect key="frame" x="187" y="2" width="188" height="49"/>
+                                            <rect key="frame" x="187" y="2" width="188" height="48"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdG-Vi-Kws">
-                                                    <rect key="frame" x="2" y="2" width="184" height="45"/>
+                                                    <rect key="frame" x="2" y="2" width="184" height="44"/>
                                                     <state key="normal" title="Nữ" image="unchecked">
                                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
@@ -178,13 +178,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-Go-Mc5">
-                                    <rect key="frame" x="0.0" y="101" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số điện thoại" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BR-sK-kSU">
                                             <rect key="frame" x="4" y="4" width="367" height="42"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="kbr-1x-oT6"/>
                                             </connections>
@@ -199,13 +199,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-ip-ewf">
-                                    <rect key="frame" x="0.0" y="151" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Địa chỉ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VP5-9o-1cN">
                                             <rect key="frame" x="4" y="4" width="367" height="42"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="J4T-zQ-7QF"/>
                                             </connections>
@@ -220,13 +220,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNf-bo-Ls8">
-                                    <rect key="frame" x="0.0" y="201" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="200" width="375" height="50"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày sinh" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9NM-TQ-fgU">
                                             <rect key="frame" x="4" y="4" width="367" height="42"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             <connections>
                                                 <action selector="dpWithSender:" destination="-1" eventType="editingDidBegin" id="IQm-mJ-aAQ"/>
                                             </connections>
@@ -239,10 +239,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qF-sL-KC8">
-                                    <rect key="frame" x="0.0" y="251" width="375" height="51"/>
+                                    <rect key="frame" x="0.0" y="250" width="375" height="50"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CMND" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qio-Lq-MfG">
-                                            <rect key="frame" x="4" y="4" width="367" height="43"/>
+                                            <rect key="frame" x="4" y="4" width="367" height="42"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -260,7 +260,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-E4-Ekx">
-                                    <rect key="frame" x="0.0" y="302" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="300" width="375" height="50"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ngày cấp " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q2R-C5-0Q2">
                                             <rect key="frame" x="4" y="4" width="367" height="42"/>
@@ -282,7 +282,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhE-cW-XJv">
-                                    <rect key="frame" x="0.0" y="352" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="350" width="375" height="50"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nơi cấp" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ck-g4-nqc">
                                             <rect key="frame" x="4" y="4" width="367" height="42"/>
