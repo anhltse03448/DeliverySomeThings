@@ -81,6 +81,11 @@ class QuetMaVachViewController: BaseViewController {
         
         
         do {
+            if(captureDevice?.isFocusModeSupported(.continuousAutoFocus))! {
+                try! captureDevice?.lockForConfiguration()
+                captureDevice?.focusMode = .continuousAutoFocus
+                captureDevice?.unlockForConfiguration()
+            }
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
             let input = try AVCaptureDeviceInput(device: captureDevice)
             // Initialize the captureSession object.
@@ -197,6 +202,10 @@ class QuetMaVachViewController: BaseViewController {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        videoPreviewLayer?.frame = previewView.bounds
+    }
     
     func requestDataWithTrackID(id : String){
         self.showLoadingHUD()
