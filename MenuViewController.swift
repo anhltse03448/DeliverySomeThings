@@ -111,16 +111,16 @@ extension MenuViewController : UITableViewDataSource , UITableViewDelegate {
         }
         switch index {
         case 0:
-            ReceiveViewController.shouldLoad = true
+            NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveViewController.sharedInstance
             if MenuViewController.sharedInstace.indexPick == index {
-                NotificationCenter.default.post(Notification(name: Notification.Name.init("UpdateReceiveVC")))
+                
             }
         case 1:
-            DeliveryViewController.shouldLoad = true
+            NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
             MainViewController.sharedInstance.slideMenu?.mainViewController = DeliveryViewController.sharedInstance
             if MenuViewController.sharedInstace.indexPick == index {
-                NotificationCenter.default.post(Notification(name: Notification.Name.init("DeliveryVC")))
+                
             }            
         case 2:
             MainViewController.sharedInstance.slideMenu?.mainViewController = ReceiveTakePicViewController.sharedInstance

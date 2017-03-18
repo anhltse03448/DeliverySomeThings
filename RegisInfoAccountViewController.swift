@@ -101,7 +101,7 @@ class RegisInfoAccountViewController: BaseViewController {
         let ttGD = self.convertTTGD()
         
         let param : [String : String] = ["email" : email.toBase64(),
-                                         "password" : password.toBase64(),
+                                         "password" : MD5(password) ?? "" ,
                                          "name" : name.toBase64(),
                                          "gioi_tinh" : gioi_tinh.toBase64(),
                                          "ngay_sinh" : ngay_sinh.toBase64(),

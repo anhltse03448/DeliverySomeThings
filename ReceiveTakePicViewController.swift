@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import STPopup
 class NguoiGui : NSObject {
     /*
      "id_khachhang":"3",
@@ -51,9 +51,15 @@ class ReceiveTakePicViewController: BaseViewController {
     var listNV = [NguoiGui]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setInputView()
         self.requestNguoiGui()
+        NotificationCenter.default.addObserver(self, selector: #selector(ReceiveTakePicViewController.receinotify(notify:)), name: NSNotification.Name.init("ChooseShop"), object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    func receinotify(notify : Notification) {
+        let obj = notify.object as! [String : String]
+        let name = obj["name"] ?? ""
+        self.Txtstore.text = name
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,10 +81,11 @@ class ReceiveTakePicViewController: BaseViewController {
         } else if num == "" {
             self.view.makeToast("Chưa nhập số lượng", duration: 2.0, position: .center)
             return
-        } else if self.nhanVienChon == "" {
-            self.view.makeToast("Chọn nhân viên", duration: 2.0, position: .center)
-            return
         }
+//        } else if self.nhanVienChon == "" {
+////            self.view.makeToast("Chọn nhân viên", duration: 2.0, position: .center)
+////            return
+//        }
         else{
             let num = (txtNumber.text ?? "0")
             let dateformatter = DateFormatter()//yyMMdd_HHmmss
@@ -110,21 +117,24 @@ class ReceiveTakePicViewController: BaseViewController {
             }
         }
     }
-    func setInputView() {
-        pickerStore.dataSource = self
-        pickerStore.delegate = self
-        Txtstore.inputView = pickerStore
+   
+    @IBAction func CHDidBegin(_ sender: Any) {
+        //Txtstore.resignFirstResponde()
+        Txtstore.resignFirstResponder()
+        TxtName.resignFirstResponder()
+        let vc = SearchShopViewController(nibName: "SearchShopViewController", bundle: nil)
+        let stpopup = STPopupController(rootViewController: vc)
+        stpopup.present(in: self)
     }
     
-//    @IBAction func nhanvienDidBegin(_ sender: Any) {
-//        if self.nhanVienChon == "" {
-//            if listNV.count != 0 {
-//                pickerNV.selectRow(0, inComponent: 0, animated: true)
-//                self.nhanVienChon = listNV[0].id_nhan_vien
-//                chonNhanVien.text = listNV[0].ho_ten
-//            }
-//        }
-//    }
+    @IBAction func TouchInsde(_ sender: Any) {
+        //Txtstore.resignFirstResponde()
+        Txtstore.resignFirstResponder()
+        TxtName.resignFirstResponder()
+        let vc = SearchShopViewController(nibName: "SearchShopViewController", bundle: nil)
+        let stpopup = STPopupController(rootViewController: vc)
+        stpopup.present(in: self)
+    }
 }
 
 extension ReceiveTakePicViewController : UIPickerViewDataSource , UIPickerViewDelegate {

@@ -44,6 +44,10 @@ class PhoneSearchViewController: BaseViewController {
             self.view.makeToast("Chưa nhập phone", duration: 2.0, position: .center)
             return
         }
+        if ((phone.characters.count < 10) || (phone.characters.count > 11) ){
+            self.view.makeToast("Phone phải có 10 hoặc 11 chữ số", duration: 1.0, position: .center)
+            return
+        }
         let session = self.getSession()
         let param : [String : String] = ["session" : session ,
                                          "sdt_nguoi_nhan" : phone.toBase64()]

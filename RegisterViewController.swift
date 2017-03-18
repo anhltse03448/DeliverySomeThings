@@ -58,7 +58,7 @@ class RegisterViewController: BaseViewController {
     }
     
     func pickImage(_ gesture : UITapGestureRecognizer) {
-        self.imagePicker.sourceType = .photoLibrary
+        self.imagePicker.sourceType = .photoLibrary        
         self.present(self.imagePicker, animated: true, completion: nil)
 //        let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle: .actionSheet)
 //        

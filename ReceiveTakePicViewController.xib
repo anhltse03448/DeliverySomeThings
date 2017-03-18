@@ -43,6 +43,10 @@
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="TouchInsde:" destination="-2" eventType="editingDidBegin" id="LdO-1e-b2b"/>
+                        <action selector="TouchInsde:" destination="-2" eventType="touchUpInside" id="r4Y-IT-M6y"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số Đơn Nhận" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5R-jM-rDG">
                     <rect key="frame" x="4" y="166" width="367" height="40"/>

@@ -88,6 +88,10 @@
 		369AA9741E312442008C7272 /* ReceiveTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369AA9721E312442008C7272 /* ReceiveTableViewCell.xib */; };
 		369AA9791E312904008C7272 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369AA9771E312904008C7272 /* LoginViewController.swift */; };
 		369AA97A1E312904008C7272 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 369AA9781E312904008C7272 /* LoginViewController.xib */; };
+		36A245311E6ACC3C00B5AA27 /* SearchShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A2452F1E6ACC3C00B5AA27 /* SearchShopViewController.swift */; };
+		36A245321E6ACC3C00B5AA27 /* SearchShopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A245301E6ACC3C00B5AA27 /* SearchShopViewController.xib */; };
+		36A245361E6ACE2000B5AA27 /* ShopNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A245341E6ACE2000B5AA27 /* ShopNameTableViewCell.swift */; };
+		36A245371E6ACE2000B5AA27 /* ShopNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36A245351E6ACE2000B5AA27 /* ShopNameTableViewCell.xib */; };
 		36B140601E6041190036DDFF /* PhuCuocNoiTinhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B1405E1E6041190036DDFF /* PhuCuocNoiTinhViewController.swift */; };
 		36B140611E6041190036DDFF /* PhuCuocNoiTinhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36B1405F1E6041190036DDFF /* PhuCuocNoiTinhViewController.xib */; };
 		36B140651E60AC480036DDFF /* RegisNormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B140631E60AC480036DDFF /* RegisNormalTableViewCell.swift */; };
@@ -108,6 +112,10 @@
 		36D76A1C1E38978700E6E08B /* STPopup.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36D76A191E38978000E6E08B /* STPopup.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36D76A201E38A67500E6E08B /* HoanThanhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D76A1E1E38A67500E6E08B /* HoanThanhViewController.swift */; };
 		36D76A211E38A67500E6E08B /* HoanThanhViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D76A1F1E38A67500E6E08B /* HoanThanhViewController.xib */; };
+		36D86CC61E7CD6400070F121 /* ScanBarCodeFailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D86CC41E7CD6400070F121 /* ScanBarCodeFailViewController.swift */; };
+		36D86CC71E7CD6400070F121 /* ScanBarCodeFailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D86CC51E7CD6400070F121 /* ScanBarCodeFailViewController.xib */; };
+		36D86CD01E7CE0010070F121 /* ViewSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D86CCF1E7CE0010070F121 /* ViewSuccess.swift */; };
+		36D86CD21E7CE2870070F121 /* ViewSuccess.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36D86CD11E7CE2870070F121 /* ViewSuccess.xib */; };
 		36E15BB31E5B51B000F4D64C /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 36E15BB21E5B51B000F4D64C /* 2.jpg */; };
 		36E22D601E57DE1100E5E149 /* PurchaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E22D5E1E57DE1100E5E149 /* PurchaseTableViewCell.swift */; };
 		36E22D611E57DE1100E5E149 /* PurchaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36E22D5F1E57DE1100E5E149 /* PurchaseTableViewCell.xib */; };
@@ -229,6 +237,10 @@
 		369AA9721E312442008C7272 /* ReceiveTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiveTableViewCell.xib; sourceTree = "<group>"; };
 		369AA9771E312904008C7272 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		369AA9781E312904008C7272 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		36A2452F1E6ACC3C00B5AA27 /* SearchShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchShopViewController.swift; sourceTree = "<group>"; };
+		36A245301E6ACC3C00B5AA27 /* SearchShopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchShopViewController.xib; sourceTree = "<group>"; };
+		36A245341E6ACE2000B5AA27 /* ShopNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopNameTableViewCell.swift; sourceTree = "<group>"; };
+		36A245351E6ACE2000B5AA27 /* ShopNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShopNameTableViewCell.xib; sourceTree = "<group>"; };
 		36B1405E1E6041190036DDFF /* PhuCuocNoiTinhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhuCuocNoiTinhViewController.swift; sourceTree = "<group>"; };
 		36B1405F1E6041190036DDFF /* PhuCuocNoiTinhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhuCuocNoiTinhViewController.xib; sourceTree = "<group>"; };
 		36B140631E60AC480036DDFF /* RegisNormalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisNormalTableViewCell.swift; sourceTree = "<group>"; };
@@ -245,6 +257,10 @@
 		36D76A191E38978000E6E08B /* STPopup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = STPopup.framework; path = giaohangongvong/Carthage/Build/iOS/STPopup.framework; sourceTree = "<group>"; };
 		36D76A1E1E38A67500E6E08B /* HoanThanhViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoanThanhViewController.swift; sourceTree = "<group>"; };
 		36D76A1F1E38A67500E6E08B /* HoanThanhViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HoanThanhViewController.xib; sourceTree = "<group>"; };
+		36D86CC41E7CD6400070F121 /* ScanBarCodeFailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanBarCodeFailViewController.swift; sourceTree = "<group>"; };
+		36D86CC51E7CD6400070F121 /* ScanBarCodeFailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScanBarCodeFailViewController.xib; sourceTree = "<group>"; };
+		36D86CCF1E7CE0010070F121 /* ViewSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSuccess.swift; sourceTree = "<group>"; };
+		36D86CD11E7CE2870070F121 /* ViewSuccess.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewSuccess.xib; sourceTree = "<group>"; };
 		36E15BB21E5B51B000F4D64C /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		36E22D5E1E57DE1100E5E149 /* PurchaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseTableViewCell.swift; sourceTree = "<group>"; };
 		36E22D5F1E57DE1100E5E149 /* PurchaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseTableViewCell.xib; sourceTree = "<group>"; };
@@ -289,6 +305,7 @@
 		361395311E33986600AA980C /* ReceiveTakePicVC */ = {
 			isa = PBXGroup;
 			children = (
+				36A2452E1E6ACBC500B5AA27 /* SearchShop */,
 				36662D411E3C283900B30245 /* TakePictureVC */,
 				361395321E33988600AA980C /* ReceiveTakePicViewController.swift */,
 				361395331E33988600AA980C /* ReceiveTakePicViewController.xib */,
@@ -299,6 +316,8 @@
 		361395361E33989C00AA980C /* NhanDonGiao */ = {
 			isa = PBXGroup;
 			children = (
+				36D86CC81E7CDAFA0070F121 /* PopUpSuceessBarCode */,
+				36D86CC31E7CD6220070F121 /* PopUpFailScanBarCodeVC */,
 				362B954F1E6AAAD0008CE150 /* TakePictureDonGiaoVC */,
 				361DCB251E53137C0077755A /* DonGiaoMoiVC */,
 				36662D471E3C292200B30245 /* PhoneSearchVC */,
@@ -759,6 +778,25 @@
 			name = LoginVC;
 			sourceTree = "<group>";
 		};
+		36A2452E1E6ACBC500B5AA27 /* SearchShop */ = {
+			isa = PBXGroup;
+			children = (
+				36A245331E6ACE0800B5AA27 /* New Group */,
+				36A2452F1E6ACC3C00B5AA27 /* SearchShopViewController.swift */,
+				36A245301E6ACC3C00B5AA27 /* SearchShopViewController.xib */,
+			);
+			name = SearchShop;
+			sourceTree = "<group>";
+		};
+		36A245331E6ACE0800B5AA27 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				36A245341E6ACE2000B5AA27 /* ShopNameTableViewCell.swift */,
+				36A245351E6ACE2000B5AA27 /* ShopNameTableViewCell.xib */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		36B140621E60AC290036DDFF /* RegisCellNormalTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +858,24 @@
 				36B1405F1E6041190036DDFF /* PhuCuocNoiTinhViewController.xib */,
 			);
 			name = PhuCuocNoiTinh;
+			sourceTree = "<group>";
+		};
+		36D86CC31E7CD6220070F121 /* PopUpFailScanBarCodeVC */ = {
+			isa = PBXGroup;
+			children = (
+				36D86CC41E7CD6400070F121 /* ScanBarCodeFailViewController.swift */,
+				36D86CC51E7CD6400070F121 /* ScanBarCodeFailViewController.xib */,
+			);
+			name = PopUpFailScanBarCodeVC;
+			sourceTree = "<group>";
+		};
+		36D86CC81E7CDAFA0070F121 /* PopUpSuceessBarCode */ = {
+			isa = PBXGroup;
+			children = (
+				36D86CCF1E7CE0010070F121 /* ViewSuccess.swift */,
+				36D86CD11E7CE2870070F121 /* ViewSuccess.xib */,
+			);
+			name = PopUpSuceessBarCode;
 			sourceTree = "<group>";
 		};
 		36E22D5D1E57DE0000E5E149 /* ThanhToan */ = {
@@ -949,6 +1005,7 @@
 				36662D451E3C284B00B30245 /* TakePictureViewController.xib in Resources */,
 				36E15BB31E5B51B000F4D64C /* 2.jpg in Resources */,
 				3650246F1E38F3E800963E0B /* GhiChuViewController.xib in Resources */,
+				36D86CC71E7CD6400070F121 /* ScanBarCodeFailViewController.xib in Resources */,
 				3618E57C1E31B91300756DB6 /* RegisterViewController.xib in Resources */,
 				369AA97A1E312904008C7272 /* LoginViewController.xib in Resources */,
 				36665D641E3365E0006B18C0 /* Assets.xcassets in Resources */,
@@ -961,8 +1018,10 @@
 				364E0F881E311C170012BD45 /* MenuTableViewCell.xib in Resources */,
 				364E0F661E311A2C0012BD45 /* LaunchScreen.storyboard in Resources */,
 				361395441E3398CC00AA980C /* PurchaseViewController.xib in Resources */,
+				36A245371E6ACE2000B5AA27 /* ShopNameTableViewCell.xib in Resources */,
 				365024691E38ED5C00963E0B /* HoanDonViewController.xib in Resources */,
 				36D374261E584C91009DBEA2 /* PhuCuocViewController.xib in Resources */,
+				36D86CD21E7CE2870070F121 /* ViewSuccess.xib in Resources */,
 				3613953F1E3398BA00AA980C /* HangVeKhoViewController.xib in Resources */,
 				36534C0B1E4F039100229DD5 /* RegisInfoFamilyTableViewCell.xib in Resources */,
 				367CA58F1E34C8FC004A6D59 /* RegisInforFamilyViewController.xib in Resources */,
@@ -980,6 +1039,7 @@
 				369AA9741E312442008C7272 /* ReceiveTableViewCell.xib in Resources */,
 				364E0F611E311A2C0012BD45 /* Main.storyboard in Resources */,
 				36FCE9621E4B1A5C00A72871 /* HenGioViewController.xib in Resources */,
+				36A245321E6ACC3C00B5AA27 /* SearchShopViewController.xib in Resources */,
 				3613953A1E3398AA00AA980C /* NhanDonGiaoViewController.xib in Resources */,
 				36FA67701E4EA50400061217 /* CallDieuVanViewController.xib in Resources */,
 				36D76A211E38A67500E6E08B /* HoanThanhViewController.xib in Resources */,
@@ -1063,7 +1123,11 @@
 				361DCB281E5313950077755A /* DonGIaoMoiViewController.swift in Sources */,
 				36B140601E6041190036DDFF /* PhuCuocNoiTinhViewController.swift in Sources */,
 				365F676E1E364491001B6CEC /* ReceivePerson.swift in Sources */,
+				36D86CD01E7CE0010070F121 /* ViewSuccess.swift in Sources */,
+				36D86CC61E7CD6400070F121 /* ScanBarCodeFailViewController.swift in Sources */,
+				36A245361E6ACE2000B5AA27 /* ShopNameTableViewCell.swift in Sources */,
 				361395391E3398AA00AA980C /* NhanDonGiaoViewController.swift in Sources */,
+				36A245311E6ACC3C00B5AA27 /* SearchShopViewController.swift in Sources */,
 				36FA67751E4EB2BA00061217 /* ReceiveDetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

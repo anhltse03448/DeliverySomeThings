@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pPI-ty-LDI">
-                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                    <rect key="frame" x="0.0" y="45" width="375" height="622"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="nsj-ux-jiY"/>
@@ -31,17 +31,17 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Jv-ycm">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_NV" translatesAutoresizingMaskIntoConstraints="NO" id="Gm9-cW-JMu">
-                            <rect key="frame" x="24" y="4" width="32" height="32"/>
+                            <rect key="frame" x="24" y="4" width="37" height="37"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Gm9-cW-JMu" secondAttribute="height" multiplier="1:1" id="Xrc-8M-5lc"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C1-bG-GCJ">
-                            <rect key="frame" x="64" y="11" width="39" height="18"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <rect key="frame" x="69" y="12.5" width="43.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                             <color key="textColor" red="0.89411764709999997" green="0.2901960784" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -50,7 +50,7 @@
                     <constraints>
                         <constraint firstItem="1C1-bG-GCJ" firstAttribute="leading" secondItem="Gm9-cW-JMu" secondAttribute="trailing" constant="8" id="Jsx-qj-i07"/>
                         <constraint firstItem="1C1-bG-GCJ" firstAttribute="centerY" secondItem="Gm9-cW-JMu" secondAttribute="centerY" id="LIV-Sq-xxu"/>
-                        <constraint firstAttribute="height" constant="40" id="S3p-VI-HuU"/>
+                        <constraint firstAttribute="height" constant="45" id="S3p-VI-HuU"/>
                         <constraint firstAttribute="bottom" secondItem="Gm9-cW-JMu" secondAttribute="bottom" constant="4" id="b9o-za-pt4"/>
                         <constraint firstItem="Gm9-cW-JMu" firstAttribute="top" secondItem="fJh-Jv-ycm" secondAttribute="top" constant="4" id="vK8-qg-sC6"/>
                         <constraint firstItem="Gm9-cW-JMu" firstAttribute="leading" secondItem="fJh-Jv-ycm" secondAttribute="leading" constant="24" id="yKT-TQ-DxQ"/>

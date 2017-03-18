@@ -12,7 +12,7 @@ import CarbonKit
 class NhanDonGiaoViewController: UIViewController {
     static let sharedInstance = NhanDonGiaoViewController()
     @IBOutlet weak var contentView : UIView!
-    var tabsName : [String] = ["NHẬP SĐT","QUÉT MÃ VẠCH "]
+    var tabsName : [String] = ["QUÉT MÃ VẠCH ","NHẬP SĐT"]
     var quetMaVachVC : QuetMaVachViewController?
     var phoneSearch : PhoneSearchViewController?
     
@@ -44,8 +44,8 @@ class NhanDonGiaoViewController: UIViewController {
         carbonTabSwipeNavigation.setNormalColor(UIColor(rgba: "#040D14"), font: UIFont.systemFont(ofSize: 13))
         carbonTabSwipeNavigation.setSelectedColor(UIColor(rgba: "#007D01"), font: UIFont.boldSystemFont(ofSize: 14))
         
-        for i in 0..<tabsName.count - 1 {
-            carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width, forSegmentAt: i)
+        for i in 0..<tabsName.count {
+            carbonTabSwipeNavigation.carbonSegmentedControl?.setWidth(UIScreen.main.bounds.width / CGFloat(tabsName.count) , forSegmentAt: i)
         }
     }
 }
@@ -58,9 +58,9 @@ extension NhanDonGiaoViewController : CarbonTabSwipeNavigationDelegate {
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         switch index {
         case 0:
-            return phoneSearch!
-        default:
             return quetMaVachVC!
+        default:
+            return phoneSearch!
         }
     }
 }

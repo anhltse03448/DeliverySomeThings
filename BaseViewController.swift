@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import ToastSwiftFramework
+import SwiftyJSON
 
 class BaseViewController: UIViewController {
 
@@ -36,7 +37,7 @@ class BaseViewController: UIViewController {
         var result = [String]()
         let path = Bundle.main.path(forResource: "ds_tinh", ofType: "txt")
         do {
-            var text = try  String(contentsOfFile: path!, encoding: String.Encoding.utf8)
+            var text = try  String(contentsOfFile: path!, encoding: String.Encoding.utf8)            
             text = text.replacingOccurrences(of: " ", with: "")
             result = text.components(separatedBy: "\r\n")
         } catch {
