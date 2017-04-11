@@ -114,6 +114,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "AppDelegate.(locationManager(CLLocationManager, didUpdateLocations : [CLLocation]) -&gt; ()).(closure #1).(closure #1):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "param">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ReceiveViewController.addValue(start : Int) -&gt; ():ReceiveViewController.swift">
          <PersistentStrings>
             <PersistentString

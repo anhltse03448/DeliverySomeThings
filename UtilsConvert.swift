@@ -14,6 +14,8 @@ enum KeyDefault {
     case id_tp
     case id_quan
     case id_phuong
+    case lat
+    case long
 }
 
 
@@ -30,6 +32,10 @@ class UtilsConvert: NSObject {
             return "id_tp"
         case KeyDefault.id_quan:
             return "id_quan"
+        case KeyDefault.lat:
+            return "lat"
+        case KeyDefault.long:
+            return "long"
         default:
             return ""
         }
@@ -41,6 +47,7 @@ class UtilsConvert: NSObject {
         NSLog("\(price)")
         return price!
     }
+    static var dateSendLocation = Date()
 }
 struct Number {
     static let formatterWithSeparator: NumberFormatter = {

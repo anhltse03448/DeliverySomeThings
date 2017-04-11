@@ -13,6 +13,7 @@ import STPopup
 
 class DeliveryViewController: BaseViewController {
     @IBOutlet weak var tbl : UICollectionView!
+    @IBOutlet weak var btnShort : UIButton!
     let identifierNormal = "DeliveryCollectionViewCell"
     var listDeliverys : [DeliveryObject]?
     
@@ -27,6 +28,7 @@ class DeliveryViewController: BaseViewController {
     
     var arrOrder = [String]()
     var listShowOnly = [DeliveryObject]()
+    var listIdsort = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listDeliverys = [DeliveryObject]()
@@ -150,6 +152,69 @@ class DeliveryViewController: BaseViewController {
                     self.listShowOnly = self.processDataOrder()  //show only
                     self.saveOrderData()
                 }
+            }
+        }
+    }
+    
+    @IBAction func reorder(_sender : UIButton){
+        callRequestReorder()
+    }
+    
+    func callRequestReorder() {
+        let bodyStr = "{\"session_key\": \"\",\"employees\": \"1\",\"depot\": {\"address\": \"\",\"latitude\": 21.0167407,\"longitude\": 105.8375174},\"orders\": [{\"id\": \"20838\",\"address\": \"152 Đê Tô Hoàng, Hai Bà Trưng[Hà Nội gần], Hai Bà Trưng, Hà Nội\"}, {\"id\": \"20839\",\"address\": \"số nhà 16 ngõ 362/29 phố Nam Dư, Hoàng Mai[Hà Nội gần], Hoàng Mai, Hà Nội\"}, {\"id\": \"20847\",\"address\": \"Số 7 hào nam , Hoàn Kiếm, \"}, {\"id\": \"20851\",\"address\": \"sdsds, Hoàn Kiếm, Hà Nội\"}, {\"id\": \"20848\",\"address\": \"(n) 27 tổ 36 ngách 107/176 lĩnh nam, hoàng mai, hn, Hoàng Mai, Hà Nội\"}, {\"id\": \"20849\",\"address\": \"(m) 1b Trần Thánh Tông, Phạm Đình Hổ, Hai Bà Trưng, Hà Nội, Hai Bà Trưng, Hà Nội\"}]}"
+        
+        var tmp = ""
+        for i in 0 ..< self.listShowOnly.count {
+            let item = self.listShowOnly[i]
+            if (i == self.listShowOnly.count - 1) {
+                tmp = tmp + item.toString()
+            } else {
+                tmp = tmp + item.toString() + ","
+            }
+        }
+        
+        let order = "\"orders\" : [\(tmp)]"
+        let session_key = "\"session_key\" : \"\(self.getSession())\""
+        
+        let lat = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.lat)) as? String ?? ""
+        
+        let lon = UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.long)) as? String ?? ""
+        
+        let tmpDepot = "\"address\" : \"\",\"latitude\" : \(lat),\"longitude\" : \(lon)"
+        let depot = "\"depot\" : {\(tmpDepot)}"
+        let employeeStr = "\"employees\" : \"\(1)\""
+        
+        let bodyStrReal = "{\(session_key),\(employeeStr),\(depot),\(order)}"
+        self.showLoadingHUD()
+        Alamofire.request("http://137.74.174.141:16005/api/v1/tsp/ongvang_nhanvien", method: .post, parameters: nil, encoding: bodyStrReal, headers: nil).responseJSON { (response) in
+            let data = JSON.init(data: response.data!)
+            let orders = data["solution"]["orders"]
+            NSLog("\(orders)")
+            for item in orders.arrayValue {
+                let id = item["id_order"].stringValue
+                self.listIdsort.append(id)
+            }
+            
+            var listTmp = [DeliveryObject]()
+            for i in ( 0 ..< self.listIdsort.count).reversed() {
+                let item = self.listIdsort[i]
+                var ok = false
+                for item1 in self.listShowOnly {
+                    if item == item1.id_don_hang {
+                        listTmp.insert(item1, at: 0)
+                        ok = true
+                        break
+                    }
+                    if ok == false {
+                        listTmp.append(item1)
+                    }
+                }
+            }
+            self.listShowOnly = listTmp
+            self.saveOrderData()
+            self.hideLoadingHUD()
+            DispatchQueue.main.async {
+                self.tbl.reloadData()
             }
         }
     }
@@ -358,4 +423,13 @@ extension DeliveryViewController : DeliveryDelegate {
         //tbl.reloadItems(at: [index!])
         
     }
+}
+extension String: ParameterEncoding {
+    
+    public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+        var request = try urlRequest.asURLRequest()
+        request.httpBody = data(using: .utf8, allowLossyConversion: false)
+        return request
+    }
+    
 }

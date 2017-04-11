@@ -51,11 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         //locationManager.locationServicesEnabled
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
         //Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.update), userInfo: nil, repeats: true).fire()
     }
     
     func update() {
-        locationManager.startUpdatingLocation()
+        
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -69,31 +70,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if (locationFixAchieved == false) {
-                locationFixAchieved = true
-                let locationArray = locations as NSArray
-                let locationObj = locationArray.lastObject as? CLLocation
-                if locationObj != nil {
-                    let coord = locationObj?.coordinate
-                    NSLog("\(coord?.latitude)")
-                    NSLog("\(coord?.longitude)")
-                    let session = getSession()
-                    let dateFormat = DateFormatter()
-                    dateFormat.dateFormat = "yyyy_MM_dd_hh_mm_ss"
-                    
-                    let time = dateFormat.string(from: Date())
-                    let lat_emp = "\(coord?.latitude)"
-                    let long_emp = "\(coord?.longitude)"
-                    let param : [String : String] = ["session": session.toBase64(),
-                                                     "time" : time.toBase64(),
-                                                     "lat_emp" : lat_emp.toBase64(),
-                                                     "long_emp" : long_emp.toBase64()]
-                    Alamofire.request("http://www.giaohangongvang.com/api/location/push-location", method: .post, parameters: param).responseJSON(completionHandler: { (respose) in
-                        let data = JSON.init(data: respose.data!)
-                        NSLog("\(data)")
-                    })
+        
+        let locationArray = locations as NSArray
+        let locationObj = locationArray.lastObject as? CLLocation
+        if locationObj != nil {
+            let coord = locationObj?.coordinate
+            let session = getSession()
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = "yyyy_MM_dd_hh_mm_ss"
+            
+            let time = dateFormat.string(from: Date())
+            let lat_emp = "\(coord?.latitude ?? 0.0)"
+            let long_emp = "\(coord?.longitude ?? 0.0)"
+            let param : [String : String] = ["session": session.toBase64(),
+                                             "time" : time.toBase64(),
+                                             "lat_emp" : lat_emp.toBase64(),
+                                             "long_emp" : long_emp.toBase64()]
+            UserDefaults.standard.setValue("\(lat_emp)", forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.lat))
+            UserDefaults.standard.setValue("\(long_emp)", forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.long))
+            if Date().seconds(from: UtilsConvert.dateSendLocation) >= 20 {
+                if session.characters.count != 0 {
+                    DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
+                        Alamofire.request("http://www.giaohangongvang.com/api/location/push-location", method: .post, parameters: param).responseJSON(completionHandler: { (respose) in
+                            UtilsConvert.dateSendLocation = Date()
+                            let data = JSON.init(data: respose.data!)
+                        })
+                    }
                 }
+            }
         }
+        
     }
     
     func locationManager(manager: CLLocationManager!,
@@ -270,7 +276,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     func getSession() -> String {
-        return (UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as! String).toBase64()
+        if UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) == nil {
+            return ""
+        }
+        if let session =  UserDefaults.standard.value(forKey: UtilsConvert.convertKeyDefault(keyDefault: KeyDefault.session)) as? String {
+            return session.toBase64()
+        } else {
+            return ""
+        }
     }
 
 }

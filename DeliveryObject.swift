@@ -41,5 +41,9 @@ class DeliveryObject: NSObject {
         self.cod = json["cod"].stringValue
         self.id_thanhpho_gui = json["id_thanhpho_gui"].stringValue
         self.hang_lien_tinh = json["hang_lien_tinh"].stringValue
-    }        
+    }
+    
+    func toString() -> String {
+        return "{\"id\" : \"\(self.id_don_hang)\",\"address\" : \"\(self.dia_chi_nguoi_nhan)\"}"
+    }
 }
