@@ -17,38 +17,6 @@
             endingLineNumber = "64"
             landmarkName = "doiDCTouchUp(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "giaohangongvong.DoiDiaChiViewController.doiDCTouchUp (__ObjC.UIButton) -&gt; ()"
-                  moduleName = "giaohangongvong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/DoiDiaChiViewController.swift"
-                  timestampString = "511524557.360912"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "2332">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "giaohangongvong.DoiDiaChiViewController.(doiDCTouchUp (__ObjC.UIButton) -&gt; ()).(closure #1)"
-                  moduleName = "giaohangongvong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anhtuan/Desktop/Working/Coding/MyProject/giaohangongvong/DoiDiaChiViewController.swift"
-                  timestampString = "511524557.362723"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
